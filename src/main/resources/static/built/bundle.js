@@ -58259,15 +58259,15 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             c2,
             c3 = '';
 
-        if (!teamOne.equals('')) {
+        if (!_this4.state.teamOne.equals('')) {
           c1 = teamOne.name;
         }
 
-        if (!teamTwo.equals('')) {
+        if (!_this4.state.teamTwo.equals('')) {
           c2 = teamTwo.name;
         }
 
-        if (!teamThree.equals('')) {
+        if (!_this4.state.teamThree.equals('')) {
           c3 = teamThree.name;
         }
 
