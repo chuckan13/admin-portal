@@ -10,18 +10,26 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/responses")
 public class ResponseController {
     private ResponseRepository repository;
+    private QuestionRepository questRepo;
 
     @Autowired
-    public ResponseController(ResponseRepository repository) {
+    public ResponseController(ResponseRepository repository, QuestionRepository questRepo) {
         this.repository = repository;
+        this.questRepo = questRepo;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Response> get(@PathVariable("id") Long id) {
-        Response loan = repository.findOne(id);
-        if (null == loan)
+        Response response = repository.findOne(id);
+        if (null == response)
             return new ResponseEntity<Response>(HttpStatus.NOT_FOUND);
-        return new ResponseEntity<Response>(loan, HttpStatus.OK);
+        return new ResponseEntity<Response>(response, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/question/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Question> getQuestion(@PathVariable("id") Long id) {
+        Response currResponse = repository.findOne(id);
+        return new ResponseEntity<Question>(questRepo.findOne(currResponse.getQuestionId()), HttpStatus.OK);
     }
 
     // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

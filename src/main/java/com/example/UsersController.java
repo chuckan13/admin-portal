@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,10 +11,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 public class UsersController {
     private UsersRepository repository;
+    private UserteamRepository userTeamRepo;
+    private TeamRepository teamRepo;
+    private ResponseRepository respRepo;
 
     @Autowired
-    public UsersController(UsersRepository repository) {
+    public UsersController(UsersRepository repository, UserteamRepository userTeamRepo, TeamRepository teamRepo,
+            ResponseRepository respRepo) {
         this.repository = repository;
+        this.userTeamRepo = userTeamRepo;
+        this.teamRepo = teamRepo;
+        this.respRepo = respRepo;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -38,6 +46,25 @@ public class UsersController {
         repository.save(loan);
         return get(loan.getId());
         // add save to userteams too
+    }
+
+    @RequestMapping(value = "/teams/{id}", method = RequestMethod.GET)
+    public List<Team> getAllTeams(@PathVariable("id") Long id) {
+        List<Userteam> userTeams = userTeamRepo.findByUserId(id);
+        List<Long> teamIds = new ArrayList<Long>();
+        List<Team> teams = new ArrayList<Team>();
+        for (Userteam userTeam : userTeams) {
+            teamIds.add(userTeam.getTeamId());
+        }
+        for (Long teamId : teamIds) {
+            teams.add(teamRepo.findOne(teamId));
+        }
+        return teams;
+    }
+
+    @RequestMapping(value = "/responses/{id}", method = RequestMethod.GET)
+    public List<Response> getAllResponses(@PathVariable("id") Long id) {
+        return respRepo.findByUserId(id);
     }
 
     @RequestMapping

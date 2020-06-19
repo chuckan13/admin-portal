@@ -11,7 +11,7 @@ class viewApplicants extends Component {
 	state = {
 		applicants: [],
 		viewUser: false,
-		user: '',
+		user: 0,
 		teamOne: '',
 		teamTwo: '',
 		teamThree: ''
@@ -33,9 +33,9 @@ class viewApplicants extends Component {
 			.catch(err => console.log(err));
 	}
 
-	displayInfo(token) {
+	displayInfo(userId) {
 		axios
-			.get('/api/users/' + token)
+			.get('/api/users/' + userId)
 			.then(res => {
 				this.setState(
 					{
