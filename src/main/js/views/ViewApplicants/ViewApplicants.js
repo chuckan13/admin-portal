@@ -119,16 +119,16 @@ class viewApplicants extends Component {
 	render() {
 		let renderTable = this.state.applicants.map(user => {
 			// catch if user doesn't have 3 teams ranked
-			let c1,
-				c2,
-				c3 = '';
-			if (!this.state.teamOne === '') {
+			let c1 = 'empty',
+				c2 = 'empty',
+				c3 = 'empty';
+			if (!this.state.teamOne === 'empty') {
 				c1 = this.state.teamOne.name;
 			}
-			if (!this.state.teamTwo === '') {
+			if (!this.state.teamTwo === 'empty') {
 				c2 = this.state.teamTwo.name;
 			}
-			if (!this.state.teamThree === '') {
+			if (!this.state.teamThree === 'empty') {
 				c3 = this.state.teamThree.name;
 			}
 			console.log('Team Names');
@@ -216,8 +216,8 @@ function UserProfile(props) {
 						id="response"
 						name={props.teamOne.name}
 						num="1"
-						question={props.questions[0].text}
-						resp={props.responses[0].text}
+						// question={props.questions[0].text}
+						// resp={props.responses[0].text}
 					/>
 					{/* <ShortResponseSection
 						id="response"
@@ -246,8 +246,8 @@ function UserProfile(props) {
 function ShortResponseSection(props) {
 	return (
 		<div id="choice-section">
-			<p id="question">{props.question}</p>
-			<p id="response">{props.resp}</p>
+			<p id="question">test question</p>
+			<p id="response">test response</p>
 		</div>
 	);
 }

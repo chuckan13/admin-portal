@@ -58255,19 +58255,19 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
       var renderTable = this.state.applicants.map(function (user) {
         // catch if user doesn't have 3 teams ranked
-        var c1,
-            c2,
-            c3 = '';
+        var c1 = 'empty',
+            c2 = 'empty',
+            c3 = 'empty';
 
-        if (!_this4.state.teamOne === '') {
+        if (!_this4.state.teamOne === 'empty') {
           c1 = _this4.state.teamOne.name;
         }
 
-        if (!_this4.state.teamTwo === '') {
+        if (!_this4.state.teamTwo === 'empty') {
           c2 = _this4.state.teamTwo.name;
         }
 
-        if (!_this4.state.teamThree === '') {
+        if (!_this4.state.teamThree === 'empty') {
           c3 = _this4.state.teamThree.name;
         }
 
@@ -58337,9 +58337,9 @@ function UserProfile(props) {
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShortResponseSection, {
     id: "response",
     name: props.teamOne.name,
-    num: "1",
-    question: props.questions[0].text,
-    resp: props.responses[0].text
+    num: "1" // question={props.questions[0].text}
+    // resp={props.responses[0].text}
+
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick
   }));
@@ -58350,9 +58350,9 @@ function ShortResponseSection(props) {
     id: "choice-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "question"
-  }, props.question), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+  }, "test question"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "response"
-  }, props.resp));
+  }, "test response"));
 } // function ShortResponseSection(props) {
 // 	return (
 // 		<div id="choice-section">
