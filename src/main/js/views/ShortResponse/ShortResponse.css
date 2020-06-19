@@ -1,0 +1,51 @@
+
+#review-choice, #short-response-choice {
+  font-family: Avenir-Light;
+  color: #fff;
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+  min-width: 200px;
+  max-width: 500px;
+  height: 40px;
+  padding: 12px 0px 40px 20px;
+  font-size: 20px;
+}
+
+#short-response-choice {
+  background-color: #3891b8;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#review-choice {
+  background-color: #e0f5ff;
+  color: #272727;
+  font-size: 18px;
+  padding-bottom: 37px;
+}
+
+#questions {
+  padding-bottom: 30px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+  min-width: 200px;
+  max-width: 500px;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 20px;
+}
+
+#short-response-title {
+  padding-bottom: 20px;
+}
+
+textarea.form-control {
+  height: 200px;
+  padding-top: 0px;
+  min-width: 200px;
+  max-width: 600px;
+}
+

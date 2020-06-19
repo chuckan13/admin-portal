@@ -1,0 +1,83 @@
+/* general table stuff*/
+th {
+	background-color: #3891b8;
+	color: white;
+	width: 100px;
+	text-align: center;
+	font-family: Avenir;
+	font-size: 15px;
+	height: 50px;
+	vertical-align: middle !important;
+}
+
+tr {
+	background-color: white;
+	width: 100%;
+}
+
+td {
+	text-align: center;
+	width: 200px !important;
+	vertical-align: middle !important;
+	font-weight: lighter;
+}
+
+tr:hover {
+	background-color: #f2f4f7;
+}
+
+.table {
+	display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 800px;
+}
+
+/* rounding corners */
+thead th:first-child {
+	border-radius: 10px 0 0 0;
+}
+
+thead th:last-child {
+	border-radius: 0 10px 0 0;
+}
+
+tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px !important;
+}
+tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+/* user profile */
+#header {
+	background-color: #3891b8;
+	border-radius: 10px 10px 0 0;
+	padding: 10px 0px 10px 20px;
+	font-size: 24px;
+}
+
+#question {
+	padding-left: 20px;
+}
+
+#question {
+	background-color: white;
+	color: #272727;
+}
+
+#question {
+	font-size: 18px;
+}
+
+#user-profile {
+	padding-bottom: 40px;
+}
+
+.btn-view-more {
+	color: #272727;
+	background-color: #e0f5ff;
+	border-radius: 10px;
+	font-size: 14px;
+	padding: 5px 10px 5px 10px;
+}

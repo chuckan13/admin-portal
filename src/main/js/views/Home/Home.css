@@ -1,0 +1,56 @@
+p {
+  font-family: Avenir;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+#welcome-content {
+  font-family: Avenir;
+  margin: auto;
+}
+
+#welcome-text {
+	margin-top: 100px;
+}
+
+.btn-apply {
+	color: #fff;
+	background-color: #3891b8;
+	border-radius: 15px;
+	padding: 20px 30px;
+	font-size: 20px;
+}
+
+.btn:hover {
+  background-color: #2686af;
+  color: #fff;
+ }
+
+.btn {
+   font-family: Avenir;
+ }
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+  color:#fff;
+}
+
+.btn:active,
+.btn.active {
+  outline: none;
+  background-image: none;
+  box-shadow: none;
+  color:#fff;
+}
+
+#begin-button {
+	margin-top: 50px;
+}
+
+

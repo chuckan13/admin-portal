@@ -1,0 +1,82 @@
+.app {
+  margin: 10px;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+@font-face{
+  font-family: "Avenir";
+  src: url('../resources/static/fonts/Avenir-Book.ttf'),
+} 
+
+/* navbar properties */
+#nav {
+  background-color: #272727 !important;
+  border-color: #272727 !important;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  display: flex;
+}
+
+.navbar .container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+
+.navbar-deafault {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding-right: 100px;
+}
+
+/* navbar components */
+#logo {
+  background-image: url("../resources/static/img/logo.png");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+}
+
+#about {
+  margin-right: 0;
+  font-size: 20px;
+  vertical-align: middle;
+
+}
+
+#application-portal {
+  padding-left: 20px;
+  font-size: 22px;
+  padding-bottom: 3px;
+}
+
+/* general text */
+a {
+  color: white !important;
+  font-family: Avenir;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+
+
+
+
+
+
+
