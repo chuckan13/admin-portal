@@ -134,14 +134,23 @@ class viewApplicants extends Component {
 	}
 
 	render() {
-		let renderTable = this.state.applicants.map(user => {
+		let renderTable = this.state.applicants.map(async user => {
 			// catch if user doesn't have 3 teams ranked
 			let c1 = 'empty',
 				c2 = 'empty',
 				c3 = 'empty';
-			let teams = this.getTeams(user.id);
-			console.log('teams');
-			console.log(teams);
+			// let teams = this.getTeams(user.id);
+			await axios
+				.get('/api/users/teams/' + user.id)
+				.then(res => {
+					// console.log(res.data);
+					c1 = res.data[0];
+					c2 = res.data[1];
+					c3 = res.data[2];
+				})
+				.catch(err => console.log(err));
+			// console.log('teams');
+			// console.log(teams);
 			return [
 				<TableEntry
 					key={user.id}

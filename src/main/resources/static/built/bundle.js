@@ -58294,43 +58294,51 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this4 = this;
 
-      var renderTable = this.state.applicants.map(function (user) {
-        // catch if user doesn't have 3 teams ranked
-        var c1 = 'empty',
-            c2 = 'empty',
-            c3 = 'empty';
+      var renderTable = this.state.applicants.map( /*#__PURE__*/function () {
+        var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(user) {
+          var c1, c2, c3;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+            while (1) {
+              switch (_context3.prev = _context3.next) {
+                case 0:
+                  // catch if user doesn't have 3 teams ranked
+                  c1 = 'empty', c2 = 'empty', c3 = 'empty'; // let teams = this.getTeams(user.id);
 
-        var teams = _this4.getTeams(user.id);
+                  _context3.next = 3;
+                  return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + user.id).then(function (res) {
+                    // console.log(res.data);
+                    c1 = res.data[0];
+                    c2 = res.data[1];
+                    c3 = res.data[2];
+                  })["catch"](function (err) {
+                    return console.log(err);
+                  });
 
-        console.log('teams');
-        console.log(teams);
-        return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
-          key: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          c1: teams[0],
-          c2: teams[1],
-          c3: teams[2],
-          onClick: function onClick() {
-            return _this4.displayInfo(user.id);
-          }
-        })]; // console.log(this.state.teamOne);
-        // console.log(this.state.teamTwo);
-        // console.log(this.state.teamThree);
-        // if (!this.state.teamOne === 'empty') {
-        // c1 = this.state.teamOne.name;
-        // // }
-        // // if (!this.state.teamTwo === 'empty') {
-        // c2 = this.state.teamTwo.name;
-        // // }
-        // // if (!this.state.teamThree === 'empty') {
-        // c3 = this.state.teamThree.name;
-        // }
-        // console.log('Team Names');
-        // console.log(c1);
-        // console.log(c2);
-        // console.log(c3);
-      });
+                case 3:
+                  return _context3.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
+                    key: user.id,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    c1: teams[0],
+                    c2: teams[1],
+                    c3: teams[2],
+                    onClick: function onClick() {
+                      return _this4.displayInfo(user.id);
+                    }
+                  })]);
+
+                case 4:
+                case "end":
+                  return _context3.stop();
+              }
+            }
+          }, _callee3);
+        }));
+
+        return function (_x3) {
+          return _ref.apply(this, arguments);
+        };
+      }());
       var display;
       var viewUser = this.state.viewUser;
 
