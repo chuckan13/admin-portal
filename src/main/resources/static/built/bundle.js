@@ -58310,30 +58310,22 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                     c1 = res.data[0];
                     c2 = res.data[1];
                     c3 = res.data[2];
+                    return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
+                      key: user.id,
+                      firstName: user.firstName,
+                      lastName: user.lastName,
+                      c1: c1,
+                      c2: c2,
+                      c3: c3,
+                      onClick: function onClick() {
+                        return _this4.displayInfo(user.id);
+                      }
+                    })];
                   })["catch"](function (err) {
                     return console.log(err);
                   });
 
                 case 3:
-                  // console.log('teams');
-                  // console.log(teams);
-                  console.log('CCS');
-                  console.log(c1);
-                  console.log(c2);
-                  console.log(c3);
-                  return _context3.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
-                    key: user.id,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    c1: c1,
-                    c2: c2,
-                    c3: c3,
-                    onClick: function onClick() {
-                      return _this4.displayInfo(user.id);
-                    }
-                  })]);
-
-                case 8:
                 case "end":
                   return _context3.stop();
               }

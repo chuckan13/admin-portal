@@ -147,25 +147,26 @@ class viewApplicants extends Component {
 					c1 = res.data[0];
 					c2 = res.data[1];
 					c3 = res.data[2];
+					return [
+						<TableEntry
+							key={user.id}
+							firstName={user.firstName}
+							lastName={user.lastName}
+							c1={c1}
+							c2={c2}
+							c3={c3}
+							onClick={() => this.displayInfo(user.id)}
+						/>
+					];
 				})
 				.catch(err => console.log(err));
 			// console.log('teams');
 			// console.log(teams);
-			console.log('CCS');
-			console.log(c1);
-			console.log(c2);
-			console.log(c3);
-			return [
-				<TableEntry
-					key={user.id}
-					firstName={user.firstName}
-					lastName={user.lastName}
-					c1={c1}
-					c2={c2}
-					c3={c3}
-					onClick={() => this.displayInfo(user.id)}
-				/>
-			];
+			// console.log('CCS');
+			// console.log(c1);
+			// console.log(c2);
+			// console.log(c3);
+
 			// console.log(this.state.teamOne);
 			// console.log(this.state.teamTwo);
 			// console.log(this.state.teamThree);
