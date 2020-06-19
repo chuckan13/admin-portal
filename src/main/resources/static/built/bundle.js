@@ -58134,6 +58134,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
     _this.displayInfo = _this.displayInfo.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.displayTable = _this.displayTable.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
+    _this.getTeams = _this.getTeams.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     return _this;
   }
 
@@ -58298,7 +58299,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         var c1 = 'empty',
             c2 = 'empty',
             c3 = 'empty';
-        var teams = getTeams(user.id);
+
+        var teams = _this4.getTeams(user.id);
+
         console.log('teams');
         console.log(teams);
         return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {

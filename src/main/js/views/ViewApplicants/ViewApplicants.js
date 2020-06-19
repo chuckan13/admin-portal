@@ -23,6 +23,7 @@ class viewApplicants extends Component {
 		super(props);
 		this.displayInfo = this.displayInfo.bind(this);
 		this.displayTable = this.displayTable.bind(this);
+		this.getTeams = this.getTeams.bind(this);
 	}
 
 	componentDidMount() {
@@ -138,7 +139,7 @@ class viewApplicants extends Component {
 			let c1 = 'empty',
 				c2 = 'empty',
 				c3 = 'empty';
-			let teams = getTeams(user.id);
+			let teams = this.getTeams(user.id);
 			console.log('teams');
 			console.log(teams);
 			return [
