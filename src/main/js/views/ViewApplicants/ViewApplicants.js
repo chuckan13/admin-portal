@@ -59,6 +59,7 @@ class viewApplicants extends Component {
 		await axios
 			.get('/api/users/teams/' + userId)
 			.then(res => {
+				// console.log(res.data);
 				this.setState(
 					{
 						teamOne: res.data[0],
@@ -90,24 +91,23 @@ class viewApplicants extends Component {
 				);
 			})
 			.catch(err => console.log(err));
-
+		let questionList = [];
 		await Promise.all(
 			this.state.responses.map(obj =>
 				axios
 					.get('/api/responses/question/' + obj.questionId)
 					.then(response => {
-						var temp = this.state.questions;
-						// questions.push(response);
-						temp.push(response.questionId);
-						this.setState({
-							questions: temp
-						});
+						questionList.push(response.questionId);
+						t;
 					})
 					.catch(err => console.log(err))
 			)
 		);
+		this.setState({
+			questions: questionList
+		});
 		console.log('All Questions');
-		console.log(this.state.questions);
+		console.log(questionList);
 	}
 
 	displayTable() {
@@ -122,30 +122,44 @@ class viewApplicants extends Component {
 			let c1 = 'empty',
 				c2 = 'empty',
 				c3 = 'empty';
-			if (!this.state.teamOne === 'empty') {
-				c1 = this.state.teamOne.name;
-			}
-			if (!this.state.teamTwo === 'empty') {
-				c2 = this.state.teamTwo.name;
-			}
-			if (!this.state.teamThree === 'empty') {
-				c3 = this.state.teamThree.name;
-			}
-			console.log('Team Names');
-			console.log(c1);
-			console.log(c2);
-			console.log(c3);
-			return [
-				<TableEntry
-					key={user.id}
-					firstName={user.firstName}
-					lastName={user.lastName}
-					c1={c1}
-					c2={c2}
-					c3={c3}
-					onClick={() => this.displayInfo(user.id)}
-				/>
-			];
+
+			axios
+				.get('/api/users/teams/' + user.id)
+				.then(res => {
+					// console.log(res.data);
+					c1 = res.data[0];
+					c2 = res.data[1];
+					c3 = res.data[2];
+					return [
+						<TableEntry
+							key={user.id}
+							firstName={user.firstName}
+							lastName={user.lastName}
+							c1={c1}
+							c2={c2}
+							c3={c3}
+							onClick={() => this.displayInfo(user.id)}
+						/>
+					];
+				})
+				.catch(err => console.log(err));
+
+			// console.log(this.state.teamOne);
+			// console.log(this.state.teamTwo);
+			// console.log(this.state.teamThree);
+			// if (!this.state.teamOne === 'empty') {
+			// c1 = this.state.teamOne.name;
+			// // }
+			// // if (!this.state.teamTwo === 'empty') {
+			// c2 = this.state.teamTwo.name;
+			// // }
+			// // if (!this.state.teamThree === 'empty') {
+			// c3 = this.state.teamThree.name;
+			// }
+			// console.log('Team Names');
+			// console.log(c1);
+			// console.log(c2);
+			// console.log(c3);
 		});
 
 		let display;
@@ -173,6 +187,8 @@ class viewApplicants extends Component {
 				</div>
 			);
 		} else {
+			console.log('Before userprofile');
+			console.log(this.state);
 			display = (
 				<UserProfile
 					user={this.state.user}

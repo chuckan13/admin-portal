@@ -58157,6 +58157,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       var _displayInfo = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(userId) {
         var _this3 = this;
 
+        var questionList;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -58180,6 +58181,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
               case 2:
                 _context.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
+                  // console.log(res.data);
                   _this3.setState({
                     teamOne: res.data[0],
                     teamTwo: res.data[1],
@@ -58208,26 +58210,25 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 });
 
               case 6:
-                _context.next = 8;
+                questionList = [];
+                _context.next = 9;
                 return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.questionId).then(function (response) {
-                    var temp = _this3.state.questions; // questions.push(response);
-
-                    temp.push(response.questionId);
-
-                    _this3.setState({
-                      questions: temp
-                    });
+                    questionList.push(response.questionId);
+                    t;
                   })["catch"](function (err) {
                     return console.log(err);
                   });
                 }));
 
-              case 8:
+              case 9:
+                this.setState({
+                  questions: questionList
+                });
                 console.log('All Questions');
-                console.log(this.state.questions);
+                console.log(questionList);
 
-              case 10:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -58258,34 +58259,40 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         var c1 = 'empty',
             c2 = 'empty',
             c3 = 'empty';
-
-        if (!_this4.state.teamOne === 'empty') {
-          c1 = _this4.state.teamOne.name;
-        }
-
-        if (!_this4.state.teamTwo === 'empty') {
-          c2 = _this4.state.teamTwo.name;
-        }
-
-        if (!_this4.state.teamThree === 'empty') {
-          c3 = _this4.state.teamThree.name;
-        }
-
-        console.log('Team Names');
-        console.log(c1);
-        console.log(c2);
-        console.log(c3);
-        return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
-          key: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          c1: c1,
-          c2: c2,
-          c3: c3,
-          onClick: function onClick() {
-            return _this4.displayInfo(user.id);
-          }
-        })];
+        axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + user.id).then(function (res) {
+          // console.log(res.data);
+          c1 = res.data[0];
+          c2 = res.data[1];
+          c3 = res.data[2];
+          return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
+            key: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            c1: c1,
+            c2: c2,
+            c3: c3,
+            onClick: function onClick() {
+              return _this4.displayInfo(user.id);
+            }
+          })];
+        })["catch"](function (err) {
+          return console.log(err);
+        }); // console.log(this.state.teamOne);
+        // console.log(this.state.teamTwo);
+        // console.log(this.state.teamThree);
+        // if (!this.state.teamOne === 'empty') {
+        // c1 = this.state.teamOne.name;
+        // // }
+        // // if (!this.state.teamTwo === 'empty') {
+        // c2 = this.state.teamTwo.name;
+        // // }
+        // // if (!this.state.teamThree === 'empty') {
+        // c3 = this.state.teamThree.name;
+        // }
+        // console.log('Team Names');
+        // console.log(c1);
+        // console.log(c2);
+        // console.log(c3);
       });
       var display;
       var viewUser = this.state.viewUser;
@@ -58301,6 +58308,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           onClick: this.props.backButton
         })));
       } else {
+        console.log('Before userprofile');
+        console.log(this.state);
         display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UserProfile, {
           user: this.state.user,
           teamOne: this.state.teamOne,
