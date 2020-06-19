@@ -58260,15 +58260,15 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             c3 = '';
 
         if (!_this4.state.teamOne === '') {
-          c1 = teamOne.name;
+          c1 = _this4.state.teamOne.name;
         }
 
         if (!_this4.state.teamTwo === '') {
-          c2 = teamTwo.name;
+          c2 = _this4.state.teamTwo.name;
         }
 
         if (!_this4.state.teamThree === '') {
-          c3 = teamThree.name;
+          c3 = _this4.state.teamThree.name;
         }
 
         console.log('Team Names');

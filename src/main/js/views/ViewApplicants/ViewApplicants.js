@@ -123,13 +123,13 @@ class viewApplicants extends Component {
 				c2,
 				c3 = '';
 			if (!this.state.teamOne === '') {
-				c1 = teamOne.name;
+				c1 = this.state.teamOne.name;
 			}
 			if (!this.state.teamTwo === '') {
-				c2 = teamTwo.name;
+				c2 = this.state.teamTwo.name;
 			}
 			if (!this.state.teamThree === '') {
-				c3 = teamThree.name;
+				c3 = this.state.teamThree.name;
 			}
 			console.log('Team Names');
 			console.log(c1);
