@@ -151,6 +151,10 @@ class viewApplicants extends Component {
 				.catch(err => console.log(err));
 			// console.log('teams');
 			// console.log(teams);
+			console.log('CCS');
+			console.log(c1);
+			console.log(c2);
+			console.log(c3);
 			return [
 				<TableEntry
 					key={user.id}

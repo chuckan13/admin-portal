@@ -58315,6 +58315,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
 
                 case 3:
+                  // console.log('teams');
+                  // console.log(teams);
+                  console.log('CCS');
+                  console.log(c1);
+                  console.log(c2);
+                  console.log(c3);
                   return _context3.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
                     key: user.id,
                     firstName: user.firstName,
@@ -58327,7 +58333,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                     }
                   })]);
 
-                case 4:
+                case 8:
                 case "end":
                   return _context3.stop();
               }
