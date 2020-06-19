@@ -92,7 +92,7 @@ class viewApplicants extends Component {
 			.catch(err => console.log(err));
 
 		await Promise.all(
-			responses.map(obj =>
+			this.state.responses.map(obj =>
 				axios
 					.get('/api/responses/question/' + obj.questionId)
 					.then(response => {
@@ -216,8 +216,8 @@ function UserProfile(props) {
 						id="response"
 						name={props.teamOne.name}
 						num="1"
-						question={props.questions[0]}
-						resp={props.responses[0]}
+						question={props.questions[0].text}
+						resp={props.responses[0].text}
 					/>
 					{/* <ShortResponseSection
 						id="response"

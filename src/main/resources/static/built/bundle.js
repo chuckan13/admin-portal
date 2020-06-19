@@ -58209,7 +58209,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 6:
                 _context.next = 8;
-                return Promise.all(responses.map(function (obj) {
+                return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.questionId).then(function (response) {
                     var temp = _this3.state.questions; // questions.push(response);
 
@@ -58338,8 +58338,8 @@ function UserProfile(props) {
     id: "response",
     name: props.teamOne.name,
     num: "1",
-    question: props.questions[0],
-    resp: props.responses[0]
+    question: props.questions[0].text,
+    resp: props.responses[0].text
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick
   }));
