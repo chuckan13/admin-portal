@@ -58250,6 +58250,45 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "getTeams",
+    value: function () {
+      var _getTeams = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(userId) {
+        var t1, t2, t3;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                t1 = '';
+                t2 = '';
+                t3 = '';
+                _context2.next = 5;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
+                  // console.log(res.data);
+                  t1 = res.data[0];
+                  t2 = res.data[1];
+                  t3 = res.data[2];
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 5:
+                return _context2.abrupt("return", [t1, t2, t3]);
+
+              case 6:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function getTeams(_x2) {
+        return _getTeams.apply(this, arguments);
+      }
+
+      return getTeams;
+    }()
+  }, {
     key: "render",
     value: function render() {
       var _this4 = this;
@@ -58259,25 +58298,20 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         var c1 = 'empty',
             c2 = 'empty',
             c3 = 'empty';
-        axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + user.id).then(function (res) {
-          // console.log(res.data);
-          c1 = res.data[0];
-          c2 = res.data[1];
-          c3 = res.data[2];
-          return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
-            key: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            c1: c1,
-            c2: c2,
-            c3: c3,
-            onClick: function onClick() {
-              return _this4.displayInfo(user.id);
-            }
-          })];
-        })["catch"](function (err) {
-          return console.log(err);
-        }); // console.log(this.state.teamOne);
+        var teams = getTeams(user.id);
+        console.log('teams');
+        console.log(teams);
+        return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
+          key: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          c1: teams[0],
+          c2: teams[1],
+          c3: teams[2],
+          onClick: function onClick() {
+            return _this4.displayInfo(user.id);
+          }
+        })]; // console.log(this.state.teamOne);
         // console.log(this.state.teamTwo);
         // console.log(this.state.teamThree);
         // if (!this.state.teamOne === 'empty') {
