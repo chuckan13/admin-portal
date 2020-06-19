@@ -58319,9 +58319,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                     key: user.id,
                     firstName: user.firstName,
                     lastName: user.lastName,
-                    c1: teams[0],
-                    c2: teams[1],
-                    c3: teams[2],
+                    c1: c1,
+                    c2: c2,
+                    c3: c3,
                     onClick: function onClick() {
                       return _this4.displayInfo(user.id);
                     }
