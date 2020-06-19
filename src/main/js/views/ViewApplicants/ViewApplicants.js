@@ -116,34 +116,42 @@ class viewApplicants extends Component {
 		});
 	}
 
+	async getTeams(userId) {
+		let t1 = '';
+		let t2 = '';
+		let t3 = '';
+		await axios
+			.get('/api/users/teams/' + userId)
+			.then(res => {
+				// console.log(res.data);
+				t1 = res.data[0];
+				t2 = res.data[1];
+				t3 = res.data[2];
+			})
+			.catch(err => console.log(err));
+		return [ t1, t2, t3 ];
+	}
+
 	render() {
 		let renderTable = this.state.applicants.map(user => {
 			// catch if user doesn't have 3 teams ranked
 			let c1 = 'empty',
 				c2 = 'empty',
 				c3 = 'empty';
-
-			axios
-				.get('/api/users/teams/' + user.id)
-				.then(res => {
-					// console.log(res.data);
-					c1 = res.data[0];
-					c2 = res.data[1];
-					c3 = res.data[2];
-					return [
-						<TableEntry
-							key={user.id}
-							firstName={user.firstName}
-							lastName={user.lastName}
-							c1={c1}
-							c2={c2}
-							c3={c3}
-							onClick={() => this.displayInfo(user.id)}
-						/>
-					];
-				})
-				.catch(err => console.log(err));
-
+			let teams = getTeams(user.id);
+			console.log('teams');
+			console.log(teams);
+			return [
+				<TableEntry
+					key={user.id}
+					firstName={user.firstName}
+					lastName={user.lastName}
+					c1={teams[0]}
+					c2={teams[1]}
+					c3={teams[2]}
+					onClick={() => this.displayInfo(user.id)}
+				/>
+			];
 			// console.log(this.state.teamOne);
 			// console.log(this.state.teamTwo);
 			// console.log(this.state.teamThree);
