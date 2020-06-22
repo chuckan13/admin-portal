@@ -16,6 +16,9 @@ class viewApplicants extends Component {
 		teamOne: '',
 		teamTwo: '',
 		teamThree: '',
+		teamOneQuestions: [],
+		teamTwoQuestions: [],
+		teamThreeQuestions: [],
 		responses: [],
 		questions: []
 	};
@@ -39,7 +42,7 @@ class viewApplicants extends Component {
 				this.setState({ applicants: res.data });
 			})
 			.catch(err => console.log(err));
-		console.log('All aplicants', allApplicants);
+		// console.log('All aplicants', allApplicants);
 
 		await Promise.all(
 			allApplicants.map(obj =>
@@ -51,7 +54,7 @@ class viewApplicants extends Component {
 			)
 		);
 
-		console.log('users dict', users);
+		// console.log('users dict', users);
 		this.setState({ users: users });
 	}
 
@@ -59,6 +62,7 @@ class viewApplicants extends Component {
 		await axios
 			.get('/api/users/' + userId)
 			.then(res => {
+				console.log('Current User', res.data);
 				this.setState(
 					{
 						user: res.data,
@@ -79,7 +83,7 @@ class viewApplicants extends Component {
 		await axios
 			.get('/api/users/teams/' + userId)
 			.then(res => {
-				// console.log(res.data);
+				// console.log('Teams', res.data);
 				this.setState(
 					{
 						teamOne: res.data[0],
@@ -100,6 +104,7 @@ class viewApplicants extends Component {
 		await axios
 			.get('/api/users/responses/' + userId)
 			.then(res => {
+				// console.log('responses: ', res.data);
 				this.setState(
 					{
 						responses: res.data
@@ -117,7 +122,7 @@ class viewApplicants extends Component {
 				axios
 					.get('/api/responses/question/' + obj.questionId)
 					.then(response => {
-						questionList.push(response.questionId);
+						questionList.push(response.data.questionId);
 					})
 					.catch(err => console.log(err))
 			)
@@ -127,6 +132,51 @@ class viewApplicants extends Component {
 		});
 		console.log('All Questions');
 		console.log(questionList);
+
+		await axios
+			.get('/api/questions/' + this.state.teamOne.id)
+			.then(res => {
+				this.setState(
+					{
+						teamOneQuestions: res.data
+					},
+					function() {
+						console.log('Team One Questions');
+						console.log(this.state.teamOneQuestions);
+					}
+				);
+			})
+			.catch(err => console.log(err));
+
+		await axios
+			.get('/api/questions/' + this.state.teamTwo.id)
+			.then(res => {
+				this.setState(
+					{
+						teamTwoQuestions: res.data
+					},
+					function() {
+						console.log('Team Two Questions');
+						console.log(this.state.teamTwoQuestions);
+					}
+				);
+			})
+			.catch(err => console.log(err));
+
+		await axios
+			.get('/api/questions/teams/' + this.state.teamThree.id)
+			.then(res => {
+				this.setState(
+					{
+						teamThreeQuestions: res.data
+					},
+					function() {
+						console.log('Team Three Questions');
+						console.log(this.state.teamThreeQuestions);
+					}
+				);
+			})
+			.catch(err => console.log(err));
 	}
 
 	displayTable() {
@@ -168,7 +218,7 @@ class viewApplicants extends Component {
 			// 	})
 			// 	.catch(err => console.log(err));
 			var allTeams = this.state.users[user.id];
-			console.log('ALL teams', allTeams);
+			// console.log('ALL teams', allTeams);
 			if (allTeams === undefined) {
 				console.log('allteams undefined');
 			} else {
@@ -252,6 +302,9 @@ class viewApplicants extends Component {
 					teamOne={this.state.teamOne}
 					teamTwo={this.state.teamTwo}
 					teamThree={this.state.teamThree}
+					teamOneQuestions={this.state.teamOneQuestions}
+					teamTwoQuestions={this.state.teamTwoQuestions}
+					teamThreeQuestions={this.state.teamThreeQuestions}
 					responses={this.state.responses}
 					questions={this.state.questions}
 					onClick={this.displayTable}
@@ -277,6 +330,32 @@ function UserProfile(props) {
 				</div>
 				<div>
 					<p id="header">Short Response Questions</p>
+					<TeamResponses
+						team={this.props.teamOne.name}
+						num="One"
+						questions={this.props.teamOneQuestions}
+						resp={allResponses}
+					/>
+					{teamTwo ? (
+						<TeamResponses
+							team={this.props.teamTwo.name}
+							num="Two"
+							questions={this.props.teamTwoQuestions}
+							resp={allResponses}
+						/>
+					) : (
+						''
+					)}
+					{teamThree ? (
+						<TeamResponses
+							team={this.props.teamThree.name}
+							num="Three"
+							questions={this.props.teamThreeQuestions}
+							resp={allResponses}
+						/>
+					) : (
+						''
+					)}
 					{/* <ShortResponseSection
 						id="response"
 						name={props.teamOne.name}
@@ -285,13 +364,14 @@ function UserProfile(props) {
 						qId={question.id}
 						resp={currResponse}
 					/> */}
-					<ShortResponseSection
+
+					{/* <ShortResponseSection
 						id="response"
 						name={props.teamOne.name}
 						num="1"
-						// question={props.questions[0].text}
-						// resp={props.responses[0].text}
-					/>
+						question={props.questions[0].text}
+						resp={props.responses[0].text}
+					/> */}
 					{/* <ShortResponseSection
 						id="response"
 						name={props.teamTwo.name}
@@ -319,11 +399,42 @@ function UserProfile(props) {
 function ShortResponseSection(props) {
 	return (
 		<div id="choice-section">
-			<p id="question">test question</p>
-			<p id="response">test response</p>
+			<p id="question">{props.question}</p>
+			<p id="response">{props.resp}</p>
 		</div>
 	);
 }
+function TeamResponses(props) {
+	const responses = props.questions.map(question => {
+		var currResponse = '';
+		for (var i = 0; i < props.resp.length; i++) {
+			if (props.resp[i].questionId == question.id) {
+				currResponse = props.resp[i].text;
+			}
+		}
+		return (
+			<ShortResponseSection
+				id="response-last"
+				// name={props.team}
+				// num={props.num}
+				question={question.text}
+				// qId={question.id}
+				resp={currResponse}
+			/>
+		);
+	});
+
+	return (
+		<div id="choice-section">
+			<p id="review-choice">
+				{' '}
+				Choice {props.num}: {props.team}{' '}
+			</p>
+			<div id="responses">{responses}</div>
+		</div>
+	);
+}
+
 // function ShortResponseSection(props) {
 // 	return (
 // 		<div id="choice-section">

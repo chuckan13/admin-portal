@@ -16,7 +16,7 @@ public class QuestionController {
         this.repository = repository;
     }
 
-    @RequestMapping(value = "/{teamId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/teams/{teamId}", method = RequestMethod.GET)
     public List<Question> getByTeamId(@PathVariable("teamId") Long teamId) {
         List<Question> allQuestions = repository.findByTeamId(teamId);
         return allQuestions;
