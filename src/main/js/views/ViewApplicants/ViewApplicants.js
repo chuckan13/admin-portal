@@ -46,6 +46,7 @@ class viewApplicants extends Component {
 				})
 			)
 		);
+
 		console.log('users dict', users);
 		this.setState({ users: users });
 	}
