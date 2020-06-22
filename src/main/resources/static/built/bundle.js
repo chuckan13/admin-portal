@@ -58276,7 +58276,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 console.log('All Questions');
                 console.log(questionList);
                 _context2.next = 14;
-                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/' + this.state.teamOne.id).then(function (res) {
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamOne.id).then(function (res) {
                   _this3.setState({
                     teamOneQuestions: res.data
                   }, function () {
@@ -58289,7 +58289,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 14:
                 _context2.next = 16;
-                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/' + this.state.teamTwo.id).then(function (res) {
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamTwo.id).then(function (res) {
                   _this3.setState({
                     teamTwoQuestions: res.data
                   }, function () {
@@ -58497,19 +58497,19 @@ function UserProfile(props) {
   }, " Concentration: ", props.user.concentration)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    team: this.props.teamOne.name,
+    team: props.teamOne.name,
     num: "One",
-    questions: this.props.teamOneQuestions,
+    questions: props.teamOneQuestions,
     resp: allResponses
   }), teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    team: this.props.teamTwo.name,
+    team: props.teamTwo.name,
     num: "Two",
-    questions: this.props.teamTwoQuestions,
+    questions: props.teamTwoQuestions,
     resp: allResponses
   }) : '', teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    team: this.props.teamThree.name,
+    team: props.teamThree.name,
     num: "Three",
-    questions: this.props.teamThreeQuestions,
+    questions: props.teamThreeQuestions,
     resp: allResponses
   }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick

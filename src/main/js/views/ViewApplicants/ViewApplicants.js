@@ -134,7 +134,7 @@ class viewApplicants extends Component {
 		console.log(questionList);
 
 		await axios
-			.get('/api/questions/' + this.state.teamOne.id)
+			.get('/api/questions/teams/' + this.state.teamOne.id)
 			.then(res => {
 				this.setState(
 					{
@@ -149,7 +149,7 @@ class viewApplicants extends Component {
 			.catch(err => console.log(err));
 
 		await axios
-			.get('/api/questions/' + this.state.teamTwo.id)
+			.get('/api/questions/teams/' + this.state.teamTwo.id)
 			.then(res => {
 				this.setState(
 					{
@@ -331,16 +331,16 @@ function UserProfile(props) {
 				<div>
 					<p id="header">Short Response Questions</p>
 					<TeamResponses
-						team={this.props.teamOne.name}
+						team={props.teamOne.name}
 						num="One"
-						questions={this.props.teamOneQuestions}
+						questions={props.teamOneQuestions}
 						resp={allResponses}
 					/>
 					{teamTwo ? (
 						<TeamResponses
-							team={this.props.teamTwo.name}
+							team={props.teamTwo.name}
 							num="Two"
-							questions={this.props.teamTwoQuestions}
+							questions={props.teamTwoQuestions}
 							resp={allResponses}
 						/>
 					) : (
@@ -348,9 +348,9 @@ function UserProfile(props) {
 					)}
 					{teamThree ? (
 						<TeamResponses
-							team={this.props.teamThree.name}
+							team={props.teamThree.name}
 							num="Three"
-							questions={this.props.teamThreeQuestions}
+							questions={props.teamThreeQuestions}
 							resp={allResponses}
 						/>
 					) : (
