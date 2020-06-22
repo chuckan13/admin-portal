@@ -44,7 +44,9 @@ class viewApplicants extends Component {
 		await Promise.all(
 			allApplicants.map(obj =>
 				axios.get('/api/users/teams/' + obj.id).then(res => {
-					users[obj] = res.data;
+					console.log('in /api/users/teams');
+					console.log(res.data);
+					users[obj.id] = res.data;
 				})
 			)
 		);
@@ -116,7 +118,6 @@ class viewApplicants extends Component {
 					.get('/api/responses/question/' + obj.questionId)
 					.then(response => {
 						questionList.push(response.questionId);
-						t;
 					})
 					.catch(err => console.log(err))
 			)
@@ -166,7 +167,7 @@ class viewApplicants extends Component {
 			// 		c3 = res.data[2];
 			// 	})
 			// 	.catch(err => console.log(err));
-			var allTeams = this.state.users[user];
+			var allTeams = this.state.users[user.id];
 			console.log('ALL teams', allTeams);
 			if (allTeams[0]) {
 				c1 = allTeams[0].name;

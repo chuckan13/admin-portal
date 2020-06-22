@@ -58169,7 +58169,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 _context.next = 7;
                 return Promise.all(allApplicants.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
-                    users[obj] = res.data;
+                    console.log('in /api/users/teams');
+                    console.log(res.data);
+                    users[obj.id] = res.data;
                   });
                 }));
 
@@ -58257,7 +58259,6 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.questionId).then(function (response) {
                     questionList.push(response.questionId);
-                    t;
                   })["catch"](function (err) {
                     return console.log(err);
                   });
@@ -58354,7 +58355,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   // 	})
                   // 	.catch(err => console.log(err));
 
-                  allTeams = _this4.state.users[user];
+                  allTeams = _this4.state.users[user.id];
                   console.log('ALL teams', allTeams);
 
                   if (allTeams[0]) {
