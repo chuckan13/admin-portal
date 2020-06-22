@@ -58169,7 +58169,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 _context.next = 7;
                 return Promise.all(allApplicants.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
-                    users[obj] = res;
+                    users[obj] = res.data;
                   });
                 }));
 

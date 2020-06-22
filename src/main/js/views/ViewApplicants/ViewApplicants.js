@@ -44,7 +44,7 @@ class viewApplicants extends Component {
 		await Promise.all(
 			allApplicants.map(obj =>
 				axios.get('/api/users/teams/' + obj.id).then(res => {
-					users[obj] = res;
+					users[obj] = res.data;
 				})
 			)
 		);
