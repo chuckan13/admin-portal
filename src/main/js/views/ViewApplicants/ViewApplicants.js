@@ -10,6 +10,7 @@ addStyle(Button, 'view-more');
 class viewApplicants extends Component {
 	state = {
 		applicants: [],
+		users: {},
 		viewUser: false,
 		user: 0,
 		teamOne: '',
@@ -26,14 +27,26 @@ class viewApplicants extends Component {
 		this.getTeams = this.getTeams.bind(this);
 	}
 
-	componentDidMount() {
+	async componentDidMount() {
 		// request the list of teams
+		var users = {};
+		var allApplicants = [];
 		axios
 			.get('/api/users')
 			.then(res => {
-				this.setState({ applicants: res.data });
+				allApplicants = res.data;
 			})
 			.catch(err => console.log(err));
+		console.log('All aplicants', allApplicants);
+		await Promise.all(
+			allApplicants.map(obj =>
+				axios.get('/api/users/teams/' + obj.id).then(res => {
+					users[obj] = res;
+				})
+			)
+		);
+		console.log('users dict', users);
+		this.setState({ users: users });
 	}
 
 	async displayInfo(userId) {
