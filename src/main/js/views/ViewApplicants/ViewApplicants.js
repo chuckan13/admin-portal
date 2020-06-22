@@ -22,6 +22,7 @@ class viewApplicants extends Component {
 
 	constructor(props) {
 		super(props);
+
 		this.displayInfo = this.displayInfo.bind(this);
 		this.displayTable = this.displayTable.bind(this);
 		this.getTeams = this.getTeams.bind(this);
