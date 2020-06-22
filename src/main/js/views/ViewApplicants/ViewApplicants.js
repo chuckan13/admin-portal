@@ -165,6 +165,16 @@ class viewApplicants extends Component {
 			// 	.catch(err => console.log(err));
 			var allTeams = this.state.users[user];
 			console.log('ALL teams', allTeams);
+			if (allTeams[0]) {
+				c1 = allTeams[0].name;
+			}
+			if (allTeams[1]) {
+				c2 = allTeams[1].name;
+			}
+			if (allTeams[2]) {
+				c3 = allTeams[2].name;
+			}
+
 			return [
 				<TableEntry
 					key={user.id}

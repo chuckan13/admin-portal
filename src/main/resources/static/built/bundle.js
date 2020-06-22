@@ -58353,6 +58353,19 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
                   allTeams = _this4.state.users[user];
                   console.log('ALL teams', allTeams);
+
+                  if (allTeams[0]) {
+                    c1 = allTeams[0].name;
+                  }
+
+                  if (allTeams[1]) {
+                    c2 = allTeams[1].name;
+                  }
+
+                  if (allTeams[2]) {
+                    c3 = allTeams[2].name;
+                  }
+
                   return _context4.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
                     key: user.id,
                     firstName: user.firstName,
@@ -58365,7 +58378,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                     }
                   })]);
 
-                case 4:
+                case 7:
                 case "end":
                   return _context4.stop();
               }
