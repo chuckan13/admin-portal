@@ -44,8 +44,8 @@ class viewApplicants extends Component {
 		await Promise.all(
 			allApplicants.map(obj =>
 				axios.get('/api/users/teams/' + obj.id).then(res => {
-					console.log('in /api/users/teams');
-					console.log(res.data);
+					// console.log('in /api/users/teams');
+					// console.log(res.data);
 					users[obj.id] = res.data;
 				})
 			)
@@ -152,7 +152,7 @@ class viewApplicants extends Component {
 	}
 
 	render() {
-		let renderTable = this.state.applicants.map(async user => {
+		let renderTable = this.state.applicants.map(user => {
 			// catch if user doesn't have 3 teams ranked
 			let c1 = 'empty',
 				c2 = 'empty',
@@ -169,14 +169,18 @@ class viewApplicants extends Component {
 			// 	.catch(err => console.log(err));
 			var allTeams = this.state.users[user.id];
 			console.log('ALL teams', allTeams);
-			if (allTeams[0]) {
-				c1 = allTeams[0].name;
-			}
-			if (allTeams[1]) {
-				c2 = allTeams[1].name;
-			}
-			if (allTeams[2]) {
-				c3 = allTeams[2].name;
+			if (allTeams === undefined) {
+				console.log('allteams undefined');
+			} else {
+				if (allTeams[0]) {
+					c1 = allTeams[0].name;
+				}
+				if (allTeams[1]) {
+					c2 = allTeams[1].name;
+				}
+				if (allTeams[2]) {
+					c3 = allTeams[2].name;
+				}
 			}
 
 			return [

@@ -58169,8 +58169,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 _context.next = 7;
                 return Promise.all(allApplicants.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
-                    console.log('in /api/users/teams');
-                    console.log(res.data);
+                    // console.log('in /api/users/teams');
+                    // console.log(res.data);
                     users[obj.id] = res.data;
                   });
                 }));
@@ -58336,64 +58336,73 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     value: function render() {
       var _this4 = this;
 
-      var renderTable = this.state.applicants.map( /*#__PURE__*/function () {
-        var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(user) {
-          var c1, c2, c3, allTeams;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
-            while (1) {
-              switch (_context4.prev = _context4.next) {
-                case 0:
-                  // catch if user doesn't have 3 teams ranked
-                  c1 = 'empty', c2 = 'empty', c3 = 'empty'; // let teams = this.getTeams(user.id);
-                  // await axios
-                  // 	.get('/api/users/teams/' + user.id)
-                  // 	.then(res => {
-                  // 		// console.log(res.data);
-                  // 		c1 = res.data[0];
-                  // 		c2 = res.data[1];
-                  // 		c3 = res.data[2];
-                  // 	})
-                  // 	.catch(err => console.log(err));
+      var renderTable = this.state.applicants.map(function (user) {
+        // catch if user doesn't have 3 teams ranked
+        var c1 = 'empty',
+            c2 = 'empty',
+            c3 = 'empty'; // let teams = this.getTeams(user.id);
+        // await axios
+        // 	.get('/api/users/teams/' + user.id)
+        // 	.then(res => {
+        // 		// console.log(res.data);
+        // 		c1 = res.data[0];
+        // 		c2 = res.data[1];
+        // 		c3 = res.data[2];
+        // 	})
+        // 	.catch(err => console.log(err));
 
-                  allTeams = _this4.state.users[user.id];
-                  console.log('ALL teams', allTeams);
+        var allTeams = _this4.state.users[user.id];
+        console.log('ALL teams', allTeams);
 
-                  if (allTeams[0]) {
-                    c1 = allTeams[0].name;
-                  }
+        if (allTeams === undefined) {
+          console.log('allteams undefined');
+        } else {
+          if (allTeams[0]) {
+            c1 = allTeams[0].name;
+          }
 
-                  if (allTeams[1]) {
-                    c2 = allTeams[1].name;
-                  }
+          if (allTeams[1]) {
+            c2 = allTeams[1].name;
+          }
 
-                  if (allTeams[2]) {
-                    c3 = allTeams[2].name;
-                  }
+          if (allTeams[2]) {
+            c3 = allTeams[2].name;
+          }
+        }
 
-                  return _context4.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
-                    key: user.id,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    c1: c1,
-                    c2: c2,
-                    c3: c3,
-                    onClick: function onClick() {
-                      return _this4.displayInfo(user.id);
-                    }
-                  })]);
-
-                case 7:
-                case "end":
-                  return _context4.stop();
-              }
-            }
-          }, _callee4);
-        }));
-
-        return function (_x3) {
-          return _ref.apply(this, arguments);
-        };
-      }());
+        return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
+          key: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          c1: c1,
+          c2: c2,
+          c3: c3,
+          onClick: function onClick() {
+            return _this4.displayInfo(user.id);
+          }
+        })]; // console.log('teams');
+        // console.log(teams);
+        // console.log('CCS');
+        // console.log(c1);
+        // console.log(c2);
+        // console.log(c3);
+        // console.log(this.state.teamOne);
+        // console.log(this.state.teamTwo);
+        // console.log(this.state.teamThree);
+        // if (!this.state.teamOne === 'empty') {
+        // c1 = this.state.teamOne.name;
+        // // }
+        // // if (!this.state.teamTwo === 'empty') {
+        // c2 = this.state.teamTwo.name;
+        // // }
+        // // if (!this.state.teamThree === 'empty') {
+        // c3 = this.state.teamThree.name;
+        // }
+        // console.log('Team Names');
+        // console.log(c1);
+        // console.log(c2);
+        // console.log(c3);
+      });
       var display;
       var viewUser = this.state.viewUser;
 
