@@ -58123,6 +58123,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this), "state", {
       applicants: [],
+      users: {},
       viewUser: false,
       user: 0,
       teamOne: '',
@@ -58140,32 +58141,63 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(viewApplicants, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      // request the list of teams
-      axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
-        _this2.setState({
-          applicants: res.data
-        });
-      })["catch"](function (err) {
-        return console.log(err);
-      });
-    }
-  }, {
-    key: "displayInfo",
     value: function () {
-      var _displayInfo = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(userId) {
-        var _this3 = this;
-
-        var questionList;
+      var _componentDidMount = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var users, allApplicants;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                // request the list of teams
+                users = {};
+                allApplicants = [];
+                axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
+                  allApplicants = res.data;
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+                console.log('All aplicants', allApplicants);
+                _context.next = 6;
+                return Promise.all(allApplicants.map(function (obj) {
+                  return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
+                    users[obj] = res;
+                  });
+                }));
+
+              case 6:
+                console.log('users dict', users);
+                this.setState({
+                  users: users
+                });
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function componentDidMount() {
+        return _componentDidMount.apply(this, arguments);
+      }
+
+      return componentDidMount;
+    }()
+  }, {
+    key: "displayInfo",
+    value: function () {
+      var _displayInfo = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(userId) {
+        var _this2 = this;
+
+        var questionList;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/' + userId).then(function (res) {
-                  _this3.setState({
+                  _this2.setState({
                     user: res.data,
                     viewUser: true // teamOne: res.data.teams[0],
                     // teamTwo: res.data.teams[1],
@@ -58180,10 +58212,10 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 });
 
               case 2:
-                _context.next = 4;
+                _context2.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
                   // console.log(res.data);
-                  _this3.setState({
+                  _this2.setState({
                     teamOne: res.data[0],
                     teamTwo: res.data[1],
                     teamThree: res.data[2]
@@ -58198,9 +58230,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 });
 
               case 4:
-                _context.next = 6;
+                _context2.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/responses/' + userId).then(function (res) {
-                  _this3.setState({
+                  _this2.setState({
                     responses: res.data
                   }, function () {
                     console.log('List Responses');
@@ -58212,7 +58244,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 6:
                 questionList = [];
-                _context.next = 9;
+                _context2.next = 9;
                 return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.questionId).then(function (response) {
                     questionList.push(response.questionId);
@@ -58231,10 +58263,10 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 12:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
       function displayInfo(_x) {
@@ -58253,16 +58285,16 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
   }, {
     key: "getTeams",
     value: function () {
-      var _getTeams = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(userId) {
+      var _getTeams = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(userId) {
         var t1, t2, t3;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
                 t1 = '';
                 t2 = '';
                 t3 = '';
-                _context2.next = 5;
+                _context3.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
                   // console.log(res.data);
                   t1 = res.data[0];
@@ -58273,14 +58305,14 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 });
 
               case 5:
-                return _context2.abrupt("return", [t1, t2, t3]);
+                return _context3.abrupt("return", [t1, t2, t3]);
 
               case 6:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2);
+        }, _callee3);
       }));
 
       function getTeams(_x2) {
@@ -58292,19 +58324,19 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       var renderTable = this.state.applicants.map( /*#__PURE__*/function () {
-        var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(user) {
+        var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(user) {
           var c1, c2, c3;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
             while (1) {
-              switch (_context3.prev = _context3.next) {
+              switch (_context4.prev = _context4.next) {
                 case 0:
                   // catch if user doesn't have 3 teams ranked
                   c1 = 'empty', c2 = 'empty', c3 = 'empty'; // let teams = this.getTeams(user.id);
 
-                  _context3.next = 3;
+                  _context4.next = 3;
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + user.id).then(function (res) {
                     // console.log(res.data);
                     c1 = res.data[0];
@@ -58315,7 +58347,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
 
                 case 3:
-                  return _context3.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
+                  return _context4.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
                     key: user.id,
                     firstName: user.firstName,
                     lastName: user.lastName,
@@ -58323,16 +58355,16 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                     c2: c2,
                     c3: c3,
                     onClick: function onClick() {
-                      return _this4.displayInfo(user.id);
+                      return _this3.displayInfo(user.id);
                     }
                   })]);
 
                 case 4:
                 case "end":
-                  return _context3.stop();
+                  return _context4.stop();
               }
             }
-          }, _callee3);
+          }, _callee4);
         }));
 
         return function (_x3) {
