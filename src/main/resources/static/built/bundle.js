@@ -58153,7 +58153,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 // request the list of teams
                 users = {};
                 allApplicants = [];
-                axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
+                _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
                   allApplicants = res.data;
 
                   _this2.setState({
@@ -58162,21 +58163,23 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 })["catch"](function (err) {
                   return console.log(err);
                 });
+
+              case 4:
                 console.log('All aplicants', allApplicants);
-                _context.next = 6;
+                _context.next = 7;
                 return Promise.all(allApplicants.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
                     users[obj] = res;
                   });
                 }));
 
-              case 6:
+              case 7:
                 console.log('users dict', users);
                 this.setState({
                   users: users
                 });
 
-              case 8:
+              case 9:
               case "end":
                 return _context.stop();
             }

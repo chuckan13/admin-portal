@@ -32,7 +32,7 @@ class viewApplicants extends Component {
 		// request the list of teams
 		var users = {};
 		var allApplicants = [];
-		axios
+		await axios
 			.get('/api/users')
 			.then(res => {
 				allApplicants = res.data;
