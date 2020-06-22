@@ -58143,6 +58143,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function () {
       var _componentDidMount = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this2 = this;
+
         var users, allApplicants;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -58153,6 +58155,10 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 allApplicants = [];
                 axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
                   allApplicants = res.data;
+
+                  _this2.setState({
+                    applicants: res.data
+                  });
                 })["catch"](function (err) {
                   return console.log(err);
                 });
@@ -58188,7 +58194,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     key: "displayInfo",
     value: function () {
       var _displayInfo = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(userId) {
-        var _this2 = this;
+        var _this3 = this;
 
         var questionList;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
@@ -58197,7 +58203,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
               case 0:
                 _context2.next = 2;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/' + userId).then(function (res) {
-                  _this2.setState({
+                  _this3.setState({
                     user: res.data,
                     viewUser: true // teamOne: res.data.teams[0],
                     // teamTwo: res.data.teams[1],
@@ -58215,7 +58221,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 _context2.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
                   // console.log(res.data);
-                  _this2.setState({
+                  _this3.setState({
                     teamOne: res.data[0],
                     teamTwo: res.data[1],
                     teamThree: res.data[2]
@@ -58232,7 +58238,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
               case 4:
                 _context2.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/responses/' + userId).then(function (res) {
-                  _this2.setState({
+                  _this3.setState({
                     responses: res.data
                   }, function () {
                     console.log('List Responses');
@@ -58324,29 +58330,29 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       var renderTable = this.state.applicants.map( /*#__PURE__*/function () {
         var _ref = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(user) {
-          var c1, c2, c3;
+          var c1, c2, c3, allTeams;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
             while (1) {
               switch (_context4.prev = _context4.next) {
                 case 0:
                   // catch if user doesn't have 3 teams ranked
                   c1 = 'empty', c2 = 'empty', c3 = 'empty'; // let teams = this.getTeams(user.id);
+                  // await axios
+                  // 	.get('/api/users/teams/' + user.id)
+                  // 	.then(res => {
+                  // 		// console.log(res.data);
+                  // 		c1 = res.data[0];
+                  // 		c2 = res.data[1];
+                  // 		c3 = res.data[2];
+                  // 	})
+                  // 	.catch(err => console.log(err));
 
-                  _context4.next = 3;
-                  return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + user.id).then(function (res) {
-                    // console.log(res.data);
-                    c1 = res.data[0];
-                    c2 = res.data[1];
-                    c3 = res.data[2];
-                  })["catch"](function (err) {
-                    return console.log(err);
-                  });
-
-                case 3:
+                  allTeams = _this4.state.users[user];
+                  console.log('ALL teams', allTeams);
                   return _context4.abrupt("return", [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
                     key: user.id,
                     firstName: user.firstName,
@@ -58355,7 +58361,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                     c2: c2,
                     c3: c3,
                     onClick: function onClick() {
-                      return _this3.displayInfo(user.id);
+                      return _this4.displayInfo(user.id);
                     }
                   })]);
 

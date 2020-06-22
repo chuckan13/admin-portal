@@ -35,6 +35,7 @@ class viewApplicants extends Component {
 			.get('/api/users')
 			.then(res => {
 				allApplicants = res.data;
+				this.setState({ applicants: res.data });
 			})
 			.catch(err => console.log(err));
 		console.log('All aplicants', allApplicants);
@@ -153,15 +154,17 @@ class viewApplicants extends Component {
 				c2 = 'empty',
 				c3 = 'empty';
 			// let teams = this.getTeams(user.id);
-			await axios
-				.get('/api/users/teams/' + user.id)
-				.then(res => {
-					// console.log(res.data);
-					c1 = res.data[0];
-					c2 = res.data[1];
-					c3 = res.data[2];
-				})
-				.catch(err => console.log(err));
+			// await axios
+			// 	.get('/api/users/teams/' + user.id)
+			// 	.then(res => {
+			// 		// console.log(res.data);
+			// 		c1 = res.data[0];
+			// 		c2 = res.data[1];
+			// 		c3 = res.data[2];
+			// 	})
+			// 	.catch(err => console.log(err));
+			var allTeams = this.state.users[user];
+			console.log('ALL teams', allTeams);
 			return [
 				<TableEntry
 					key={user.id}
