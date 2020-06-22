@@ -50,7 +50,7 @@ public class UsersController {
 
     @RequestMapping(value = "/teams/{id}", method = RequestMethod.GET)
     public List<Team> getAllTeams(@PathVariable("id") Long id) {
-        List<Userteam> userTeams = userTeamRepo.findByUserId(id);
+        List<Userteam> userTeams = userTeamRepo.findByUserIdOrderByPreferenceAsc(id);
         List<Long> teamIds = new ArrayList<Long>();
         List<Team> teams = new ArrayList<Team>();
         for (Userteam userTeam : userTeams) {

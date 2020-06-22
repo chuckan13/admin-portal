@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserteamRepository extends JpaRepository<Userteam, Long> {
-    List<Userteam> findByUserId(Long userId);
+    List<Userteam> findByUserIdOrderByPreferenceAsc(Long userId);
 }
