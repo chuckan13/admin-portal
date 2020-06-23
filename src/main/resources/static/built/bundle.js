@@ -58500,17 +58500,17 @@ function UserProfile(props) {
     team: props.teamOne.name,
     num: "One",
     questions: props.teamOneQuestions,
-    resp: allResponses
+    resp: props.responses
   }), teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     team: props.teamTwo.name,
     num: "Two",
     questions: props.teamTwoQuestions,
-    resp: allResponses
+    resp: props.responses
   }) : '', teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     team: props.teamThree.name,
     num: "Three",
     questions: props.teamThreeQuestions,
-    resp: allResponses
+    resp: props.responses
   }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick
   }));
