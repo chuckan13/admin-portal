@@ -336,7 +336,7 @@ function UserProfile(props) {
 						questions={props.teamOneQuestions}
 						resp={props.responses}
 					/>
-					{teamTwo ? (
+					{props.teamTwo ? (
 						<TeamResponses
 							team={props.teamTwo.name}
 							num="Two"
@@ -346,7 +346,7 @@ function UserProfile(props) {
 					) : (
 						''
 					)}
-					{teamThree ? (
+					{props.teamThree ? (
 						<TeamResponses
 							team={props.teamThree.name}
 							num="Three"

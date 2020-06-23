@@ -58501,12 +58501,12 @@ function UserProfile(props) {
     num: "One",
     questions: props.teamOneQuestions,
     resp: props.responses
-  }), teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+  }), props.teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     team: props.teamTwo.name,
     num: "Two",
     questions: props.teamTwoQuestions,
     resp: props.responses
-  }) : '', teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+  }) : '', props.teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     team: props.teamThree.name,
     num: "Three",
     questions: props.teamThreeQuestions,
