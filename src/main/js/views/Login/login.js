@@ -35,7 +35,31 @@ export default function Login() {
 
 	return (
 		<div className="Login">
-			<form onSubmit={handleSubmit}>
+			<form name="f" action="login-process" method="POST">
+				<table>
+					<tbody>
+						<tr>
+							<td>User Name</td>
+							<td>
+								<input type="text" name="username" size="30" />
+							</td>
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td>
+								<input type="password" name="password" size="30" />
+							</td>
+						</tr>
+						<tr>
+							<td />
+							<td>
+								<input type="submit" value="login" />
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+			{/* <form onSubmit={handleSubmit}>
 				<FormGroup controlId="text" bsSize="large">
 					<ControlLabel id="email-label">Username</ControlLabel>
 					<FormControl autoFocus type="text" value={userName} onChange={e => setUsername(e.target.value)} />
@@ -47,7 +71,7 @@ export default function Login() {
 				<Button block bsSize="large" disabled={!validateForm()} type="submit">
 					Login
 				</Button>
-			</form>
+			</form> */}
 		</div>
 	);
 }
