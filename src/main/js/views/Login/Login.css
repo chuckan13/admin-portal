@@ -29,3 +29,7 @@ a {
     color: white !important;
     font-family: Avenir;
   }
+
+#email-label {
+    color: #fff
+}

@@ -37,7 +37,7 @@ function LoginForm() {
 		touched,
 		handleBlur,
 		dirty,
-		// isValid,
+		isValid,
 		isSubmitting,
 		setSubmitting
 	} = useFormik({
@@ -108,7 +108,7 @@ function LoginForm() {
 				<b>Login</b>
 			</h2>
 			<FormGroup className="pb-2">
-				<ControlLabel>Email</ControlLabel>
+				<ControlLabel id="email-label">Email</ControlLabel>
 				<FormControl
 					type="email"
 					name="username"
@@ -116,13 +116,13 @@ function LoginForm() {
 					onChange={handleChange}
 					onBlur={handleBlur}
 					placeholder="Email"
-					// isValid={touched.username && !errors.username}
-					// isInvalid={touched.username && !!errors.username}
+					isValid={touched.username && !errors.username}
+					isInvalid={touched.username && !!errors.username}
 				/>
 				{/* <FormControl.Feedback type="invalid">{errors.username}</FormControl.Feedback> */}
 			</FormGroup>
 			<FormGroup className="pb-0 mb-0">
-				<ControlLabel>Password</ControlLabel>
+				<ControlLabel id="email-label">Password</ControlLabel>
 				<FormControl
 					type="password"
 					name="password"
@@ -130,8 +130,8 @@ function LoginForm() {
 					onChange={handleChange}
 					onBlur={handleBlur}
 					placeholder="Password"
-					// isValid={touched.password && !errors.password}
-					// isInvalid={touched.password && !!errors.password}
+					isValid={touched.password && !errors.password}
+					isInvalid={touched.password && !!errors.password}
 				/>
 				{/* <FormControl.Feedback type="invalid">{errors.password}</FormControl.Feedback> */}
 			</FormGroup>
