@@ -13,7 +13,7 @@ class Home extends Component {
 	}
 
 	handleApplyClick() {
-		this.props.history.push('/apply');
+		this.props.history.push('/loginpage');
 	}
 
 	render() {
@@ -28,13 +28,13 @@ function ApplyButton(props) {
 		<div id="welcome-content">
 			<Row className="center-block text-center">
 				<div id="welcome-text">
-					<p>Excited to join the e-club family? </p>
-					<p>Apply today!</p>
+					<p>Welcome to the E-Club Admin Portal </p>
+					<p>Log in to view applications</p>
 				</div>
 				<Col>
 					<div id="begin-button">
 						<Button bsStyle="apply" bsSize="large" onClick={props.onClick}>
-							Begin Application
+							Sign in
 						</Button>
 					</div>
 				</Col>
