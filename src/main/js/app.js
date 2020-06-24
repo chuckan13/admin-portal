@@ -7,6 +7,7 @@ import { NavItem } from 'react-bootstrap';
 import './app.css';
 import Apply from './views/Apply.js';
 import Admin from './views/Admin/Admin.js';
+import Login from './views/Login/login.js';
 import Home from './views/Home/Home.js';
 
 class App extends Component {
@@ -46,6 +47,7 @@ class App extends Component {
 						<Route exact path="/" component={Home} exact />
 						{/* <Route path="/apply" component={Apply} /> */}
 						<Route path="/admin" component={Admin} />
+						<Route path="/loginpage" component={Login} />
 					</Switch>
 				</div>
 			</Router>

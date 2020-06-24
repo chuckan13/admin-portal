@@ -2,10 +2,13 @@ import React, { Component, useState } from 'react';
 
 // import NavBar from './components/navbar.js';
 // import Footer from './components/footer.js';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
+import { Form } from 'react-bootstrap';
+// import Button from 'react-bootstrap/Button';
+import { Button } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 import '../../app.css';
 
