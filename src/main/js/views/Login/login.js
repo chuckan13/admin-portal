@@ -37,7 +37,7 @@ function LoginForm() {
 		touched,
 		handleBlur,
 		dirty,
-		isValid,
+		// isValid,
 		isSubmitting,
 		setSubmitting
 	} = useFormik({
@@ -116,10 +116,10 @@ function LoginForm() {
 					onChange={handleChange}
 					onBlur={handleBlur}
 					placeholder="Email"
-					isValid={touched.username && !errors.username}
-					isInvalid={touched.username && !!errors.username}
+					// isValid={touched.username && !errors.username}
+					// isInvalid={touched.username && !!errors.username}
 				/>
-				<FormControl.Feedback type="invalid">{errors.username}</FormControl.Feedback>
+				{/* <FormControl.Feedback type="invalid">{errors.username}</FormControl.Feedback> */}
 			</FormGroup>
 			<FormGroup className="pb-0 mb-0">
 				<ControlLabel>Password</ControlLabel>
@@ -130,13 +130,13 @@ function LoginForm() {
 					onChange={handleChange}
 					onBlur={handleBlur}
 					placeholder="Password"
-					isValid={touched.password && !errors.password}
-					isInvalid={touched.password && !!errors.password}
+					// isValid={touched.password && !errors.password}
+					// isInvalid={touched.password && !!errors.password}
 				/>
-				<FormControl.Feedback type="invalid">{errors.password}</FormControl.Feedback>
+				{/* <FormControl.Feedback type="invalid">{errors.password}</FormControl.Feedback> */}
 			</FormGroup>
 			<Row className="justify-content-center text-center">
-				<Button type="submit" variant="main" disabled={!(isValid && dirty) || isSubmitting} className="mt-5">
+				<Button type="submit" variant="main" bsStyle="submit" bsSize="large" className="mt-5">
 					{isSubmitting ? 'Loading...' : 'Submit'}
 				</Button>
 				{loginFailed}

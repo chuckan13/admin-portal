@@ -4312,7 +4312,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "body {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\np {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\na {\r\n    color: white !important;\r\n    font-family: Avenir;\r\n  }", ""]);
+exports.push([module.i, "body {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\np {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\nh2 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\na {\r\n    color: white !important;\r\n    font-family: Avenir;\r\n  }", ""]);
 // Exports
 module.exports = exports;
 
@@ -72063,7 +72063,6 @@ function LoginForm() {
       touched = _useFormik.touched,
       handleBlur = _useFormik.handleBlur,
       dirty = _useFormik.dirty,
-      isValid = _useFormik.isValid,
       isSubmitting = _useFormik.isSubmitting,
       setSubmitting = _useFormik.setSubmitting;
 
@@ -72081,12 +72080,10 @@ function LoginForm() {
     value: values.username,
     onChange: handleChange,
     onBlur: handleBlur,
-    placeholder: "Email",
-    isValid: touched.username && !errors.username,
-    isInvalid: touched.username && !!errors.username
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormControl"].Feedback, {
-    type: "invalid"
-  }, errors.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormGroup"], {
+    placeholder: "Email" // isValid={touched.username && !errors.username}
+    // isInvalid={touched.username && !!errors.username}
+
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormGroup"], {
     className: "pb-0 mb-0"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["ControlLabel"], null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormControl"], {
     type: "password",
@@ -72094,17 +72091,16 @@ function LoginForm() {
     value: values.password,
     onChange: handleChange,
     onBlur: handleBlur,
-    placeholder: "Password",
-    isValid: touched.password && !errors.password,
-    isInvalid: touched.password && !!errors.password
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormControl"].Feedback, {
-    type: "invalid"
-  }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Row"], {
+    placeholder: "Password" // isValid={touched.password && !errors.password}
+    // isInvalid={touched.password && !!errors.password}
+
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Row"], {
     className: "justify-content-center text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Button"], {
     type: "submit",
     variant: "main",
-    disabled: !(isValid && dirty) || isSubmitting,
+    bsStyle: "submit",
+    bsSize: "large",
     className: "mt-5"
   }, isSubmitting ? 'Loading...' : 'Submit'), loginFailed));
 }

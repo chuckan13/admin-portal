@@ -9,6 +9,13 @@ p {
     text-align: center;
 }
 
+h2 {
+    font-family: Avenir;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
 .btn-submit {
 	color: #fff;
     background-color: #3891b8;
