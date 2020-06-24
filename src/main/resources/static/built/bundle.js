@@ -4263,7 +4263,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@media all and (min-width: 480px) {\r\n    .Login {\r\n      padding: 60px 0;\r\n    }\r\n  \r\n    .Login form {\r\n      margin: 0 auto;\r\n      max-width: 320px;\r\n    }\r\n  }\r\n  \r\nbody {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\np {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\nh2 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\na {\r\n    color: white !important;\r\n    font-family: Avenir;\r\n  }\r\n\r\n#email-label {\r\n    color: #fff\r\n}", ""]);
+exports.push([module.i, "@media all and (min-width: 480px) {\r\n    .Login {\r\n      padding: 60px 0;\r\n    }\r\n  \r\n    .Login form {\r\n      margin: 0 auto;\r\n      max-width: 320px;\r\n    }\r\n  }\r\n#f {\r\n    margin: 0 auto;\r\n    max-width: 320px;\r\n    background-color: #1f1f1f !important; \r\n} \r\n#loginform{\r\n    margin:0 auto;\r\n    max-width:320px;\r\n    background-color: #1f1f1f !important; \r\n}\r\nbody {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\np {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\nh2 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\na {\r\n    color: white !important;\r\n    font-family: Avenir;\r\n  }\r\n\r\n#email-label {\r\n    color: #fff\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -57455,12 +57455,13 @@ function Login() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("form", {
     name: "f",
     action: "login-process",
-    method: "POST"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, "User Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
+    method: "POST",
+    id: "loginform"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("table", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "Username")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
     type: "text",
     name: "username",
     size: "30"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("p", null, "Password")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", {
     type: "password",
     name: "password",
     size: "30"
