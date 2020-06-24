@@ -1,3 +1,24 @@
 body {
     background-color: #1f1f1f !important; 
 }
+
+p {
+    font-family: Avenir;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.btn-submit {
+	color: #fff;
+    background-color: #3891b8;
+    width: 150px;
+    text-align: center;
+    border-radius: 15px;
+    margin: 25px;
+    font-size: 20px;
+}
+a {
+    color: white !important;
+    font-family: Avenir;
+  }

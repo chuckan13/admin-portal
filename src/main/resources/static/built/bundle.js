@@ -4312,7 +4312,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "body {\r\n    background-color: #1f1f1f !important; \r\n}", ""]);
+exports.push([module.i, "body {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\np {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\na {\r\n    color: white !important;\r\n    font-family: Avenir;\r\n  }", ""]);
 // Exports
 module.exports = exports;
 
@@ -71987,6 +71987,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+addStyle(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Button"], 'submit');
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_10__["object"]().shape({
   username: yup__WEBPACK_IMPORTED_MODULE_10__["string"]().email('Must be a valid email').required('Required'),
   password: yup__WEBPACK_IMPORTED_MODULE_10__["string"]().required('Required')

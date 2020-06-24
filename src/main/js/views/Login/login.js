@@ -18,7 +18,7 @@ import './Login.css';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
+addStyle(Button, 'submit');
 const validationSchema = Yup.object().shape({
 	username: Yup.string().email('Must be a valid email').required('Required'),
 	password: Yup.string().required('Required')
