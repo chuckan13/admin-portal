@@ -18,6 +18,26 @@
     max-width:320px;
     background-color: #1f1f1f !important; 
 }
+table{
+    background-color: #1f1f1f !important; 
+    max-width: 320px;
+    margin: 0 auto;
+}
+tbody{
+    background-color: #1f1f1f !important; 
+    max-width: 320px;
+    margin: 0 auto;
+}
+tr{
+    background-color: #1f1f1f !important; 
+    max-width: 320px;
+    margin: 0 auto;
+}
+td{
+    background-color: #1f1f1f !important; 
+    max-width: 320px;
+    margin: 0 auto;
+}
 body {
     background-color: #1f1f1f !important; 
 }
