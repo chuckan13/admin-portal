@@ -72012,7 +72012,8 @@ function LoginForm() {
       var formData = new FormData();
       formData.append('username', values.username);
       formData.append('password', values.password);
-      var data = new URLSearchParams(formData); // const data = JSON.stringify({
+      var data = new URLSearchParams(formData);
+      console.log('ON SUBMIt'); // const data = JSON.stringify({
       // 	fullName: 'Niko Fotopoulos',
       // 	userName: values.username,
       // 	password: values.password,
@@ -72073,11 +72074,11 @@ function LoginForm() {
     className: "text-left floating-form mb-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("h2", {
     className: "text-center mb-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("b", null, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormGroup"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("b", null, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Form.Group, {
     className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["ControlLabel"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Form.Label, {
     id: "email-label"
-  }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormControl"], {
+  }, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Form.Control, {
     type: "email",
     name: "username",
     value: values.username,
@@ -72086,11 +72087,13 @@ function LoginForm() {
     placeholder: "Email",
     isValid: touched.username && !errors.username,
     isInvalid: touched.username && !!errors.username
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormGroup"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Form.Control.Feedback, {
+    type: "invalid"
+  }, errors.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Form.Group, {
     className: "pb-0 mb-0"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["ControlLabel"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Control.Label, {
     id: "email-label"
-  }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["FormControl"], {
+  }, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Form.Control, {
     type: "password",
     name: "password",
     value: values.password,
@@ -72099,13 +72102,14 @@ function LoginForm() {
     placeholder: "Password",
     isValid: touched.password && !errors.password,
     isInvalid: touched.password && !!errors.password
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Row"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(Form.Control.Feedback, {
+    type: "invalid"
+  }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Row"], {
     className: "justify-content-center text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Button"], {
     type: "submit",
     variant: "main",
-    bsStyle: "submit",
-    bsSize: "large",
+    disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
   }, isSubmitting ? 'Loading...' : 'Submit'), loginFailed));
 }

@@ -51,6 +51,7 @@ function LoginForm() {
 			formData.append('username', values.username);
 			formData.append('password', values.password);
 			const data = new URLSearchParams(formData);
+			console.log('ON SUBMIt');
 			// const data = JSON.stringify({
 			// 	fullName: 'Niko Fotopoulos',
 			// 	userName: values.username,
@@ -107,9 +108,9 @@ function LoginForm() {
 			<h2 className="text-center mb-4">
 				<b>Login</b>
 			</h2>
-			<FormGroup className="pb-2">
-				<ControlLabel id="email-label">Email</ControlLabel>
-				<FormControl
+			<Form.Group className="pb-2">
+				<Form.Label id="email-label">Email</Form.Label>
+				<Form.Control
 					type="email"
 					name="username"
 					value={values.username}
@@ -119,11 +120,11 @@ function LoginForm() {
 					isValid={touched.username && !errors.username}
 					isInvalid={touched.username && !!errors.username}
 				/>
-				{/* <FormControl.Feedback type="invalid">{errors.username}</FormControl.Feedback> */}
-			</FormGroup>
-			<FormGroup className="pb-0 mb-0">
-				<ControlLabel id="email-label">Password</ControlLabel>
-				<FormControl
+				<Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
+			</Form.Group>
+			<Form.Group className="pb-0 mb-0">
+				<Control.Label id="email-label">Password</Control.Label>
+				<Form.Control
 					type="password"
 					name="password"
 					value={values.password}
@@ -133,10 +134,10 @@ function LoginForm() {
 					isValid={touched.password && !errors.password}
 					isInvalid={touched.password && !!errors.password}
 				/>
-				{/* <FormControl.Feedback type="invalid">{errors.password}</FormControl.Feedback> */}
-			</FormGroup>
+				<Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+			</Form.Group>
 			<Row className="justify-content-center text-center">
-				<Button type="submit" variant="main" bsStyle="submit" bsSize="large" className="mt-5">
+				<Button type="submit" variant="main" disabled={!(isValid && dirty) || isSubmitting} className="mt-5">
 					{isSubmitting ? 'Loading...' : 'Submit'}
 				</Button>
 				{loginFailed}
