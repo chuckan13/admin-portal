@@ -18,6 +18,8 @@ import './Login.css';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+
+import { addStyle } from 'react-bootstrap/lib/utils/bootstrapUtils';
 addStyle(Button, 'submit');
 const validationSchema = Yup.object().shape({
 	username: Yup.string().email('Must be a valid email').required('Required'),

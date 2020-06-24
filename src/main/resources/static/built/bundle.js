@@ -71959,6 +71959,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Login_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_Login_css__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
+/* harmony import */ var react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap/lib/utils/bootstrapUtils */ "./node_modules/react-bootstrap/lib/utils/bootstrapUtils.js");
+/* harmony import */ var react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -71987,7 +71989,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
-addStyle(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Button"], 'submit');
+
+Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_11__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Button"], 'submit');
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_10__["object"]().shape({
   username: yup__WEBPACK_IMPORTED_MODULE_10__["string"]().email('Must be a valid email').required('Required'),
   password: yup__WEBPACK_IMPORTED_MODULE_10__["string"]().required('Required')
