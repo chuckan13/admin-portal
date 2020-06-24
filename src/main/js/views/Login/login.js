@@ -41,23 +41,19 @@ export default function Login() {
 						<tr>
 							<td>
 								<p>Username</p>
-							</td>
-							<td>
 								<input type="text" name="username" size="30" />
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<p>Password</p>
-							</td>
-							<td>
 								<input type="password" name="password" size="30" />
 							</td>
 						</tr>
 						<tr>
 							<td />
 							<td>
-								<input type="submit" value="login" />
+								<input type="submit" value="Submit" />
 							</td>
 						</tr>
 					</tbody>
