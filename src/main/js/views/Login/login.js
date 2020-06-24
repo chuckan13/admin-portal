@@ -4,11 +4,14 @@ import React, { Component, useState } from 'react';
 // import Footer from './components/footer.js';
 // import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row';
-import { Form } from 'react-bootstrap';
+// import { Form } from 'react-bootstrap';
 // import Button from 'react-bootstrap/Button';
 import { Button } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
+import { FormGroup } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
+import { ControlLabel } from 'react-bootstrap';
 
 import '../../app.css';
 
@@ -97,13 +100,13 @@ function LoginForm() {
 	});
 
 	return (
-		<Form noValidate onSubmit={handleSubmit} className="text-left floating-form mb-5">
+		<form noValidate onSubmit={handleSubmit} className="text-left floating-form mb-5">
 			<h2 className="text-center mb-4">
 				<b>Login</b>
 			</h2>
-			<Form.Group className="pb-2">
-				<Form.Label>Email</Form.Label>
-				<Form.Control
+			<FormGroup className="pb-2">
+				<ControlLabel>Email</ControlLabel>
+				<FormControl
 					type="email"
 					name="username"
 					value={values.username}
@@ -113,11 +116,11 @@ function LoginForm() {
 					isValid={touched.username && !errors.username}
 					isInvalid={touched.username && !!errors.username}
 				/>
-				<Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
-			</Form.Group>
-			<Form.Group className="pb-0 mb-0">
-				<Form.Label>Password</Form.Label>
-				<Form.Control
+				<FormControl.Feedback type="invalid">{errors.username}</FormControl.Feedback>
+			</FormGroup>
+			<FormGroup className="pb-0 mb-0">
+				<ControlLabel>Password</ControlLabel>
+				<FormControl
 					type="password"
 					name="password"
 					value={values.password}
@@ -127,15 +130,15 @@ function LoginForm() {
 					isValid={touched.password && !errors.password}
 					isInvalid={touched.password && !!errors.password}
 				/>
-				<Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
-			</Form.Group>
+				<FormControl.Feedback type="invalid">{errors.password}</FormControl.Feedback>
+			</FormGroup>
 			<Row className="justify-content-center text-center">
 				<Button type="submit" variant="main" disabled={!(isValid && dirty) || isSubmitting} className="mt-5">
 					{isSubmitting ? 'Loading...' : 'Submit'}
 				</Button>
 				{loginFailed}
 			</Row>
-		</Form>
+		</form>
 	);
 }
 
