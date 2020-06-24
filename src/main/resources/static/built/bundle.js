@@ -4240,7 +4240,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".btn-admin {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    width: 250px;\r\n    border-radius: 15px;\r\n    padding: 20px 30px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\n\r\n.btn-back {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
+exports.push([module.i, ".btn-admin {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    width: 250px;\r\n    border-radius: 15px;\r\n    padding: 20px 30px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\n\r\n.btn-back {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\n\r\nbody {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\n\r\n\r\n\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -4295,6 +4295,24 @@ var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_mo
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
 exports.push([module.i, "p {\r\n  font-family: Avenir;\r\n  color: white;\r\n  font-size: 30px;\r\n  text-align: center;\r\n}\r\n\r\n#welcome-content {\r\n  font-family: Avenir;\r\n  margin: auto;\r\n}\r\n\r\n#welcome-text {\r\n\tmargin-top: 100px;\r\n}\r\n\r\n.btn-apply {\r\n\tcolor: #fff;\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 15px;\r\n\tpadding: 20px 30px;\r\n\tfont-size: 20px;\r\n}\r\n\r\n.btn:hover {\r\n  background-color: #2686af;\r\n  color: #fff;\r\n }\r\n\r\n.btn {\r\n   font-family: Avenir;\r\n }\r\n\r\n.btn:focus,\r\n.btn:active:focus,\r\n.btn.active:focus,\r\n.btn.focus,\r\n.btn:active.focus,\r\n.btn.active.focus {\r\n  outline: none;\r\n  color:#fff;\r\n}\r\n\r\n.btn:active,\r\n.btn.active {\r\n  outline: none;\r\n  background-image: none;\r\n  box-shadow: none;\r\n  color:#fff;\r\n}\r\n\r\n#begin-button {\r\n\tmargin-top: 50px;\r\n}\r\n\r\n\r\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/Login/Login.css":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/main/js/views/Login/Login.css ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "body {\r\n    background-color: #1f1f1f !important; \r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -71884,6 +71902,35 @@ function ApplyButton(props) {
 
 /***/ }),
 
+/***/ "./src/main/js/views/Login/Login.css":
+/*!*******************************************!*\
+  !*** ./src/main/js/views/Login/Login.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js!./Login.css */ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/Login/Login.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
 /***/ "./src/main/js/views/Login/login.js":
 /*!******************************************!*\
   !*** ./src/main/js/views/Login/login.js ***!
@@ -71908,8 +71955,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../app.css */ "./src/main/js/app.css");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _Login_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Login.css */ "./src/main/js/views/Login/Login.css");
+/* harmony import */ var _Login_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_Login_css__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! yup */ "./node_modules/yup/es/index.js");
 
@@ -71935,6 +71982,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+ // import '../../app.css';
 
 
 
@@ -72086,7 +72134,12 @@ var Login = /*#__PURE__*/function (_Component) {
       return (
         /*#__PURE__*/
         // <React.Fragment>
-        react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Col"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(LoginForm, null))) // </React.Fragment>
+        react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_7__["Col"], {
+          lg: 4,
+          md: 5,
+          sm: 7,
+          className: "mx-auto mt-4"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(LoginForm, null))) // </React.Fragment>
 
       );
     }

@@ -13,7 +13,8 @@ import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { ControlLabel } from 'react-bootstrap';
 
-import '../../app.css';
+// import '../../app.css';
+import './Login.css';
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -161,7 +162,7 @@ class Login extends Component {
 			<div>
 				{/* <NavBar /> */}
 				{/* lg={4} md={5} sm={7} className="mx-auto mt-4" */}
-				<Col>
+				<Col lg={4} md={5} sm={7} className="mx-auto mt-4">
 					<LoginForm />
 				</Col>
 			</div>
