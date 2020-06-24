@@ -10,7 +10,7 @@ export default function Login() {
 		return userName.length > 0 && password.length > 0;
 	}
 
-	function handleSubmit(event) {
+	async function handleSubmit(event) {
 		let formData = new FormData();
 		formData.append('username', userName);
 		formData.append('password', password);
@@ -19,14 +19,14 @@ export default function Login() {
 		console.log(userName);
 		console.log(password);
 		debugger;
-		fetch('https://application-portal-admin.herokuapp.com/login-process', {
+		await fetch('https://application-portal-admin.herokuapp.com/login-process', {
 			method: 'POST',
 			body: data
 		})
 			.then(response => {
 				console.log('Success');
 				console.log(response);
-				window.location.replace(response.url);
+				// window.location.replace(response.url);
 			})
 			.catch(error => {
 				console.error('Error:', error);
