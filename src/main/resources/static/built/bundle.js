@@ -57409,7 +57409,9 @@ function Login() {
     formData.append('username', userName);
     formData.append('password', password);
     var data = new URLSearchParams(formData);
-    console.log(data);
+    console.log(formData);
+    console.log(userName);
+    console.log(password);
     debugger;
     fetch('https://application-portal-admin.herokuapp.com/login-process', {
       method: 'POST',
@@ -57417,7 +57419,6 @@ function Login() {
     }).then(function (response) {
       console.log('Success');
       console.log(response);
-      debugger;
       window.location.replace(response.url);
     })["catch"](function (error) {
       console.error('Error:', error);

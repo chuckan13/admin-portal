@@ -72,7 +72,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/loginpage", "/login.html", "/badcredentials", "/sessionauth")
                 .permitAll().anyRequest().authenticated().and().authorizeRequests()
                 .antMatchers("/loginpage", "/login.html", "/login-process").anonymous().and().formLogin()
-                .loginPage("/login.html").successHandler(customAuthenticationSuccessHandler())
+                .loginPage("/login.html").defaultSuccessUrl("/admin", true)
                 .failureHandler(customAuthenticationFailureHandler()).loginProcessingUrl("/login-process").permitAll()
                 .and().logout().deleteCookies("JSESSIONID").invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
