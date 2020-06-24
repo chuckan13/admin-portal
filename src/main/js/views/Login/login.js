@@ -157,15 +157,16 @@ class Login extends Component {
 
 	render() {
 		return (
-			<React.Fragment>
-				<div>
-					<NavBar />
-					<Col lg={4} md={5} sm={7} className="mx-auto mt-4">
-						<LoginForm />
-					</Col>
-				</div>
-				<Footer />
-			</React.Fragment>
+			// <React.Fragment>
+			<div>
+				{/* <NavBar /> */}
+				{/* lg={4} md={5} sm={7} className="mx-auto mt-4" */}
+				<Col>
+					<LoginForm />
+				</Col>
+			</div>
+
+			// </React.Fragment>
 		);
 	}
 }
