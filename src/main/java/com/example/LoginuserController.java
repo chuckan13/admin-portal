@@ -84,6 +84,5 @@ public class LoginuserController {
             return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
         }
         return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
-
     }
 }

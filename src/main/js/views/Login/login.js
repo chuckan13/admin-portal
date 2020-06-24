@@ -16,7 +16,7 @@ export default function Login() {
 		formData.append('password', password);
 		const data = new URLSearchParams(formData);
 		console.log(data);
-
+		debugger;
 		fetch('https://application-portal-admin.herokuapp.com/login-process', {
 			method: 'POST',
 			body: data
@@ -24,6 +24,7 @@ export default function Login() {
 			.then(response => {
 				console.log('Success');
 				console.log(response);
+				debugger;
 				window.location.replace(response.url);
 			})
 			.catch(error => {
