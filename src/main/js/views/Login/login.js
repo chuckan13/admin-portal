@@ -15,6 +15,7 @@ export default function Login() {
 		formData.append('username', userName);
 		formData.append('password', password);
 		const data = new URLSearchParams(formData);
+		console.log(data);
 
 		fetch('https://application-portal-admin.herokuapp.com/login-process', {
 			method: 'POST',
@@ -22,6 +23,7 @@ export default function Login() {
 		})
 			.then(response => {
 				console.log('Success');
+				console.log(response);
 				window.location.replace(response.url);
 			})
 			.catch(error => {
@@ -33,11 +35,11 @@ export default function Login() {
 		<div className="Login">
 			<form onSubmit={handleSubmit}>
 				<FormGroup controlId="text" bsSize="large">
-					<ControlLabel>Username</ControlLabel>
+					<ControlLabel id="email-label">Username</ControlLabel>
 					<FormControl autoFocus type="text" value={userName} onChange={e => setUsername(e.target.value)} />
 				</FormGroup>
 				<FormGroup controlId="password" bsSize="large">
-					<ControlLabel>Password</ControlLabel>
+					<ControlLabel id="email-label">Password</ControlLabel>
 					<FormControl value={password} onChange={e => setPassword(e.target.value)} type="password" />
 				</FormGroup>
 				<Button block bsSize="large" disabled={!validateForm()} type="submit">
