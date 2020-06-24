@@ -36,22 +36,22 @@ export default function Login() {
 	return (
 		<div className="Login">
 			<form name="f" action="login-process" method="POST" id="loginform">
-				<table>
-					<tbody>
-						<tr>
-							<td>
+				<table id="table-line">
+					<tbody id="table-line">
+						<tr id="table-line">
+							<td id="table-line">
 								<p>Username</p>
 								<input type="text" name="username" size="30" />
 							</td>
 						</tr>
-						<tr>
-							<td>
+						<tr id="table-line">
+							<td id="table-line">
 								<p>Password</p>
 								<input type="password" name="password" size="30" />
 							</td>
 						</tr>
-						<tr>
-							<td>
+						<tr id="table-line">
+							<td id="table-line">
 								<input id="submit-button" type="submit" value="Submit" />
 							</td>
 						</tr>

@@ -18,22 +18,22 @@
     max-width:320px;
     background-color: #1f1f1f !important; 
 }
-table{
+#table-line{
     background-color: #1f1f1f !important; 
     max-width: 320px;
     margin: 0 auto;
 }
-tbody{
+#tbody-line{
     background-color: #1f1f1f !important; 
     max-width: 320px;
     margin: 0 auto;
 }
-tr{
+#tr-line{
     background-color: #1f1f1f !important; 
     max-width: 320px;
     margin: 0 auto;
 }
-td{
+#td-line{
     background-color: #1f1f1f !important; 
     max-width: 320px;
     margin: 0 auto;
