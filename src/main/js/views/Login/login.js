@@ -51,7 +51,6 @@ export default function Login() {
 							</td>
 						</tr>
 						<tr>
-							<td />
 							<td>
 								<input id="submit-button" type="submit" value="Submit" />
 							</td>
