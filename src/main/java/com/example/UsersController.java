@@ -1,5 +1,6 @@
 package com.example;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,16 @@ public class UsersController {
     private UserteamRepository userTeamRepo;
     private TeamRepository teamRepo;
     private ResponseRepository respRepo;
+    private LoginuserRepository loginRepo;
 
     @Autowired
     public UsersController(UsersRepository repository, UserteamRepository userTeamRepo, TeamRepository teamRepo,
-            ResponseRepository respRepo) {
+            ResponseRepository respRepo, LoginuserRepository loginRepo) {
         this.repository = repository;
         this.userTeamRepo = userTeamRepo;
         this.teamRepo = teamRepo;
         this.respRepo = respRepo;
+        this.loginRepo = loginRepo;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -68,7 +71,20 @@ public class UsersController {
     }
 
     @RequestMapping
-    public List<Users> all() {
-        return repository.findAll();
+    public List<Users> all(Principal principal) {
+        String loggedin = principal.getName();
+        Loginuser loginuser = loginRepo.findByUserName(loggedin);
+        Team team = teamRepo.findOne(loginuser.getId());
+        List<Userteam> userTeams = userTeamRepo.findByTeamId(team.getId());
+        List<Long> userIds = new ArrayList<Long>();
+        List<Users> users = new ArrayList<Users>();
+        for (Userteam userTeam : userTeams) {
+            userIds.add(userTeam.getUserId());
+        }
+        for (Long userId : userIds) {
+            users.add(repository.findOne(userId));
+        }
+
+        return users;
     }
 }

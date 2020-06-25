@@ -15,6 +15,16 @@ public class Team {
 
     @Column(name = "name")
     private String name;
+    @Column(name = "loginuser_id")
+    private String loginuserId;
+
+    public String getLoginuserId() {
+        return this.loginuserId;
+    }
+
+    public void setLoginuserId(String loginuserId) {
+        this.loginuserId = loginuserId;
+    }
 
     public String getName() {
         return this.name;
@@ -30,5 +40,6 @@ public class Team {
 
     public void updateParameters(Team other) {
         this.name = other.getName();
+        this.loginuserId = other.getLoginuserId();
     }
 }
