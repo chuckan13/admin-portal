@@ -65667,25 +65667,35 @@ var Login = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Login);
 
-  function Login() {
+  // componentDidMount() {
+  // 	fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
+  // 		.then(response => response.json())
+  // 		.then(data => {
+  // 			console.log('Success: ', data);
+  // 			if (data == true) window.location.replace('https://application-portal-admin.herokuapp.com/admin');
+  // 		})
+  // 		.catch(error => {
+  // 			console.error('Error:', error);
+  // 		});
+  // }
+  function Login(props, context) {
+    var _this;
+
     _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Login);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props, context);
+    fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus').then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      console.log('Success: ', data);
+      if (data == true) window.location.replace('https://application-portal-admin.herokuapp.com/admin');
+    })["catch"](function (error) {
+      console.error('Error:', error);
+    });
+    return _this;
   }
 
   _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Login, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus').then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        console.log('Success: ', data);
-        if (data == true) window.location.replace('https://application-portal-admin.herokuapp.com/admin');
-      })["catch"](function (error) {
-        console.error('Error:', error);
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(LoginForm, null));

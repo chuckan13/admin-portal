@@ -87,7 +87,19 @@ function LoginForm() {
 	);
 }
 class Login extends React.Component {
-	componentDidMount() {
+	// componentDidMount() {
+	// 	fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
+	// 		.then(response => response.json())
+	// 		.then(data => {
+	// 			console.log('Success: ', data);
+	// 			if (data == true) window.location.replace('https://application-portal-admin.herokuapp.com/admin');
+	// 		})
+	// 		.catch(error => {
+	// 			console.error('Error:', error);
+	// 		});
+	// }
+	constructor(props, context) {
+		super(props, context);
 		fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
 			.then(response => response.json())
 			.then(data => {
