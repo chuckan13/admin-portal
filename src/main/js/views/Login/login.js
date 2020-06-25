@@ -86,7 +86,7 @@ function LoginForm() {
 		</div>
 	);
 }
-class Login extends Component {
+class Login extends React.Component {
 	componentDidMount() {
 		fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
 			.then(response => response.json())

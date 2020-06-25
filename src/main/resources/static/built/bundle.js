@@ -65669,8 +65669,8 @@ function LoginForm() {
   })))))));
 }
 
-var Login = /*#__PURE__*/function (_Component) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(Login, _Component);
+var Login = /*#__PURE__*/function (_React$Component) {
+  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_2___default()(Login, _React$Component);
 
   var _super = _createSuper(Login);
 
@@ -65700,7 +65700,7 @@ var Login = /*#__PURE__*/function (_Component) {
   }]);
 
   return Login;
-}(Component);
+}(react__WEBPACK_IMPORTED_MODULE_8___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (Login);
 
