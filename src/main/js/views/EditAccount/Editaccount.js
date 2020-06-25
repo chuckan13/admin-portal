@@ -41,6 +41,7 @@ class Edit extends React.Component {
 	}
 	handleSubmitClick() {
 		if (this.state.oldPassword === this.state.user.password) {
+			var that = this;
 			axios
 				.put('/api/loginusers', {
 					fullName: this.state.user.fullName,
@@ -50,7 +51,7 @@ class Edit extends React.Component {
 				})
 				.then(function(response) {
 					console.log('Success');
-					this.setState({ passwordUpdated: true });
+					that.setState({ passwordUpdated: true });
 				})
 				.catch(function(error) {
 					console.log(error);

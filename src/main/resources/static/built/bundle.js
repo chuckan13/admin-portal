@@ -4245,7 +4245,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#title, #short-response-title {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 50px;\r\n    margin-bottom: 0px;\r\n  }\r\n  h3{\r\n      color: #fff;\r\n  }\r\n  \r\n  /* form styles */\r\n  #short-form-answer, #long-form-answer {\r\n    display: block;\r\n    margin: auto;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 20px 15px;\r\n    font-size: 14px;\r\n    line-height: 1.42857143;\r\n    color: #555;\r\n    background-color: #fff;\r\n    background-image: none;\r\n    border: 1px solid #ccc;\r\n    border-radius: 8px;\r\n    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);\r\n    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);\r\n    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  }\r\n  \r\n  #short-form-answer {\r\n    max-width: 400px;\r\n  }\r\n  \r\n  #long-form-answer {\r\n    max-width: 470px;\r\n    height: 160px;\r\n    padding-top: 12px;\r\n  }\r\n  \r\n  #short-form-label, #long-form-label {\r\n    color: #fff;\r\n    text-align: left;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 0px;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 30px 5px;\r\n    font-family: Avenir;\r\n    font-size: 16px;\r\n    line-height: 1.42857143;\r\n    font-weight: lighter;\r\n  }\r\n  \r\n  #short-form-label {\r\n    max-width: 400px;\r\n  }\r\n  \r\n  #long-form-label {\r\n    max-width: 470px;\r\n    color: #272727;\r\n    padding-left: 10px;\r\n  }\r\n  \r\n  .btn-next {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    border-radius: 25px;\r\n    padding: 10px 35px 10px 33px;\r\n    font-size: 20px;\r\n    text-align: center;\r\n    margin-top: 40px;\r\n    margin-bottom: 60px;\r\n  }\r\n  \r\n  ", ""]);
+exports.push([module.i, "#title, #short-response-title {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 50px;\r\n    margin-bottom: 0px;\r\n  }\r\n  h3{\r\n      color: #fff;\r\n      font-size:10px;\r\n  }\r\n  \r\n  /* form styles */\r\n  #short-form-answer, #long-form-answer {\r\n    display: block;\r\n    margin: auto;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 20px 15px;\r\n    font-size: 14px;\r\n    line-height: 1.42857143;\r\n    color: #555;\r\n    background-color: #fff;\r\n    background-image: none;\r\n    border: 1px solid #ccc;\r\n    border-radius: 8px;\r\n    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);\r\n    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);\r\n    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  }\r\n  \r\n  #short-form-answer {\r\n    max-width: 400px;\r\n  }\r\n  \r\n  #long-form-answer {\r\n    max-width: 470px;\r\n    height: 160px;\r\n    padding-top: 12px;\r\n  }\r\n  \r\n  #short-form-label, #long-form-label {\r\n    color: #fff;\r\n    text-align: left;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 0px;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 30px 5px;\r\n    font-family: Avenir;\r\n    font-size: 16px;\r\n    line-height: 1.42857143;\r\n    font-weight: lighter;\r\n  }\r\n  \r\n  #short-form-label {\r\n    max-width: 400px;\r\n  }\r\n  \r\n  #long-form-label {\r\n    max-width: 470px;\r\n    color: #272727;\r\n    padding-left: 10px;\r\n  }\r\n  \r\n  .btn-next {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    border-radius: 25px;\r\n    padding: 10px 35px 10px 33px;\r\n    font-size: 20px;\r\n    text-align: center;\r\n    margin-top: 40px;\r\n    margin-bottom: 60px;\r\n  }\r\n  \r\n  ", ""]);
 // Exports
 module.exports = exports;
 
@@ -65335,6 +65335,7 @@ var Edit = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmitClick",
     value: function handleSubmitClick() {
       if (this.state.oldPassword === this.state.user.password) {
+        var that = this;
         axios__WEBPACK_IMPORTED_MODULE_8___default.a.put('/api/loginusers', {
           fullName: this.state.user.fullName,
           userName: this.state.user.userName,
@@ -65342,7 +65343,7 @@ var Edit = /*#__PURE__*/function (_React$Component) {
           password: this.state.newPassword
         }).then(function (response) {
           console.log('Success');
-          this.setState({
+          that.setState({
             passwordUpdated: true
           });
         })["catch"](function (error) {
