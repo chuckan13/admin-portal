@@ -87,7 +87,27 @@ function LoginForm() {
 	);
 }
 class Login extends React.Component {
-	// componentDidMount() {
+	state = {
+		notloggedin: false
+	};
+	async componentDidMount() {
+		await fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
+			.then(response => response.json())
+			.then(data => {
+				console.log('Success: ', data);
+				if (data == true) {
+					this.setState({ notloggedin: false });
+					window.location.replace('https://application-portal-admin.herokuapp.com/admin');
+				} else {
+					this.setState({ notloggedin: true });
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+			});
+	}
+	// constructor(props, context) {
+	// 	super(props, context);
 	// 	fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
 	// 		.then(response => response.json())
 	// 		.then(data => {
@@ -98,26 +118,18 @@ class Login extends React.Component {
 	// 			console.error('Error:', error);
 	// 		});
 	// }
-	constructor(props, context) {
-		super(props, context);
-		fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
-			.then(response => response.json())
-			.then(data => {
-				console.log('Success: ', data);
-				if (data == true) window.location.replace('https://application-portal-admin.herokuapp.com/admin');
-			})
-			.catch(error => {
-				console.error('Error:', error);
-			});
-	}
 
 	render() {
-		return (
+		notloggedin ? (
+			// return (
 			<div>
 				{/* <Col lg={4} md={5} sm={7} className="mx-auto mt-4"> */}
 				<LoginForm />
 				{/* </Col> */}
 			</div>
+		) : (
+			// );
+			<div>Not found</div>
 		);
 	}
 }

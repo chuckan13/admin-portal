@@ -1,0 +1,17 @@
+#welcome-content {
+    font-family: Avenir;
+    margin: auto;
+  }
+  .btn-apply {
+	color: #fff;
+	background-color: #3891b8;
+	border-radius: 15px;
+	padding: 20px 30px;
+	font-size: 20px;
+}
+p, h1, h3 {
+    font-family: Avenir;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+  }
