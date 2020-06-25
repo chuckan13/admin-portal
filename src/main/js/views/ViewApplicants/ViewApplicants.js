@@ -29,7 +29,7 @@ class viewApplicants extends Component {
 
 		this.displayInfo = this.displayInfo.bind(this);
 		this.displayTable = this.displayTable.bind(this);
-		this.getTeams = this.getTeams.bind(this);
+		// this.getTeams = this.getTeams.bind(this);
 	}
 
 	async componentDidMount() {
