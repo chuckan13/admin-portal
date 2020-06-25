@@ -13,12 +13,13 @@ class viewApplicants extends Component {
 		users: {},
 		viewUser: false,
 		user: 0,
-		teamOne: '',
-		teamTwo: '',
-		teamThree: '',
-		teamOneQuestions: [],
-		teamTwoQuestions: [],
-		teamThreeQuestions: [],
+		currTeam: '',
+		// teamOne: '',
+		// teamTwo: '',
+		// teamThree: '',
+		// teamOneQuestions: [],
+		// teamTwoQuestions: [],
+		// teamThreeQuestions: [],
 		responses: [],
 		questions: []
 	};
@@ -43,6 +44,14 @@ class viewApplicants extends Component {
 			})
 			.catch(err => console.log(err));
 		// console.log('All aplicants', allApplicants);
+
+		await axios
+			.get('/api/teams')
+			.then(res => {
+				currTeam = res.data;
+				this.setState({ currTeam: currTeam });
+			})
+			.catch(err => console.log(err));
 
 		await Promise.all(
 			allApplicants.map(obj =>
@@ -80,26 +89,26 @@ class viewApplicants extends Component {
 			})
 			.catch(err => console.log(err));
 
-		await axios
-			.get('/api/users/teams/' + userId)
-			.then(res => {
-				// console.log('Teams', res.data);
-				this.setState(
-					{
-						teamOne: res.data[0],
-						teamTwo: res.data[1],
-						teamThree: res.data[2]
-					},
-					function() {
-						console.log('List teams');
-						console.log(this.state.teamOne);
-						console.log(this.state.teamTwo);
-						console.log(this.state.teamThree);
-						// console.log(this.state.teamOne);
-					}
-				);
-			})
-			.catch(err => console.log(err));
+		// await axios
+		// 	.get('/api/users/teams/' + userId)
+		// 	.then(res => {
+		// 		// console.log('Teams', res.data);
+		// 		this.setState(
+		// 			{
+		// 				teamOne: res.data[0],
+		// 				teamTwo: res.data[1],
+		// 				teamThree: res.data[2]
+		// 			},
+		// 			function() {
+		// 				console.log('List teams');
+		// 				console.log(this.state.teamOne);
+		// 				console.log(this.state.teamTwo);
+		// 				console.log(this.state.teamThree);
+		// 				// console.log(this.state.teamOne);
+		// 			}
+		// 		);
+		// 	})
+		// 	.catch(err => console.log(err));
 
 		await axios
 			.get('/api/users/responses/' + userId)
@@ -133,50 +142,50 @@ class viewApplicants extends Component {
 		console.log('All Questions');
 		console.log(questionList);
 
-		await axios
-			.get('/api/questions/teams/' + this.state.teamOne.id)
-			.then(res => {
-				this.setState(
-					{
-						teamOneQuestions: res.data
-					},
-					function() {
-						console.log('Team One Questions');
-						console.log(this.state.teamOneQuestions);
-					}
-				);
-			})
-			.catch(err => console.log(err));
+		// await axios
+		// 	.get('/api/questions/teams/' + this.state.teamOne.id)
+		// 	.then(res => {
+		// 		this.setState(
+		// 			{
+		// 				teamOneQuestions: res.data
+		// 			},
+		// 			function() {
+		// 				console.log('Team One Questions');
+		// 				console.log(this.state.teamOneQuestions);
+		// 			}
+		// 		);
+		// 	})
+		// 	.catch(err => console.log(err));
 
-		await axios
-			.get('/api/questions/teams/' + this.state.teamTwo.id)
-			.then(res => {
-				this.setState(
-					{
-						teamTwoQuestions: res.data
-					},
-					function() {
-						console.log('Team Two Questions');
-						console.log(this.state.teamTwoQuestions);
-					}
-				);
-			})
-			.catch(err => console.log(err));
+		// await axios
+		// 	.get('/api/questions/teams/' + this.state.teamTwo.id)
+		// 	.then(res => {
+		// 		this.setState(
+		// 			{
+		// 				teamTwoQuestions: res.data
+		// 			},
+		// 			function() {
+		// 				console.log('Team Two Questions');
+		// 				console.log(this.state.teamTwoQuestions);
+		// 			}
+		// 		);
+		// 	})
+		// 	.catch(err => console.log(err));
 
-		await axios
-			.get('/api/questions/teams/' + this.state.teamThree.id)
-			.then(res => {
-				this.setState(
-					{
-						teamThreeQuestions: res.data
-					},
-					function() {
-						console.log('Team Three Questions');
-						console.log(this.state.teamThreeQuestions);
-					}
-				);
-			})
-			.catch(err => console.log(err));
+		// await axios
+		// 	.get('/api/questions/teams/' + this.state.teamThree.id)
+		// 	.then(res => {
+		// 		this.setState(
+		// 			{
+		// 				teamThreeQuestions: res.data
+		// 			},
+		// 			function() {
+		// 				console.log('Team Three Questions');
+		// 				console.log(this.state.teamThreeQuestions);
+		// 			}
+		// 		);
+		// 	})
+		// 	.catch(err => console.log(err));
 	}
 
 	displayTable() {
@@ -185,28 +194,28 @@ class viewApplicants extends Component {
 		});
 	}
 
-	async getTeams(userId) {
-		let t1 = '';
-		let t2 = '';
-		let t3 = '';
-		await axios
-			.get('/api/users/teams/' + userId)
-			.then(res => {
-				// console.log(res.data);
-				t1 = res.data[0];
-				t2 = res.data[1];
-				t3 = res.data[2];
-			})
-			.catch(err => console.log(err));
-		return [ t1, t2, t3 ];
-	}
+	// async getTeams(userId) {
+	// 	let t1 = '';
+	// 	let t2 = '';
+	// 	let t3 = '';
+	// 	await axios
+	// 		.get('/api/users/teams/' + userId)
+	// 		.then(res => {
+	// 			// console.log(res.data);
+	// 			t1 = res.data[0];
+	// 			t2 = res.data[1];
+	// 			t3 = res.data[2];
+	// 		})
+	// 		.catch(err => console.log(err));
+	// 	return [ t1, t2, t3 ];
+	// }
 
 	render() {
 		let renderTable = this.state.applicants.map(user => {
 			// catch if user doesn't have 3 teams ranked
-			let c1 = 'empty',
-				c2 = 'empty',
-				c3 = 'empty';
+			// let c1 = 'empty',
+			// 	c2 = 'empty',
+			// 	c3 = 'empty';
 			// let teams = this.getTeams(user.id);
 			// await axios
 			// 	.get('/api/users/teams/' + user.id)
@@ -217,30 +226,30 @@ class viewApplicants extends Component {
 			// 		c3 = res.data[2];
 			// 	})
 			// 	.catch(err => console.log(err));
-			var allTeams = this.state.users[user.id];
-			// console.log('ALL teams', allTeams);
-			if (allTeams === undefined) {
-				console.log('allteams undefined');
-			} else {
-				if (allTeams[0]) {
-					c1 = allTeams[0].name;
-				}
-				if (allTeams[1]) {
-					c2 = allTeams[1].name;
-				}
-				if (allTeams[2]) {
-					c3 = allTeams[2].name;
-				}
-			}
+			// var allTeams = this.state.users[user.id];
+			// // console.log('ALL teams', allTeams);
+			// if (allTeams === undefined) {
+			// 	console.log('allteams undefined');
+			// } else {
+			// 	if (allTeams[0]) {
+			// 		c1 = allTeams[0].name;
+			// 	}
+			// 	if (allTeams[1]) {
+			// 		c2 = allTeams[1].name;
+			// 	}
+			// 	if (allTeams[2]) {
+			// 		c3 = allTeams[2].name;
+			// 	}
+			// }
 
 			return [
 				<TableEntry
 					key={user.id}
 					firstName={user.firstName}
 					lastName={user.lastName}
-					c1={c1}
-					c2={c2}
-					c3={c3}
+					// c1={c1}
+					// c2={c2}
+					// c3={c3}
 					onClick={() => this.displayInfo(user.id)}
 				/>
 			];
@@ -299,12 +308,13 @@ class viewApplicants extends Component {
 			display = (
 				<UserProfile
 					user={this.state.user}
-					teamOne={this.state.teamOne}
-					teamTwo={this.state.teamTwo}
-					teamThree={this.state.teamThree}
-					teamOneQuestions={this.state.teamOneQuestions}
-					teamTwoQuestions={this.state.teamTwoQuestions}
-					teamThreeQuestions={this.state.teamThreeQuestions}
+					team={this.state.currTeam}
+					// teamOne={this.state.teamOne}
+					// teamTwo={this.state.teamTwo}
+					// teamThree={this.state.teamThree}
+					// teamOneQuestions={this.state.teamOneQuestions}
+					// teamTwoQuestions={this.state.teamTwoQuestions}
+					// teamThreeQuestions={this.state.teamThreeQuestions}
 					responses={this.state.responses}
 					questions={this.state.questions}
 					onClick={this.displayTable}
@@ -331,12 +341,12 @@ function UserProfile(props) {
 				<div>
 					<p id="header">Short Response Questions</p>
 					<TeamResponses
-						team={props.teamOne.name}
-						num="One"
-						questions={props.teamOneQuestions}
+						team={props.team.name}
+						// num="One"
+						questions={props.questions}
 						resp={props.responses}
 					/>
-					{props.teamTwo ? (
+					{/* {props.teamTwo ? (
 						<TeamResponses
 							team={props.teamTwo.name}
 							num="Two"
@@ -355,7 +365,7 @@ function UserProfile(props) {
 						/>
 					) : (
 						''
-					)}
+					)} */}
 					{/* <ShortResponseSection
 						id="response"
 						name={props.teamOne.name}
@@ -426,10 +436,7 @@ function TeamResponses(props) {
 
 	return (
 		<div id="choice-section">
-			<p id="review-choice">
-				{' '}
-				Choice {props.num}: {props.team}{' '}
-			</p>
+			<p id="review-choice"> Choice: {props.team} </p>
 			<div id="responses">{responses}</div>
 		</div>
 	);

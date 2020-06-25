@@ -16,23 +16,25 @@ public class UsersController {
     private TeamRepository teamRepo;
     private ResponseRepository respRepo;
     private LoginuserRepository loginRepo;
+    private QuestionRepository questRepo;
 
     @Autowired
     public UsersController(UsersRepository repository, UserteamRepository userTeamRepo, TeamRepository teamRepo,
-            ResponseRepository respRepo, LoginuserRepository loginRepo) {
+            ResponseRepository respRepo, LoginuserRepository loginRepo, QuestionRepository questRepo) {
         this.repository = repository;
         this.userTeamRepo = userTeamRepo;
         this.teamRepo = teamRepo;
         this.respRepo = respRepo;
         this.loginRepo = loginRepo;
+        this.questRepo = questRepo;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Users> get(@PathVariable("id") Long id) {
-        Users loan = repository.findOne(id);
-        if (null == loan)
+        Users user = repository.findOne(id);
+        if (null == user)
             return new ResponseEntity<Users>(HttpStatus.NOT_FOUND);
-        return new ResponseEntity<Users>(loan, HttpStatus.OK);
+        return new ResponseEntity<Users>(user, HttpStatus.OK);
     }
 
     // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -66,8 +68,19 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/responses/{id}", method = RequestMethod.GET)
-    public List<Response> getAllResponses(@PathVariable("id") Long id) {
-        return respRepo.findByUserId(id);
+    public List<Response> getAllResponses(@PathVariable("id") Long id, Principal principal) {
+        Loginuser loginuser = loginRepo.findByUserName(principal.getName());
+        Team currTeam = teamRepo.findOne(loginuser.getId());
+        List<Response> allResp = respRepo.findByUserId(id);
+        List<Response> currResp = new ArrayList<Response>();
+        for (Response resp : allResp) {
+            Question currQuestion = questRepo.findOne(resp.getQuestionId());
+            if (currQuestion.getTeamId() == currTeam.getId()) {
+                currResp.add(resp);
+            }
+        }
+
+        return currResp;
     }
 
     @RequestMapping

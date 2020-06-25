@@ -1,5 +1,6 @@
 package com.example;
 
+import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/teams")
 public class TeamController {
     private TeamRepository repository;
+    private LoginuserRepository loginRepo;
 
     @Autowired
-    public TeamController(TeamRepository repository) {
+    public TeamController(TeamRepository repository, LoginuserRepository loginRepo) {
         this.repository = repository;
+        this.loginRepo = loginRepo;
     }
 
     // @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -40,7 +43,8 @@ public class TeamController {
     // }
 
     @RequestMapping
-    public List<Team> all() {
-        return repository.findAll();
+    public ResponseEntity<Team> getTeam(Principal principal) {
+        Loginuser loginuser = loginRepo.findByUserName(principal.getName());
+        return new ResponseEntity<Team>(repository.findOne(loginuser.getId()), HttpStatus.OK);
     }
 }

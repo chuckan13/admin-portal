@@ -58434,12 +58434,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       users: {},
       viewUser: false,
       user: 0,
-      teamOne: '',
-      teamTwo: '',
-      teamThree: '',
-      teamOneQuestions: [],
-      teamTwoQuestions: [],
-      teamThreeQuestions: [],
+      currTeam: '',
+      // teamOne: '',
+      // teamTwo: '',
+      // teamThree: '',
+      // teamOneQuestions: [],
+      // teamTwoQuestions: [],
+      // teamThreeQuestions: [],
       responses: [],
       questions: []
     });
@@ -58477,6 +58478,18 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 4:
                 _context.next = 6;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/teams').then(function (res) {
+                  currTeam = res.data;
+
+                  _this2.setState({
+                    currTeam: currTeam
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 6:
+                _context.next = 8;
                 return Promise.all(allApplicants.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
                     // console.log('in /api/users/teams');
@@ -58485,13 +58498,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 6:
+              case 8:
                 // console.log('users dict', users);
                 this.setState({
                   users: users
                 });
 
-              case 7:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -58536,24 +58549,6 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 2:
                 _context2.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
-                  // console.log('Teams', res.data);
-                  _this3.setState({
-                    teamOne: res.data[0],
-                    teamTwo: res.data[1],
-                    teamThree: res.data[2]
-                  }, function () {
-                    console.log('List teams');
-                    console.log(this.state.teamOne);
-                    console.log(this.state.teamTwo);
-                    console.log(this.state.teamThree); // console.log(this.state.teamOne);
-                  });
-                })["catch"](function (err) {
-                  return console.log(err);
-                });
-
-              case 4:
-                _context2.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/responses/' + userId).then(function (res) {
                   // console.log('responses: ', res.data);
                   _this3.setState({
@@ -58566,9 +58561,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 6:
+              case 4:
                 questionList = [];
-                _context2.next = 9;
+                _context2.next = 7;
                 return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.questionId).then(function (response) {
                     questionList.push(response.data.questionId);
@@ -58577,51 +58572,55 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 9:
+              case 7:
                 this.setState({
                   questions: questionList
                 });
                 console.log('All Questions');
-                console.log(questionList);
-                _context2.next = 14;
-                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamOne.id).then(function (res) {
-                  _this3.setState({
-                    teamOneQuestions: res.data
-                  }, function () {
-                    console.log('Team One Questions');
-                    console.log(this.state.teamOneQuestions);
-                  });
-                })["catch"](function (err) {
-                  return console.log(err);
-                });
+                console.log(questionList); // await axios
+                // 	.get('/api/questions/teams/' + this.state.teamOne.id)
+                // 	.then(res => {
+                // 		this.setState(
+                // 			{
+                // 				teamOneQuestions: res.data
+                // 			},
+                // 			function() {
+                // 				console.log('Team One Questions');
+                // 				console.log(this.state.teamOneQuestions);
+                // 			}
+                // 		);
+                // 	})
+                // 	.catch(err => console.log(err));
+                // await axios
+                // 	.get('/api/questions/teams/' + this.state.teamTwo.id)
+                // 	.then(res => {
+                // 		this.setState(
+                // 			{
+                // 				teamTwoQuestions: res.data
+                // 			},
+                // 			function() {
+                // 				console.log('Team Two Questions');
+                // 				console.log(this.state.teamTwoQuestions);
+                // 			}
+                // 		);
+                // 	})
+                // 	.catch(err => console.log(err));
+                // await axios
+                // 	.get('/api/questions/teams/' + this.state.teamThree.id)
+                // 	.then(res => {
+                // 		this.setState(
+                // 			{
+                // 				teamThreeQuestions: res.data
+                // 			},
+                // 			function() {
+                // 				console.log('Team Three Questions');
+                // 				console.log(this.state.teamThreeQuestions);
+                // 			}
+                // 		);
+                // 	})
+                // 	.catch(err => console.log(err));
 
-              case 14:
-                _context2.next = 16;
-                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamTwo.id).then(function (res) {
-                  _this3.setState({
-                    teamTwoQuestions: res.data
-                  }, function () {
-                    console.log('Team Two Questions');
-                    console.log(this.state.teamTwoQuestions);
-                  });
-                })["catch"](function (err) {
-                  return console.log(err);
-                });
-
-              case 16:
-                _context2.next = 18;
-                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamThree.id).then(function (res) {
-                  _this3.setState({
-                    teamThreeQuestions: res.data
-                  }, function () {
-                    console.log('Team Three Questions');
-                    console.log(this.state.teamThreeQuestions);
-                  });
-                })["catch"](function (err) {
-                  return console.log(err);
-                });
-
-              case 18:
+              case 10:
               case "end":
                 return _context2.stop();
             }
@@ -58641,46 +58640,22 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       this.setState({
         viewUser: false
       });
-    }
-  }, {
-    key: "getTeams",
-    value: function () {
-      var _getTeams = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(userId) {
-        var t1, t2, t3;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                t1 = '';
-                t2 = '';
-                t3 = '';
-                _context3.next = 5;
-                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
-                  // console.log(res.data);
-                  t1 = res.data[0];
-                  t2 = res.data[1];
-                  t3 = res.data[2];
-                })["catch"](function (err) {
-                  return console.log(err);
-                });
+    } // async getTeams(userId) {
+    // 	let t1 = '';
+    // 	let t2 = '';
+    // 	let t3 = '';
+    // 	await axios
+    // 		.get('/api/users/teams/' + userId)
+    // 		.then(res => {
+    // 			// console.log(res.data);
+    // 			t1 = res.data[0];
+    // 			t2 = res.data[1];
+    // 			t3 = res.data[2];
+    // 		})
+    // 		.catch(err => console.log(err));
+    // 	return [ t1, t2, t3 ];
+    // }
 
-              case 5:
-                return _context3.abrupt("return", [t1, t2, t3]);
-
-              case 6:
-              case "end":
-                return _context3.stop();
-            }
-          }
-        }, _callee3);
-      }));
-
-      function getTeams(_x2) {
-        return _getTeams.apply(this, arguments);
-      }
-
-      return getTeams;
-    }()
   }, {
     key: "render",
     value: function render() {
@@ -58688,9 +58663,10 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
       var renderTable = this.state.applicants.map(function (user) {
         // catch if user doesn't have 3 teams ranked
-        var c1 = 'empty',
-            c2 = 'empty',
-            c3 = 'empty'; // let teams = this.getTeams(user.id);
+        // let c1 = 'empty',
+        // 	c2 = 'empty',
+        // 	c3 = 'empty';
+        // let teams = this.getTeams(user.id);
         // await axios
         // 	.get('/api/users/teams/' + user.id)
         // 	.then(res => {
@@ -58700,32 +58676,28 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         // 		c3 = res.data[2];
         // 	})
         // 	.catch(err => console.log(err));
-
-        var allTeams = _this4.state.users[user.id]; // console.log('ALL teams', allTeams);
-
-        if (allTeams === undefined) {
-          console.log('allteams undefined');
-        } else {
-          if (allTeams[0]) {
-            c1 = allTeams[0].name;
-          }
-
-          if (allTeams[1]) {
-            c2 = allTeams[1].name;
-          }
-
-          if (allTeams[2]) {
-            c3 = allTeams[2].name;
-          }
-        }
-
+        // var allTeams = this.state.users[user.id];
+        // // console.log('ALL teams', allTeams);
+        // if (allTeams === undefined) {
+        // 	console.log('allteams undefined');
+        // } else {
+        // 	if (allTeams[0]) {
+        // 		c1 = allTeams[0].name;
+        // 	}
+        // 	if (allTeams[1]) {
+        // 		c2 = allTeams[1].name;
+        // 	}
+        // 	if (allTeams[2]) {
+        // 		c3 = allTeams[2].name;
+        // 	}
+        // }
         return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
           key: user.id,
           firstName: user.firstName,
-          lastName: user.lastName,
-          c1: c1,
-          c2: c2,
-          c3: c3,
+          lastName: user.lastName // c1={c1}
+          // c2={c2}
+          // c3={c3}
+          ,
           onClick: function onClick() {
             return _this4.displayInfo(user.id);
           }
@@ -58770,12 +58742,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         console.log(this.state);
         display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UserProfile, {
           user: this.state.user,
-          teamOne: this.state.teamOne,
-          teamTwo: this.state.teamTwo,
-          teamThree: this.state.teamThree,
-          teamOneQuestions: this.state.teamOneQuestions,
-          teamTwoQuestions: this.state.teamTwoQuestions,
-          teamThreeQuestions: this.state.teamThreeQuestions,
+          team: this.state.currTeam // teamOne={this.state.teamOne}
+          // teamTwo={this.state.teamTwo}
+          // teamThree={this.state.teamThree}
+          // teamOneQuestions={this.state.teamOneQuestions}
+          // teamTwoQuestions={this.state.teamTwoQuestions}
+          // teamThreeQuestions={this.state.teamThreeQuestions}
+          ,
           responses: this.state.responses,
           questions: this.state.questions,
           onClick: this.displayTable
@@ -58805,21 +58778,11 @@ function UserProfile(props) {
   }, " Concentration: ", props.user.concentration)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    team: props.teamOne.name,
-    num: "One",
-    questions: props.teamOneQuestions,
+    team: props.team.name // num="One"
+    ,
+    questions: props.questions,
     resp: props.responses
-  }), props.teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    team: props.teamTwo.name,
-    num: "Two",
-    questions: props.teamTwoQuestions,
-    resp: props.responses
-  }) : '', props.teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    team: props.teamThree.name,
-    num: "Three",
-    questions: props.teamThreeQuestions,
-    resp: props.responses
-  }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick
   }));
 }
@@ -58857,7 +58820,7 @@ function TeamResponses(props) {
     id: "choice-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "review-choice"
-  }, ' ', "Choice ", props.num, ": ", props.team, ' '), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+  }, " Choice: ", props.team, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     id: "responses"
   }, responses));
 } // function ShortResponseSection(props) {
