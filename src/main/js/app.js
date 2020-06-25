@@ -10,6 +10,7 @@ import Admin from './views/Admin/Admin.js';
 import Login from './views/Login/login.js';
 import Home from './views/Home/Home.js';
 import Error from './views/404/404.js';
+import Edit from './views/EditAccount/Editaccount.js';
 
 class App extends Component {
 	constructor(props) {
@@ -36,8 +37,8 @@ class App extends Component {
 							<Navbar.Collapse>
 								<Nav pullRight>
 									<NavItem eventKey={1} href="#">
-										<a href="/" id="about">
-											about
+										<a href="/edit" id="about">
+											Edit Account
 										</a>
 									</NavItem>
 								</Nav>
@@ -47,6 +48,7 @@ class App extends Component {
 					<Switch>
 						<Route exact path="/" component={Home} exact />
 						{/* <Route path="/apply" component={Apply} /> */}
+						<Route path="/edit" component={Edit} />
 						<Route path="/admin" component={Admin} />
 						<Route path="/loginpage" component={Login} />
 						<Route component={Error} />

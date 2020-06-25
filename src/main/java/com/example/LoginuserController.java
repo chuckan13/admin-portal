@@ -32,7 +32,7 @@ public class LoginuserController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @RequestMapping(method = RequestMethod.PATCH)
+    @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<Loginuser> editUser(@RequestBody Loginuser loginuser, Principal principal) {
         Loginuser foundLoginuser = repository.findByUserName(principal.getName());
         if (null == foundLoginuser)
