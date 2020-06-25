@@ -23,9 +23,11 @@ class Error extends Component {
 				<h3>The page you're looking for doesn't exist!</h3>
 				<p>Try checking the previous page, or click the button below to go to our homepage.</p>
 				<Row className="justify-content-center justify-content-md-start">
-					<Button href="/" variant="main" bsStyle="apply" bsSize="large">
-						Take me home <FaMusic className="ml-1" />
-					</Button>
+					<div id="begin-button">
+						<Button href="/" variant="main" bsStyle="apply" bsSize="large">
+							Take me home <FaMusic className="ml-1" />
+						</Button>
+					</div>
 				</Row>
 			</div>
 			// </Container>

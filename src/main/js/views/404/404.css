@@ -2,7 +2,7 @@
     font-family: Avenir;
     margin: auto;
   }
-  .btn-apply {
+.btn-apply {
 	color: #fff;
 	background-color: #3891b8;
 	border-radius: 15px;
@@ -16,3 +16,6 @@ p, h1, h3 {
     font-size: 30px;
     text-align: center;
   }
+  #begin-button {
+	margin-top: 50px;
+}
