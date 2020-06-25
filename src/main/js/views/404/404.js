@@ -11,7 +11,8 @@ import { FaMusic } from 'react-icons/fa';
 class Error extends Component {
 	render() {
 		return (
-			<Container className="mt-2 pt-3">
+			// <Container className="mt-2 pt-3">
+			<div>
 				<Row className="justify-content-center">
 					<img src={Logo} height="40" alt="Newton Logo" className="mb-5" />
 				</Row>
@@ -29,7 +30,8 @@ class Error extends Component {
 						Take me home <FaMusic className="ml-1" />
 					</Button>
 				</Row>
-			</Container>
+			</div>
+			// </Container>
 		);
 	}
 }

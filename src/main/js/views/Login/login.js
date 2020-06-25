@@ -2,9 +2,21 @@ import React, { useState } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import './Login.css';
 
-export default function Login() {
+function LoginForm() {
 	const [ userName, setUsername ] = useState('');
 	const [ password, setPassword ] = useState('');
+
+	// componentDidMount() {
+	// 	fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
+	// 		.then(response => response.json())
+	// 		.then(data => {
+	// 			console.log('Success: ', data);
+	// 			if (data == true) window.location.replace('https://application-portal-admin.herokuapp.com/admin');
+	// 		})
+	// 		.catch(error => {
+	// 			console.error('Error:', error);
+	// 		});
+	// }
 
 	function validateForm() {
 		return userName.length > 0 && password.length > 0;
@@ -74,3 +86,28 @@ export default function Login() {
 		</div>
 	);
 }
+class Login extends Component {
+	componentDidMount() {
+		fetch('https://application-portal-admin.herokuapp.com/api/loginusers/signinstatus')
+			.then(response => response.json())
+			.then(data => {
+				console.log('Success: ', data);
+				if (data == true) window.location.replace('https://application-portal-admin.herokuapp.com/admin');
+			})
+			.catch(error => {
+				console.error('Error:', error);
+			});
+	}
+
+	render() {
+		return (
+			<div>
+				{/* <Col lg={4} md={5} sm={7} className="mx-auto mt-4"> */}
+				<LoginForm />
+				{/* </Col> */}
+			</div>
+		);
+	}
+}
+
+export default Login;

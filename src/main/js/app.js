@@ -9,6 +9,7 @@ import Apply from './views/Apply.js';
 import Admin from './views/Admin/Admin.js';
 import Login from './views/Login/login.js';
 import Home from './views/Home/Home.js';
+import Error from './views/404/404.js';
 
 class App extends Component {
 	constructor(props) {
