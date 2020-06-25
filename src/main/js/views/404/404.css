@@ -7,8 +7,9 @@
 	background-color: #3891b8;
 	border-radius: 15px;
 	padding: 20px 30px;
-	font-size: 20px;
-}
+    font-size: 20px;
+    margin: auto;
+  }
 p, h1, h3 {
     font-family: Avenir;
     color: white;

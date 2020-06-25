@@ -20,12 +20,6 @@ class Error extends Component {
 				</Row> */}
 
 				<h1>404</h1>
-				<Row className="align-items-center px-2 pb-3 justify-content-center justify-content-sm-start">
-					<h1 className="display-2 display-sm-1 primary">
-						<b>Uh oh...</b>
-					</h1>
-					{/* <FaGrinBeamSweat className="primary ml-0 ml-sm-5" size={120} /> */}
-				</Row>
 				<h3>The page you're looking for doesn't exist!</h3>
 				<p>Try checking the previous page, or click the button below to go to our homepage.</p>
 				<Row className="justify-content-center justify-content-md-start">
