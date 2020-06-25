@@ -58479,10 +58479,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
               case 4:
                 _context.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/teams').then(function (res) {
-                  currTeam = res.data;
-
+                  // currTeam = res.data;
                   _this2.setState({
-                    currTeam: currTeam
+                    currTeam: res.data
                   });
                 })["catch"](function (err) {
                   return console.log(err);
@@ -58565,8 +58564,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 questionList = [];
                 _context2.next = 7;
                 return Promise.all(this.state.responses.map(function (obj) {
-                  return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.questionId).then(function (response) {
-                    questionList.push(response.data.questionId);
+                  return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.id).then(function (response) {
+                    questionList.push(response.data);
                   })["catch"](function (err) {
                     return console.log(err);
                   });

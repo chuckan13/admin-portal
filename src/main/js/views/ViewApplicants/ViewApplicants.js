@@ -48,8 +48,8 @@ class viewApplicants extends Component {
 		await axios
 			.get('/api/teams')
 			.then(res => {
-				currTeam = res.data;
-				this.setState({ currTeam: currTeam });
+				// currTeam = res.data;
+				this.setState({ currTeam: res.data });
 			})
 			.catch(err => console.log(err));
 
@@ -129,9 +129,9 @@ class viewApplicants extends Component {
 		await Promise.all(
 			this.state.responses.map(obj =>
 				axios
-					.get('/api/responses/question/' + obj.questionId)
+					.get('/api/responses/question/' + obj.id)
 					.then(response => {
-						questionList.push(response.data.questionId);
+						questionList.push(response.data);
 					})
 					.catch(err => console.log(err))
 			)
