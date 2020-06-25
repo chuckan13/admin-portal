@@ -43,9 +43,9 @@ class Edit extends React.Component {
 		if (this.state.oldPassword === this.state.user.password) {
 			axios
 				.put('/api/loginusers', {
-					fullName: user.fullName,
-					userName: user.userName,
-					role: user.role,
+					fullName: this.state.user.fullName,
+					userName: this.state.user.userName,
+					role: this.state.user.role,
 					password: this.state.newPassword
 				})
 				.then(function(response) {
@@ -90,7 +90,9 @@ class Edit extends React.Component {
 					/>
 				</form>
 				<SubmitButton onClick={this.handleSubmitClick} />
-				{message}
+				<div id="title">
+					<h3>{message}</h3>
+				</div>
 			</div>
 		);
 	}

@@ -4,6 +4,9 @@
     margin-top: 50px;
     margin-bottom: 0px;
   }
+  h3{
+      color: #fff;
+  }
   
   /* form styles */
   #short-form-answer, #long-form-answer {
