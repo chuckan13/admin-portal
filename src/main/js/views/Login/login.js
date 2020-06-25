@@ -120,17 +120,30 @@ class Login extends React.Component {
 	// }
 
 	render() {
-		this.state.notloggedin ? (
-			// return (
-			<div>
-				{/* <Col lg={4} md={5} sm={7} className="mx-auto mt-4"> */}
-				<LoginForm />
-				{/* </Col> */}
-			</div>
-		) : (
-			// );
-			<div>Not found</div>
-		);
+		if (this.state.notloggedin) {
+			return (
+				<div>
+					{/* <Col lg={4} md={5} sm={7} className="mx-auto mt-4"> */}
+					<LoginForm />
+					{/* </Col> */}
+				</div>
+			);
+		} else {
+			return <div>Not found</div>;
+		}
+
+		// this.state.notloggedin ? (
+		// 	return (
+		// 	<div>
+		// 		{/* <Col lg={4} md={5} sm={7} className="mx-auto mt-4"> */}
+		// 		<LoginForm />
+		// 		{/* </Col> */}
+		// 	</div>
+		// 	);
+		// ) : (
+		// 	// );
+		// 	<div>Not found</div>
+		// );
 	}
 }
 

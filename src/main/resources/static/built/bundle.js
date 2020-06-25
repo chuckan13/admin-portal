@@ -65755,13 +65755,23 @@ var Login = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      this.state.notloggedin ?
-      /*#__PURE__*/
-      // return (
-      react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(LoginForm, null)) :
-      /*#__PURE__*/
+      if (this.state.notloggedin) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(LoginForm, null));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, "Not found");
+      } // this.state.notloggedin ? (
+      // 	return (
+      // 	<div>
+      // 		{/* <Col lg={4} md={5} sm={7} className="mx-auto mt-4"> */}
+      // 		<LoginForm />
+      // 		{/* </Col> */}
+      // 	</div>
+      // 	);
+      // ) : (
+      // 	// );
+      // 	<div>Not found</div>
       // );
-      react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, "Not found");
+
     }
   }]);
 
