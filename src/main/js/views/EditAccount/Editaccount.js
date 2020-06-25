@@ -95,5 +95,31 @@ class Edit extends React.Component {
 		);
 	}
 }
+function FormEntry(props) {
+	return (
+		<FormGroup>
+			<ControlLabel id="short-form-label">{props.label}</ControlLabel>
+			<FormControl
+				id="short-form-answer"
+				name={props.name}
+				type="text"
+				placeholder={props.ph}
+				value={props.v}
+				onChange={props.onChange}
+			/>
+		</FormGroup>
+	);
+}
 
+function SubmitButton(props) {
+	return (
+		<Row className="center-block text-center">
+			<Col>
+				<Button bsStyle="next" bsSize="large" onClick={props.onClick}>
+					next
+				</Button>
+			</Col>
+		</Row>
+	);
+}
 export default Edit;

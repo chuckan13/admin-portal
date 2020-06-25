@@ -4245,7 +4245,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@media all and (min-width: 480px) {\r\n    .Login {\r\n      padding: 60px 0;\r\n    }\r\n  \r\n    .Login form {\r\n      margin: 0 auto;\r\n      max-width: 320px;\r\n    }\r\n  }\r\n#f {\r\n    margin: 0 auto;\r\n    max-width: 320px;\r\n    background-color: #1f1f1f !important; \r\n} \r\n#loginform{\r\n    margin:0 auto;\r\n    max-width:320px;\r\n    background-color: #1f1f1f !important; \r\n}\r\n#table-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\n#tbody-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\n#tr-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\n#td-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\nbody {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\np {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\nh2 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\n/* input {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n} */\r\n#submit-button {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\na {\r\n    color: white !important;\r\n    font-family: Avenir;\r\n  }\r\n\r\n#email-label {\r\n    color: #fff\r\n}", ""]);
+exports.push([module.i, "#title, #short-response-title {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-top: 50px;\r\n    margin-bottom: 0px;\r\n  }\r\n  \r\n  /* form styles */\r\n  #short-form-answer, #long-form-answer {\r\n    display: block;\r\n    margin: auto;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 20px 15px;\r\n    font-size: 14px;\r\n    line-height: 1.42857143;\r\n    color: #555;\r\n    background-color: #fff;\r\n    background-image: none;\r\n    border: 1px solid #ccc;\r\n    border-radius: 8px;\r\n    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);\r\n    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);\r\n    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;\r\n    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;\r\n  }\r\n  \r\n  #short-form-answer {\r\n    max-width: 400px;\r\n  }\r\n  \r\n  #long-form-answer {\r\n    max-width: 470px;\r\n    height: 160px;\r\n    padding-top: 12px;\r\n  }\r\n  \r\n  #short-form-label, #long-form-label {\r\n    color: #fff;\r\n    text-align: left;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 0px;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 30px 5px;\r\n    font-family: Avenir;\r\n    font-size: 16px;\r\n    line-height: 1.42857143;\r\n    font-weight: lighter;\r\n  }\r\n  \r\n  #short-form-label {\r\n    max-width: 400px;\r\n  }\r\n  \r\n  #long-form-label {\r\n    max-width: 470px;\r\n    color: #272727;\r\n    padding-left: 10px;\r\n  }\r\n  \r\n  .btn-next {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    border-radius: 25px;\r\n    padding: 10px 35px 10px 33px;\r\n    font-size: 20px;\r\n    text-align: center;\r\n    margin-top: 40px;\r\n    margin-bottom: 60px;\r\n  }\r\n  \r\n  ", ""]);
 // Exports
 module.exports = exports;
 
@@ -65389,6 +65389,29 @@ var Edit = /*#__PURE__*/function (_React$Component) {
 
   return Edit;
 }(react__WEBPACK_IMPORTED_MODULE_7___default.a.Component);
+
+function FormEntry(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["ControlLabel"], {
+    id: "short-form-label"
+  }, props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["FormControl"], {
+    id: "short-form-answer",
+    name: props.name,
+    type: "text",
+    placeholder: props.ph,
+    value: props.v,
+    onChange: props.onChange
+  }));
+}
+
+function SubmitButton(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["Row"], {
+    className: "center-block text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["Col"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["Button"], {
+    bsStyle: "next",
+    bsSize: "large",
+    onClick: props.onClick
+  }, "next")));
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (Edit);
 
