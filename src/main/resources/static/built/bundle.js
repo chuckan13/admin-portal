@@ -4234,6 +4234,24 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/EditAccount/EditAccount.css":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/main/js/views/EditAccount/EditAccount.css ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "@media all and (min-width: 480px) {\r\n    .Login {\r\n      padding: 60px 0;\r\n    }\r\n  \r\n    .Login form {\r\n      margin: 0 auto;\r\n      max-width: 320px;\r\n    }\r\n  }\r\n#f {\r\n    margin: 0 auto;\r\n    max-width: 320px;\r\n    background-color: #1f1f1f !important; \r\n} \r\n#loginform{\r\n    margin:0 auto;\r\n    max-width:320px;\r\n    background-color: #1f1f1f !important; \r\n}\r\n#table-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\n#tbody-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\n#tr-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\n#td-line{\r\n    background-color: #1f1f1f !important; \r\n    max-width: 320px;\r\n    margin: 0 auto;\r\n}\r\nbody {\r\n    background-color: #1f1f1f !important; \r\n}\r\n\r\np {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\nh2 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n}\r\n\r\n.btn-submit {\r\n\tcolor: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\n/* input {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n} */\r\n#submit-button {\r\n    color: #fff;\r\n    background-color: #3891b8;\r\n    width: 150px;\r\n    text-align: center;\r\n    border-radius: 15px;\r\n    margin: 25px;\r\n    font-size: 20px;\r\n}\r\na {\r\n    color: white !important;\r\n    font-family: Avenir;\r\n  }\r\n\r\n#email-label {\r\n    color: #fff\r\n}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/EditApplication/EditApplication.css":
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/main/js/views/EditApplication/EditApplication.css ***!
@@ -64293,7 +64311,7 @@ var App = /*#__PURE__*/function (_Component) {
         pullRight: true
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NavItem"], {
         eventKey: 1,
-        href: "#"
+        href: "#edit"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("a", {
         href: "/edit",
         id: "about"
@@ -65192,6 +65210,35 @@ function SubmitButton(props) {
 
 /***/ }),
 
+/***/ "./src/main/js/views/EditAccount/EditAccount.css":
+/*!*******************************************************!*\
+  !*** ./src/main/js/views/EditAccount/EditAccount.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js!./EditAccount.css */ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/EditAccount/EditAccount.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
 /***/ "./src/main/js/views/EditAccount/Editaccount.js":
 /*!******************************************************!*\
   !*** ./src/main/js/views/EditAccount/Editaccount.js ***!
@@ -65217,7 +65264,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
+/* harmony import */ var _EditAccount_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./EditAccount.css */ "./src/main/js/views/EditAccount/EditAccount.css");
+/* harmony import */ var _EditAccount_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_EditAccount_css__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -65230,7 +65281,9 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
+
  // import './BasicInformation.css';
+
 
 
 
@@ -65262,7 +65315,7 @@ var Edit = /*#__PURE__*/function (_React$Component) {
 
     _this.handleSubmitClick = _this.handleSubmitClick.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.updateState = _this.updateState.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
-    axios.get('/api/loginusers').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_8___default.a.get('/api/loginusers').then(function (res) {
       _this.setState({
         user: res.data
       });
@@ -65282,7 +65335,7 @@ var Edit = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmitClick",
     value: function handleSubmitClick() {
       if (this.state.oldPassword === this.state.user.password) {
-        axios.put('/api/loginusers', {
+        axios__WEBPACK_IMPORTED_MODULE_8___default.a.put('/api/loginusers', {
           fullName: user.fullName,
           userName: user.userName,
           role: user.role,

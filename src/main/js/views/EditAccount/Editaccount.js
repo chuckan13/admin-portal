@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 // import './BasicInformation.css';
 import { FormGroup } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
@@ -6,6 +7,7 @@ import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { ControlLabel } from 'react-bootstrap';
+import './EditAccount.css';
 
 // function EditAccount() {
 
