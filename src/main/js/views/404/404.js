@@ -13,9 +13,9 @@ class Error extends Component {
 		return (
 			// <Container className="mt-2 pt-3">
 			<div>
-				<Row className="justify-content-center">
+				{/* <Row className="justify-content-center">
 					<img src={Logo} height="40" alt="Newton Logo" className="mb-5" />
-				</Row>
+				</Row> */}
 				<h1>404</h1>
 				<Row className="align-items-center px-2 pb-3 justify-content-center justify-content-sm-start">
 					<h1 className="display-2 display-sm-1 primary">

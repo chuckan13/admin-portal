@@ -70,13 +70,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .requiresChannel().anyRequest().requiresSecure().and().csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html", "/badcredentials", "/sessionauth")
-                .permitAll().anyRequest().authenticated().and().authorizeRequests()
-                .antMatchers("/loginpage", "/login.html", "/login-process").anonymous().and().formLogin()
-                .loginPage("/login.html").defaultSuccessUrl("/admin", true)
-                .failureHandler(customAuthenticationFailureHandler()).loginProcessingUrl("/login-process").permitAll()
-                .and().logout().deleteCookies("JSESSIONID").invalidateHttpSession(true).clearAuthentication(true)
+                .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login.html")
+                .defaultSuccessUrl("/admin", true).failureHandler(customAuthenticationFailureHandler())
+                .loginProcessingUrl("/login-process").permitAll().and().logout().deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
                 .permitAll();
+
+        // .authorizeRequests().antMatchers("/loginpage", "/login.html",
+        // "/login-process").anonymous().and()
+
         // .and().sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true).expiredUrl("/login?expired=true");
 
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
