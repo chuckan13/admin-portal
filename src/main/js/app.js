@@ -48,6 +48,7 @@ class App extends Component {
 						{/* <Route path="/apply" component={Apply} /> */}
 						<Route path="/admin" component={Admin} />
 						<Route path="/loginpage" component={Login} />
+						<Route component={Error} />
 					</Switch>
 				</div>
 			</Router>
