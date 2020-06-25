@@ -4180,6 +4180,24 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/404/404.css":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/main/js/views/404/404.css ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "#welcome-content {\r\n    font-family: Avenir;\r\n    margin: auto;\r\n  }\r\n  .btn-apply {\r\n\tcolor: #fff;\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 15px;\r\n\tpadding: 20px 30px;\r\n\tfont-size: 20px;\r\n}\r\np, h1, h3 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n  }", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/Admin/Admin.css":
 /*!*********************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/main/js/views/Admin/Admin.css ***!
@@ -64300,6 +64318,35 @@ ReactDOM.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default.a.creat
 
 /***/ }),
 
+/***/ "./src/main/js/views/404/404.css":
+/*!***************************************!*\
+  !*** ./src/main/js/views/404/404.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js!./404.css */ "./node_modules/css-loader/dist/cjs.js!./src/main/js/views/404/404.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+
+
+module.exports = content.locals || {};
+
+/***/ }),
+
 /***/ "./src/main/js/views/404/404.js":
 /*!**************************************!*\
   !*** ./src/main/js/views/404/404.js ***!
@@ -64322,8 +64369,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/es/index.js");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../app.css */ "./src/main/js/app.css");
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _404_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./404.css */ "./src/main/js/views/404/404.css");
+/* harmony import */ var _404_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_404_css__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
 /* harmony import */ var react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/lib/utils/bootstrapUtils */ "./node_modules/react-bootstrap/lib/utils/bootstrapUtils.js");
 /* harmony import */ var react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_9__);
@@ -64341,6 +64388,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
  // import Logo from '../../resources/static/img/logo.png';
+// import '../../app.css';
 
 
 

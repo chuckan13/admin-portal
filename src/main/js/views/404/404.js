@@ -3,8 +3,8 @@ import { Button } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 // import Logo from '../../resources/static/img/logo.png';
-import '../../app.css';
-
+// import '../../app.css';
+import './404.css';
 import { FaGrinBeamSweat } from 'react-icons/fa';
 import { FaMusic } from 'react-icons/fa';
 import { addStyle } from 'react-bootstrap/lib/utils/bootstrapUtils';
