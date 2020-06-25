@@ -7,6 +7,8 @@ import '../../app.css';
 
 import { FaGrinBeamSweat } from 'react-icons/fa';
 import { FaMusic } from 'react-icons/fa';
+import { addStyle } from 'react-bootstrap/lib/utils/bootstrapUtils';
+
 addStyle(Button, 'apply');
 class Error extends Component {
 	render() {
