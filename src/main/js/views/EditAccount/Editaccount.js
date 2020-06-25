@@ -90,7 +90,7 @@ class Edit extends React.Component {
 					/>
 				</form>
 				<SubmitButton onClick={this.handleSubmitClick} />
-				{messsage}
+				{message}
 			</div>
 		);
 	}

@@ -65383,7 +65383,7 @@ var Edit = /*#__PURE__*/function (_React$Component) {
         onChange: this.updateState
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(SubmitButton, {
         onClick: this.handleSubmitClick
-      }), messsage);
+      }), message);
     }
   }]);
 
