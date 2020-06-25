@@ -2,6 +2,11 @@
     font-family: Avenir;
     margin: auto;
   }
+
+  
+  #welcome-text {
+      margin-top: 100px;
+  }
 .btn-apply {
 	color: #fff;
 	background-color: #3891b8;

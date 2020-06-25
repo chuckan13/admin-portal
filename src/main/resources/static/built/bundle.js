@@ -4191,7 +4191,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#welcome-content {\r\n    font-family: Avenir;\r\n    margin: auto;\r\n  }\r\n.btn-apply {\r\n\tcolor: #fff;\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 15px;\r\n\tpadding: 20px 30px;\r\n    font-size: 20px;\r\n    margin: auto;\r\n  }\r\np, h1, h3 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n  }\r\n#begin-button {\r\n\tmargin-top: 50px;\r\n}\r\n", ""]);
+exports.push([module.i, "#welcome-content {\r\n    font-family: Avenir;\r\n    margin: auto;\r\n  }\r\n\r\n  \r\n  #welcome-text {\r\n      margin-top: 100px;\r\n  }\r\n.btn-apply {\r\n\tcolor: #fff;\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 15px;\r\n\tpadding: 20px 30px;\r\n    font-size: 20px;\r\n    margin: auto;\r\n  }\r\np, h1, h3 {\r\n    font-family: Avenir;\r\n    color: white;\r\n    font-size: 30px;\r\n    text-align: center;\r\n  }\r\n#begin-button {\r\n\tmargin-top: 50px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -64387,6 +64387,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+
  // import Logo from '../../resources/static/img/logo.png';
 // import '../../app.css';
 
@@ -64419,7 +64420,7 @@ var Error = /*#__PURE__*/function (_Component) {
           className: "center-block text-center"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
           id: "welcome-text"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", null, "404"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h3", null, "The page you're looking for doesn't exist!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", null, "Try checking the previous page, or click the button below to go to our homepage.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(Col, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h1", null, "404"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("h3", null, "The page you're looking for doesn't exist!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", null, "Try checking the previous page, or click the button below to go to our homepage.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["Col"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("div", {
           id: "begin-button"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_6__["Button"], {
           href: "/",

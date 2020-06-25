@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 // import Logo from '../../resources/static/img/logo.png';
 // import '../../app.css';
