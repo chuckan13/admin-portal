@@ -41,6 +41,11 @@ class App extends Component {
 											Edit Account
 										</a>
 									</NavItem>
+									<NavItem eventKey={2} href="#admin">
+										<a href="/admin" id="about">
+											Dashboard
+										</a>
+									</NavItem>
 								</Nav>
 							</Navbar.Collapse>
 						</Navbar>
