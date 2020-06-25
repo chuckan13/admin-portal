@@ -281,9 +281,9 @@ class viewApplicants extends Component {
 								<tr id="head">
 									<th>First Name</th>
 									<th>Last Name</th>
-									<th>First Choice</th>
+									{/* <th>First Choice</th>
 									<th>Second Choice</th>
-									<th>Third Choice</th>
+									<th>Third Choice</th> */}
 									<th>More Details</th>
 								</tr>
 							</thead>
@@ -455,9 +455,9 @@ function TableEntry(props) {
 		<tr>
 			<td>{props.firstName}</td>
 			<td>{props.lastName}</td>
-			<td>{props.c1}</td>
+			{/* <td>{props.c1}</td>
 			<td>{props.c2}</td>
-			<td>{props.c3}</td>
+			<td>{props.c3}</td> */}
 			<td>
 				<Button bsStyle="view-more" onClick={props.onClick}>
 					view
