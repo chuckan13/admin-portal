@@ -65755,7 +65755,7 @@ var Login = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      notloggedin ?
+      this.state.notloggedin ?
       /*#__PURE__*/
       // return (
       react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_10___default.a.createElement(LoginForm, null)) :

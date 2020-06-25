@@ -120,7 +120,7 @@ class Login extends React.Component {
 	// }
 
 	render() {
-		notloggedin ? (
+		this.state.notloggedin ? (
 			// return (
 			<div>
 				{/* <Col lg={4} md={5} sm={7} className="mx-auto mt-4"> */}
