@@ -59,7 +59,7 @@ class editApplication extends Component {
 				.then(function(response) {
 					console.log('new question');
 					console.log(response);
-					oldQuest = that.state.questions;
+					var oldQuest = that.state.questions;
 					oldQuest.push(response.data);
 					that.setState({
 						questions: oldQuest,
@@ -122,7 +122,7 @@ function Question(props) {
 	return (
 		<FormGroup>
 			{/* <ControlLabel id="long-form-label">Enter a new question:</ControlLabel> */}
-			<FormControl id="long-form-answer" name={props.name} componentClass="textarea" onChange={props.onChange} />
+			<FormControl id="edit-app-answer" name={props.name} componentClass="textarea" onChange={props.onChange} />
 		</FormGroup>
 	);
 }

@@ -46,6 +46,6 @@ textarea.form-control {
   height: 200px;
   padding-top: 0px;
   min-width: 200px;
-  max-width: 600px;
+  /* max-width: 600px; */
 }
 

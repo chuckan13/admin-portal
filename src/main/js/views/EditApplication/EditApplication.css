@@ -20,7 +20,7 @@
     line-height: 1.42857143;
     font-weight: lighter;
   }
-  #short-form-answer, #long-form-answer {
+  #short-form-answer, #edit-app-answer {
 	display: block;
 	margin: auto;
 	min-width: 200px;
@@ -43,10 +43,8 @@
 	height: 200px;
 	padding-top: 0px;
 	min-width: 200px;
-	/* max-width: 600px; */
   }
-  #long-form-answer {
-	/* max-width: 470px; */
+  #edit-app-answer {
 	height: 160px;
 	padding-top: 12px;
   }  

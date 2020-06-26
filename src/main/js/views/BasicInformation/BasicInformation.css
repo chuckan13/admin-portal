@@ -31,7 +31,7 @@
 }
 
 #long-form-answer {
-  max-width: 470px;
+  /* max-width: 470px; */
   height: 160px;
   padding-top: 12px;
 }
