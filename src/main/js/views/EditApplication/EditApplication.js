@@ -85,7 +85,7 @@ class editApplication extends Component {
 		return (
 			<div>
 				<Row className="center-block text-center">
-					<Table id="user-table">
+					<Table>
 						<thead>
 							<tr id="head">
 								<th>Current Questions:</th>
@@ -96,7 +96,7 @@ class editApplication extends Component {
 					{/* <BackButton onClick={this.props.backButton} /> */}
 				</Row>
 				<Row className="center-block text-center">
-					<Table id="user-table">
+					<Table>
 						<thead>
 							<tr id="head">
 								<th>New Questions:</th>
@@ -126,7 +126,7 @@ function CurrQuestion(props) {
 
 function Question(props) {
 	return (
-		<FormGroup controlId="formControlsTextarea">
+		<FormGroup>
 			<ControlLabel id="long-form-label">Enter a new question:</ControlLabel>
 			<FormControl id="long-form-answer" name={props.name} componentClass="textarea" onChange={props.onChange} />
 		</FormGroup>

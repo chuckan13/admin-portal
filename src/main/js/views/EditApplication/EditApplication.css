@@ -5,11 +5,25 @@
 #questions {
 	padding-bottom: 15px;
 }
-
+#short-form-label, #long-form-label {
+    color: #fff;
+    text-align: left;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    min-width: 200px;
+    height: 40px;
+    padding: 20px 12px 30px 5px;
+    font-family: Avenir;
+    font-size: 16px;
+    line-height: 1.42857143;
+    font-weight: lighter;
+  }
 th {
 	background-color: #3891b8;
 	color: white;
-	width: 100px;
+	/* width: 100px; */
 	text-align: center;
 	font-family: Avenir;
 	font-size: 15px;
@@ -24,7 +38,7 @@ tr {
 
 td {
 	text-align: center;
-	width: 200px !important;
+	/* width: 200px !important; */
 	vertical-align: middle !important;
 	font-weight: lighter;
 }
