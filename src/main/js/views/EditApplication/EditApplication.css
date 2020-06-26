@@ -5,3 +5,53 @@
 #questions {
 	padding-bottom: 15px;
 }
+
+th {
+	background-color: #3891b8;
+	color: white;
+	width: 100px;
+	text-align: center;
+	font-family: Avenir;
+	font-size: 15px;
+	height: 50px;
+	vertical-align: middle !important;
+}
+
+tr {
+	background-color: white;
+	width: 100%;
+}
+
+td {
+	text-align: center;
+	width: 200px !important;
+	vertical-align: middle !important;
+	font-weight: lighter;
+}
+
+tr:hover {
+	background-color: #f2f4f7;
+}
+
+.table {
+	display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 800px;
+}
+
+/* rounding corners */
+thead th:first-child {
+	border-radius: 10px 0 0 0;
+}
+
+thead th:last-child {
+	border-radius: 0 10px 0 0;
+}
+
+tbody tr:last-child td:first-child {
+    border-radius: 0 0 0 10px !important;
+}
+tbody tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}

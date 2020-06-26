@@ -10,10 +10,9 @@ import { ControlLabel } from 'react-bootstrap';
 
 class editApplication extends Component {
 	state = {
-		questionOne: '',
-		questionTwo: '',
-		curr1: '',
-		curr2: ''
+		currTeam: '',
+		questions: [],
+		newQuestion: ''
 	};
 
 	constructor(props) {
@@ -22,17 +21,21 @@ class editApplication extends Component {
 		this.handleUpdateClick = this.handleUpdateClick.bind(this);
 	}
 
-	componentDidMount() {
-		// request the list of teams
-		axios
-			.get('/api/teams/2')
+	async componentDidMount() {
+		await axios
+			.get('/api/teams')
 			.then(res => {
-				this.setState({
-					curr1: res.data.questionOne,
-					curr2: res.data.questionTwo
-				});
+				this.setState({ currTeam: res.data });
 			})
 			.catch(err => console.log(err));
+		await axios
+			.get('/api/questions/teams/' + this.state.currTeam.id)
+			.then(res => {
+				this.setState({ questions: res.data });
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	}
 
 	updateState(e) {
@@ -42,68 +45,99 @@ class editApplication extends Component {
 		});
 	}
 
-	handleUpdateClick() {
-		let q1, q2;
-		if (this.state.questionOne === '') {
-			q1 = this.state.curr1;
+	async handleUpdateClick() {
+		var that = this;
+		if (newQuestion === '') {
+			console.log('nothing entered');
 		} else {
-			q1 = this.state.questionOne;
+			await axios
+				.post('/api/questions/new', {
+					text: this.state.newQuestion,
+					teamId: this.state.currTeam.id
+				})
+				.then(function(response) {
+					console.log('new question');
+					console.log(response);
+					oldQuest = that.state.questions;
+					oldQuest.push(response.data);
+					that.setState({
+						questions: oldQuest,
+						newQuestion: ''
+					});
+				})
+				.catch(function(error) {
+					console.log(error);
+				});
 		}
 
-		if (this.state.questionTwo === '') {
-			q2 = this.state.curr2;
-		} else {
-			q2 = this.state.questionTwo;
-		}
-
-		this.setState({
-			curr1: q1,
-			curr2: q2
-		});
-		this.props.updateQuestions(q1, q2);
+		// this.setState({
+		// 	curr1: q1,
+		// 	curr2: q2
+		// });
+		// this.props.updateQuestions(q1, q2);
 	}
 
 	render() {
+		let currQuestTable = this.state.questions.map(question => {
+			return [ <CurrQuestion question={question.text} /> ];
+		});
 		return (
 			<div>
 				<div>
-					<p id="header"> Current Questions: </p>
-				</div>
-				<p id="information">{this.state.curr1}</p>
-				<p id="information-last">{this.state.curr2}</p>
-				<div>
-					<p id="header">New Questions</p>
-				</div>
-				<div id="questions">
-					<Question name="questionOne" num="First" v={this.state.questionOne} onChange={this.updateState} />
-					<Question name="questionTwo" num="Second" v={this.state.questionTwo} onChange={this.updateState} />
 					<Row className="center-block text-center">
-						<Button id="update-button" bsStyle="back" bsSize="large" onClick={this.handleUpdateClick}>
-							update
-						</Button>
+						<Table>
+							<thead>
+								<tr id="head">
+									<p> Current Questions: </p>
+								</tr>
+							</thead>
+							<tbody>{currQuestTable}</tbody>
+						</Table>
+						{/* <BackButton onClick={this.props.backButton} /> */}
 					</Row>
 				</div>
-				<Row className="center-block text-center">
-					<Button bsStyle="back" bsSize="large" onClick={this.props.backButton}>
-						back
-					</Button>
-				</Row>
+				<div>
+					<Row className="center-block text-center">
+						<Table>
+							<thead>
+								<tr id="head">
+									<p> New Questions: </p>
+								</tr>
+							</thead>
+							<tbody>
+								<Question name="newQuestion" onChange={this.updateState} />
+							</tbody>
+							<Button id="update-button" bsStyle="back" bsSize="large" onClick={this.handleUpdateClick}>
+								update
+							</Button>
+						</Table>
+						<BackButton onClick={this.props.backButton} />
+					</Row>
+				</div>
+
+				{/* <div id="questions">
+					<Question name="questionOne" num="First" v={this.state.questionOne} onChange={this.updateState} />
+					<Question name="questionTwo" num="Second" v={this.state.questionTwo} onChange={this.updateState} />
+					<Row className="center-block text-center" />
+				</div> */}
 			</div>
 		);
 	}
 }
 
+function CurrQuestion(props) {
+	return (
+		<tr>
+			<td>{props.question}</td>
+		</tr>
+	);
+}
+
 function Question(props) {
 	return (
 		<FormGroup controlId="formControlsTextarea">
-			<ControlLabel id="long-form-label">{props.num} Question:</ControlLabel>
-			<FormControl
-				id="long-form-answer"
-				name={props.name}
-				componentClass="textarea"
-				value={props.v}
-				onChange={props.onChange}
-			/>
+			<ControlLabel id="long-form-label">Enter a new question:</ControlLabel>
+			<FormControl id="long-form-answer" name={props.name} componentClass="textarea" onChange={props.onChange} />
 		</FormGroup>
 	);
 }
