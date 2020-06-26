@@ -30,7 +30,7 @@ class App extends Component {
 								<Navbar.Brand>
 									<div id="logo"> </div>
 									<a href="/" id="application-portal">
-										application portal
+										Application Portal
 									</a>
 								</Navbar.Brand>
 								<Navbar.Toggle />
