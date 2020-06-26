@@ -33,7 +33,7 @@ th {
 
 tr {
 	background-color: white;
-	width: 100%;
+	/* width: 100%; */
 }
 
 td {
@@ -48,7 +48,7 @@ tr:hover {
 }
 
 .table {
-	display: block !important;
+	display: table !important;
     margin-left: auto !important;
     margin-right: auto !important;
     width: 800px;

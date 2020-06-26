@@ -70,12 +70,6 @@ class editApplication extends Component {
 					console.log(error);
 				});
 		}
-
-		// this.setState({
-		// 	curr1: q1,
-		// 	curr2: q2
-		// });
-		// this.props.updateQuestions(q1, q2);
 	}
 
 	render() {
@@ -107,7 +101,7 @@ class editApplication extends Component {
 						</tbody>
 					</Table>
 					<Button id="update-button" bsStyle="back" bsSize="large" onClick={this.handleUpdateClick}>
-						update
+						Update Question
 					</Button>
 					<BackButton onClick={this.props.backButton} />
 				</Row>
@@ -127,7 +121,7 @@ function CurrQuestion(props) {
 function Question(props) {
 	return (
 		<FormGroup>
-			<ControlLabel id="long-form-label">Enter a new question:</ControlLabel>
+			{/* <ControlLabel id="long-form-label">Enter a new question:</ControlLabel> */}
 			<FormControl id="long-form-answer" name={props.name} componentClass="textarea" onChange={props.onChange} />
 		</FormGroup>
 	);

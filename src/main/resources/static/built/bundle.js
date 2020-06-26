@@ -4263,7 +4263,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "#update-button {\r\n\tmargin: 10px !important;\r\n}\r\n\r\n#questions {\r\n\tpadding-bottom: 15px;\r\n}\r\n#short-form-label, #long-form-label {\r\n    color: #fff;\r\n    text-align: left;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 0px;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 30px 5px;\r\n    font-family: Avenir;\r\n    font-size: 16px;\r\n    line-height: 1.42857143;\r\n    font-weight: lighter;\r\n  }\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\t/* width: 100px; */\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\t/* width: 200px !important; */\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}", ""]);
+exports.push([module.i, "#update-button {\r\n\tmargin: 10px !important;\r\n}\r\n\r\n#questions {\r\n\tpadding-bottom: 15px;\r\n}\r\n#short-form-label, #long-form-label {\r\n    color: #fff;\r\n    text-align: left;\r\n    display: block;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    margin-bottom: 0px;\r\n    min-width: 200px;\r\n    height: 40px;\r\n    padding: 20px 12px 30px 5px;\r\n    font-family: Avenir;\r\n    font-size: 16px;\r\n    line-height: 1.42857143;\r\n    font-weight: lighter;\r\n  }\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\t/* width: 100px; */\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\t/* width: 100%; */\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\t/* width: 200px !important; */\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: table !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -65662,7 +65662,7 @@ var editApplication = /*#__PURE__*/function (_Component) {
         bsStyle: "back",
         bsSize: "large",
         onClick: this.handleUpdateClick
-      }, "update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
+      }, "Update Question"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
         onClick: this.props.backButton
       })));
     }
@@ -65676,9 +65676,7 @@ function CurrQuestion(props) {
 }
 
 function Question(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["ControlLabel"], {
-    id: "long-form-label"
-  }, "Enter a new question:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["FormControl"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["FormControl"], {
     id: "long-form-answer",
     name: props.name,
     componentClass: "textarea",
