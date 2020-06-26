@@ -67,9 +67,9 @@ function LoginForm() {
 								<input id="submit-button" type="submit" value="Submit" />
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<p>Incorrect username/password</p>
+						<tr id="table-line">
+							<td id="table-line">
+								<h3>Incorrect username/password</h3>
 							</td>
 						</tr>
 					</tbody>
