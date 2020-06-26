@@ -101,7 +101,7 @@ class editApplication extends Component {
 						</tbody>
 					</Table>
 					<Button id="update-button" bsStyle="back" bsSize="large" onClick={this.handleUpdateClick}>
-						Update Question
+						Create
 					</Button>
 					<BackButton onClick={this.props.backButton} />
 				</Row>
