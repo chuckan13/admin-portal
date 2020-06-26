@@ -84,43 +84,33 @@ class editApplication extends Component {
 		});
 		return (
 			<div>
-				<div>
-					<Row className="center-block text-center">
-						<Table>
-							<thead>
-								<tr id="head">
-									<p> Current Questions: </p>
-								</tr>
-							</thead>
-							<tbody>{currQuestTable}</tbody>
-						</Table>
-						{/* <BackButton onClick={this.props.backButton} /> */}
-					</Row>
-				</div>
-				<div>
-					<Row className="center-block text-center">
-						<Table>
-							<thead>
-								<tr id="head">
-									<p> New Questions: </p>
-								</tr>
-							</thead>
-							<tbody>
-								<Question name="newQuestion" onChange={this.updateState} />
-							</tbody>
-							<Button id="update-button" bsStyle="back" bsSize="large" onClick={this.handleUpdateClick}>
-								update
-							</Button>
-						</Table>
-						<BackButton onClick={this.props.backButton} />
-					</Row>
-				</div>
-
-				{/* <div id="questions">
-					<Question name="questionOne" num="First" v={this.state.questionOne} onChange={this.updateState} />
-					<Question name="questionTwo" num="Second" v={this.state.questionTwo} onChange={this.updateState} />
-					<Row className="center-block text-center" />
-				</div> */}
+				<Row className="center-block text-center">
+					<Table id="user-table">
+						<thead>
+							<tr id="head">
+								<th>Current Questions:</th>
+							</tr>
+						</thead>
+						<tbody>{currQuestTable}</tbody>
+					</Table>
+					{/* <BackButton onClick={this.props.backButton} /> */}
+				</Row>
+				<Row className="center-block text-center">
+					<Table id="user-table">
+						<thead>
+							<tr id="head">
+								<th>New Questions:</th>
+							</tr>
+						</thead>
+						<tbody>
+							<Question name="newQuestion" onChange={this.updateState} />
+						</tbody>
+					</Table>
+					<Button id="update-button" bsStyle="back" bsSize="large" onClick={this.handleUpdateClick}>
+						update
+					</Button>
+					<BackButton onClick={this.props.backButton} />
+				</Row>
 			</div>
 		);
 	}

@@ -14,12 +14,6 @@ class viewApplicants extends Component {
 		viewUser: false,
 		user: 0,
 		currTeam: '',
-		// teamOne: '',
-		// teamTwo: '',
-		// teamThree: '',
-		// teamOneQuestions: [],
-		// teamTwoQuestions: [],
-		// teamThreeQuestions: [],
 		responses: [],
 		questions: []
 	};
@@ -29,7 +23,6 @@ class viewApplicants extends Component {
 
 		this.displayInfo = this.displayInfo.bind(this);
 		this.displayTable = this.displayTable.bind(this);
-		// this.getTeams = this.getTeams.bind(this);
 	}
 
 	async componentDidMount() {
@@ -76,9 +69,6 @@ class viewApplicants extends Component {
 					{
 						user: res.data,
 						viewUser: true
-						// teamOne: res.data.teams[0],
-						// teamTwo: res.data.teams[1],
-						// teamThree: res.data.teams[2]
 					},
 					function() {
 						console.log('Get user on display info');
@@ -88,27 +78,6 @@ class viewApplicants extends Component {
 				);
 			})
 			.catch(err => console.log(err));
-
-		// await axios
-		// 	.get('/api/users/teams/' + userId)
-		// 	.then(res => {
-		// 		// console.log('Teams', res.data);
-		// 		this.setState(
-		// 			{
-		// 				teamOne: res.data[0],
-		// 				teamTwo: res.data[1],
-		// 				teamThree: res.data[2]
-		// 			},
-		// 			function() {
-		// 				console.log('List teams');
-		// 				console.log(this.state.teamOne);
-		// 				console.log(this.state.teamTwo);
-		// 				console.log(this.state.teamThree);
-		// 				// console.log(this.state.teamOne);
-		// 			}
-		// 		);
-		// 	})
-		// 	.catch(err => console.log(err));
 
 		await axios
 			.get('/api/users/responses/' + userId)
@@ -141,51 +110,6 @@ class viewApplicants extends Component {
 		});
 		console.log('All Questions');
 		console.log(questionList);
-
-		// await axios
-		// 	.get('/api/questions/teams/' + this.state.teamOne.id)
-		// 	.then(res => {
-		// 		this.setState(
-		// 			{
-		// 				teamOneQuestions: res.data
-		// 			},
-		// 			function() {
-		// 				console.log('Team One Questions');
-		// 				console.log(this.state.teamOneQuestions);
-		// 			}
-		// 		);
-		// 	})
-		// 	.catch(err => console.log(err));
-
-		// await axios
-		// 	.get('/api/questions/teams/' + this.state.teamTwo.id)
-		// 	.then(res => {
-		// 		this.setState(
-		// 			{
-		// 				teamTwoQuestions: res.data
-		// 			},
-		// 			function() {
-		// 				console.log('Team Two Questions');
-		// 				console.log(this.state.teamTwoQuestions);
-		// 			}
-		// 		);
-		// 	})
-		// 	.catch(err => console.log(err));
-
-		// await axios
-		// 	.get('/api/questions/teams/' + this.state.teamThree.id)
-		// 	.then(res => {
-		// 		this.setState(
-		// 			{
-		// 				teamThreeQuestions: res.data
-		// 			},
-		// 			function() {
-		// 				console.log('Team Three Questions');
-		// 				console.log(this.state.teamThreeQuestions);
-		// 			}
-		// 		);
-		// 	})
-		// 	.catch(err => console.log(err));
 	}
 
 	displayTable() {
@@ -194,88 +118,16 @@ class viewApplicants extends Component {
 		});
 	}
 
-	// async getTeams(userId) {
-	// 	let t1 = '';
-	// 	let t2 = '';
-	// 	let t3 = '';
-	// 	await axios
-	// 		.get('/api/users/teams/' + userId)
-	// 		.then(res => {
-	// 			// console.log(res.data);
-	// 			t1 = res.data[0];
-	// 			t2 = res.data[1];
-	// 			t3 = res.data[2];
-	// 		})
-	// 		.catch(err => console.log(err));
-	// 	return [ t1, t2, t3 ];
-	// }
-
 	render() {
 		let renderTable = this.state.applicants.map(user => {
-			// catch if user doesn't have 3 teams ranked
-			// let c1 = 'empty',
-			// 	c2 = 'empty',
-			// 	c3 = 'empty';
-			// let teams = this.getTeams(user.id);
-			// await axios
-			// 	.get('/api/users/teams/' + user.id)
-			// 	.then(res => {
-			// 		// console.log(res.data);
-			// 		c1 = res.data[0];
-			// 		c2 = res.data[1];
-			// 		c3 = res.data[2];
-			// 	})
-			// 	.catch(err => console.log(err));
-			// var allTeams = this.state.users[user.id];
-			// // console.log('ALL teams', allTeams);
-			// if (allTeams === undefined) {
-			// 	console.log('allteams undefined');
-			// } else {
-			// 	if (allTeams[0]) {
-			// 		c1 = allTeams[0].name;
-			// 	}
-			// 	if (allTeams[1]) {
-			// 		c2 = allTeams[1].name;
-			// 	}
-			// 	if (allTeams[2]) {
-			// 		c3 = allTeams[2].name;
-			// 	}
-			// }
-
 			return [
 				<TableEntry
 					key={user.id}
 					firstName={user.firstName}
 					lastName={user.lastName}
-					// c1={c1}
-					// c2={c2}
-					// c3={c3}
 					onClick={() => this.displayInfo(user.id)}
 				/>
 			];
-			// console.log('teams');
-			// console.log(teams);
-			// console.log('CCS');
-			// console.log(c1);
-			// console.log(c2);
-			// console.log(c3);
-
-			// console.log(this.state.teamOne);
-			// console.log(this.state.teamTwo);
-			// console.log(this.state.teamThree);
-			// if (!this.state.teamOne === 'empty') {
-			// c1 = this.state.teamOne.name;
-			// // }
-			// // if (!this.state.teamTwo === 'empty') {
-			// c2 = this.state.teamTwo.name;
-			// // }
-			// // if (!this.state.teamThree === 'empty') {
-			// c3 = this.state.teamThree.name;
-			// }
-			// console.log('Team Names');
-			// console.log(c1);
-			// console.log(c2);
-			// console.log(c3);
 		});
 
 		let display;
@@ -346,60 +198,6 @@ function UserProfile(props) {
 						questions={props.questions}
 						resp={props.responses}
 					/>
-					{/* {props.teamTwo ? (
-						<TeamResponses
-							team={props.teamTwo.name}
-							num="Two"
-							questions={props.teamTwoQuestions}
-							resp={props.responses}
-						/>
-					) : (
-						''
-					)}
-					{props.teamThree ? (
-						<TeamResponses
-							team={props.teamThree.name}
-							num="Three"
-							questions={props.teamThreeQuestions}
-							resp={props.responses}
-						/>
-					) : (
-						''
-					)} */}
-					{/* <ShortResponseSection
-						id="response"
-						name={props.teamOne.name}
-						num={props.num}
-						question={question.text}
-						qId={question.id}
-						resp={currResponse}
-					/> */}
-
-					{/* <ShortResponseSection
-						id="response"
-						name={props.teamOne.name}
-						num="1"
-						question={props.questions[0].text}
-						resp={props.responses[0].text}
-					/> */}
-					{/* <ShortResponseSection
-						id="response"
-						name={props.teamTwo.name}
-						num="2"
-						q1={props.teamTwo.questionOne}
-						r1={props.user.responseThree}
-						q2={props.teamTwo.questionTwo}
-						r2={props.user.responseFour}
-					/>
-					<ShortResponseSection
-						id="response-last"
-						name={props.teamThree.name}
-						num="3"
-						q1={props.teamThree.questionOne}
-						r1={props.user.responseFive}
-						q2={props.teamThree.questionTwo}
-						r2={props.user.responseSix}
-					/> */}
 				</div>
 			</div>
 			<BackButton onClick={props.onClick} />
@@ -442,29 +240,11 @@ function TeamResponses(props) {
 	);
 }
 
-// function ShortResponseSection(props) {
-// 	return (
-// 		<div id="choice-section">
-// 			<p id="review-choice">
-// 				{' '}
-// 				Team {props.num}: {props.name}
-// 			</p>
-// 			<p id="question">{props.q1}</p>
-// 			<pre id="response">{props.r1}</pre>
-// 			<p id="question">{props.q2}</p>
-// 			<pre id={props.id}>{props.r2}</pre>
-// 		</div>
-// 	);
-// }
-
 function TableEntry(props) {
 	return (
 		<tr>
 			<td>{props.firstName}</td>
 			<td>{props.lastName}</td>
-			{/* <td>{props.c1}</td>
-			<td>{props.c2}</td>
-			<td>{props.c3}</td> */}
 			<td>
 				<Button bsStyle="view-more" onClick={props.onClick}>
 					view

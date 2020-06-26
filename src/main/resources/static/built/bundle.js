@@ -65646,25 +65646,29 @@ var editApplication = /*#__PURE__*/function (_Component) {
           question: question.text
         })];
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
         className: "center-block text-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Table"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Table"], {
+        id: "user-table"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
         id: "head"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", null, " Current Questions: "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, currQuestTable)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "Current Questions:"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, currQuestTable))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
         className: "center-block text-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Table"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Table"], {
+        id: "user-table"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
         id: "head"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", null, " New Questions: "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Question, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "New Questions:"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Question, {
         name: "newQuestion",
         onChange: this.updateState
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
         id: "update-button",
         bsStyle: "back",
         bsSize: "large",
         onClick: this.handleUpdateClick
-      }, "update")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
+      }, "update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
         onClick: this.props.backButton
-      }))));
+      })));
     }
   }]);
 
@@ -66991,19 +66995,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       viewUser: false,
       user: 0,
       currTeam: '',
-      // teamOne: '',
-      // teamTwo: '',
-      // teamThree: '',
-      // teamOneQuestions: [],
-      // teamTwoQuestions: [],
-      // teamThreeQuestions: [],
       responses: [],
       questions: []
     });
 
     _this.displayInfo = _this.displayInfo.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
-    _this.displayTable = _this.displayTable.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this)); // this.getTeams = this.getTeams.bind(this);
-
+    _this.displayTable = _this.displayTable.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     return _this;
   }
 
@@ -67090,10 +67087,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
                   _this3.setState({
                     user: res.data,
-                    viewUser: true // teamOne: res.data.teams[0],
-                    // teamTwo: res.data.teams[1],
-                    // teamThree: res.data.teams[2]
-
+                    viewUser: true
                   }, function () {
                     console.log('Get user on display info');
                     console.log(this.state.user); // console.log(this.state.teamOne);
@@ -67132,48 +67126,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   questions: questionList
                 });
                 console.log('All Questions');
-                console.log(questionList); // await axios
-                // 	.get('/api/questions/teams/' + this.state.teamOne.id)
-                // 	.then(res => {
-                // 		this.setState(
-                // 			{
-                // 				teamOneQuestions: res.data
-                // 			},
-                // 			function() {
-                // 				console.log('Team One Questions');
-                // 				console.log(this.state.teamOneQuestions);
-                // 			}
-                // 		);
-                // 	})
-                // 	.catch(err => console.log(err));
-                // await axios
-                // 	.get('/api/questions/teams/' + this.state.teamTwo.id)
-                // 	.then(res => {
-                // 		this.setState(
-                // 			{
-                // 				teamTwoQuestions: res.data
-                // 			},
-                // 			function() {
-                // 				console.log('Team Two Questions');
-                // 				console.log(this.state.teamTwoQuestions);
-                // 			}
-                // 		);
-                // 	})
-                // 	.catch(err => console.log(err));
-                // await axios
-                // 	.get('/api/questions/teams/' + this.state.teamThree.id)
-                // 	.then(res => {
-                // 		this.setState(
-                // 			{
-                // 				teamThreeQuestions: res.data
-                // 			},
-                // 			function() {
-                // 				console.log('Team Three Questions');
-                // 				console.log(this.state.teamThreeQuestions);
-                // 			}
-                // 		);
-                // 	})
-                // 	.catch(err => console.log(err));
+                console.log(questionList);
 
               case 10:
               case "end":
@@ -67195,89 +67148,21 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       this.setState({
         viewUser: false
       });
-    } // async getTeams(userId) {
-    // 	let t1 = '';
-    // 	let t2 = '';
-    // 	let t3 = '';
-    // 	await axios
-    // 		.get('/api/users/teams/' + userId)
-    // 		.then(res => {
-    // 			// console.log(res.data);
-    // 			t1 = res.data[0];
-    // 			t2 = res.data[1];
-    // 			t3 = res.data[2];
-    // 		})
-    // 		.catch(err => console.log(err));
-    // 	return [ t1, t2, t3 ];
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
       var _this4 = this;
 
       var renderTable = this.state.applicants.map(function (user) {
-        // catch if user doesn't have 3 teams ranked
-        // let c1 = 'empty',
-        // 	c2 = 'empty',
-        // 	c3 = 'empty';
-        // let teams = this.getTeams(user.id);
-        // await axios
-        // 	.get('/api/users/teams/' + user.id)
-        // 	.then(res => {
-        // 		// console.log(res.data);
-        // 		c1 = res.data[0];
-        // 		c2 = res.data[1];
-        // 		c3 = res.data[2];
-        // 	})
-        // 	.catch(err => console.log(err));
-        // var allTeams = this.state.users[user.id];
-        // // console.log('ALL teams', allTeams);
-        // if (allTeams === undefined) {
-        // 	console.log('allteams undefined');
-        // } else {
-        // 	if (allTeams[0]) {
-        // 		c1 = allTeams[0].name;
-        // 	}
-        // 	if (allTeams[1]) {
-        // 		c2 = allTeams[1].name;
-        // 	}
-        // 	if (allTeams[2]) {
-        // 		c3 = allTeams[2].name;
-        // 	}
-        // }
         return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
           key: user.id,
           firstName: user.firstName,
-          lastName: user.lastName // c1={c1}
-          // c2={c2}
-          // c3={c3}
-          ,
+          lastName: user.lastName,
           onClick: function onClick() {
             return _this4.displayInfo(user.id);
           }
-        })]; // console.log('teams');
-        // console.log(teams);
-        // console.log('CCS');
-        // console.log(c1);
-        // console.log(c2);
-        // console.log(c3);
-        // console.log(this.state.teamOne);
-        // console.log(this.state.teamTwo);
-        // console.log(this.state.teamThree);
-        // if (!this.state.teamOne === 'empty') {
-        // c1 = this.state.teamOne.name;
-        // // }
-        // // if (!this.state.teamTwo === 'empty') {
-        // c2 = this.state.teamTwo.name;
-        // // }
-        // // if (!this.state.teamThree === 'empty') {
-        // c3 = this.state.teamThree.name;
-        // }
-        // console.log('Team Names');
-        // console.log(c1);
-        // console.log(c2);
-        // console.log(c3);
+        })];
       });
       var display;
       var viewUser = this.state.viewUser;
@@ -67378,21 +67263,7 @@ function TeamResponses(props) {
   }, " Choice: ", props.team, " "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     id: "responses"
   }, responses));
-} // function ShortResponseSection(props) {
-// 	return (
-// 		<div id="choice-section">
-// 			<p id="review-choice">
-// 				{' '}
-// 				Team {props.num}: {props.name}
-// 			</p>
-// 			<p id="question">{props.q1}</p>
-// 			<pre id="response">{props.r1}</pre>
-// 			<p id="question">{props.q2}</p>
-// 			<pre id={props.id}>{props.r2}</pre>
-// 		</div>
-// 	);
-// }
-
+}
 
 function TableEntry(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
