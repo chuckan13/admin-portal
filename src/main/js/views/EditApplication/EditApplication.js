@@ -48,7 +48,7 @@ class editApplication extends Component {
 
 	async handleUpdateClick() {
 		var that = this;
-		if (newQuestion === '') {
+		if (this.state.newQuestion === '') {
 			console.log('nothing entered');
 		} else {
 			await axios

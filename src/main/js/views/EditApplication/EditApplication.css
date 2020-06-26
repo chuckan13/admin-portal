@@ -39,6 +39,12 @@
 	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   }
+  textarea.form-control {
+	height: 200px;
+	padding-top: 0px;
+	min-width: 200px;
+	/* max-width: 600px; */
+  }
   #long-form-answer {
 	/* max-width: 470px; */
 	height: 160px;
