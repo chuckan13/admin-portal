@@ -8,6 +8,7 @@ import './app.css';
 import Apply from './views/Apply.js';
 import Admin from './views/Admin/Admin.js';
 import Login from './views/Login/login.js';
+import LoginBadCred from './views/Login/loginbadcred.js';
 import Home from './views/Home/Home.js';
 import Error from './views/404/404.js';
 import Edit from './views/EditAccount/Editaccount.js';
@@ -46,6 +47,11 @@ class App extends Component {
 											Dashboard
 										</a>
 									</NavItem>
+									<NavItem eventKey={3} href="#logout">
+										<a href="/logout" id="about">
+											Logout
+										</a>
+									</NavItem>
 								</Nav>
 							</Navbar.Collapse>
 						</Navbar>
@@ -56,6 +62,7 @@ class App extends Component {
 						<Route path="/edit" component={Edit} />
 						<Route path="/admin" component={Admin} />
 						<Route path="/loginpage" component={Login} />
+						<Route path="/badcredentials" component={LoginBadCred} />
 						<Route component={Error} />
 					</Switch>
 				</div>
