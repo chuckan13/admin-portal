@@ -37,17 +37,17 @@ class App extends Component {
 							</Navbar.Header>
 							<Navbar.Collapse>
 								<Nav pullRight>
-									<NavItem eventKey={1}>
+									<NavItem eventKey={1} href="/edit">
 										<a href="/edit" id="about">
 											Edit Account
 										</a>
 									</NavItem>
-									<NavItem eventKey={2}>
+									<NavItem eventKey={2} href="/admin">
 										<a href="/admin" id="about">
 											Dashboard
 										</a>
 									</NavItem>
-									<NavItem eventKey={3}>
+									<NavItem eventKey={3} href="/logout">
 										<a href="/logout" id="about">
 											Logout
 										</a>
