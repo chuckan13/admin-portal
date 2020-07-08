@@ -67185,6 +67185,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this), "state", {
       applicants: [],
+      fullList: [],
       users: {},
       viewUser: false,
       user: 0,
@@ -67224,6 +67225,16 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 4:
                 _context.next = 6;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/all').then(function (res) {
+                  _this2.setState({
+                    fullList: res.data
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 6:
+                _context.next = 8;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
                   allApplicants = res.data;
 
@@ -67234,8 +67245,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 6:
-                _context.next = 8;
+              case 8:
+                _context.next = 10;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/teams').then(function (res) {
                   // currTeam = res.data;
                   _this2.setState({
@@ -67245,8 +67256,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 8:
-                _context.next = 10;
+              case 10:
+                _context.next = 12;
                 return Promise.all(allApplicants.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
                     // console.log('in /api/users/teams');
@@ -67255,13 +67266,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 10:
+              case 12:
                 // console.log('users dict', users);
                 this.setState({
                   users: users
                 });
 
-              case 11:
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -67369,7 +67380,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           }
         })];
       });
-      var presView = this.state.applicants.map(function (user) {
+      var presView = this.state.fullList.map(function (user) {
+        console.log('pres view');
         var c1 = 'empty',
             c2 = 'empty',
             c3 = 'empty';
@@ -67378,6 +67390,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         if (allTeams === undefined) {
           console.log('allteams undefined');
         } else {
+          console.log('teams defined');
+
           if (allTeams[0]) {
             c1 = allTeams[0].name;
           }
@@ -67391,6 +67405,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           }
         }
 
+        console.log(c1, c2, c3);
         return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(PresTableEntry, {
           key: user.id,
           firstName: user.firstName,

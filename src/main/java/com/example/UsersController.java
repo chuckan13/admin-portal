@@ -83,6 +83,24 @@ public class UsersController {
         return currResp;
     }
 
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<Users> allApplicants(Principal principal) {
+        // String loggedin = principal.getName();
+        // Loginuser loginuser = loginRepo.findByUserName(loggedin);
+        // Team team = teamRepo.findOne(loginuser.getId());
+        // List<Userteam> userTeams = userTeamRepo.findByTeamId(team.getId());
+        // List<Long> userIds = new ArrayList<Long>();
+        // List<Users> users = new ArrayList<Users>();
+        // for (Userteam userTeam : userTeams) {
+        // userIds.add(userTeam.getUserId());
+        // }
+        // for (Long userId : userIds) {
+        // users.add(repository.findOne(userId));
+        // }
+        List<Users> users = repository.findAll();
+        return users;
+    }
+
     @RequestMapping
     public List<Users> all(Principal principal) {
         String loggedin = principal.getName();

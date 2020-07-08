@@ -10,6 +10,7 @@ addStyle(Button, 'view-more');
 class viewApplicants extends Component {
 	state = {
 		applicants: [],
+		fullList: [],
 		users: {},
 		viewUser: false,
 		user: 0,
@@ -36,6 +37,13 @@ class viewApplicants extends Component {
 				this.setState({
 					currUser: res.data
 				});
+			})
+			.catch(err => console.log(err));
+
+		await axios
+			.get('/api/users/all')
+			.then(res => {
+				this.setState({ fullList: res.data });
 			})
 			.catch(err => console.log(err));
 
@@ -140,7 +148,8 @@ class viewApplicants extends Component {
 			];
 		});
 
-		let presView = this.state.applicants.map(user => {
+		let presView = this.state.fullList.map(user => {
+			console.log('pres view');
 			let c1 = 'empty',
 				c2 = 'empty',
 				c3 = 'empty';
@@ -148,6 +157,7 @@ class viewApplicants extends Component {
 			if (allTeams === undefined) {
 				console.log('allteams undefined');
 			} else {
+				console.log('teams defined');
 				if (allTeams[0]) {
 					c1 = allTeams[0].name;
 				}
@@ -158,6 +168,7 @@ class viewApplicants extends Component {
 					c3 = allTeams[2].name;
 				}
 			}
+			console.log(c1, c2, c3);
 			return [
 				<PresTableEntry
 					key={user.id}
