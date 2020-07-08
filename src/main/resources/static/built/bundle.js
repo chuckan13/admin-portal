@@ -67192,7 +67192,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       currTeam: '',
       currUser: '',
       responses: [],
-      questions: []
+      questions: [],
+      teamOne: '',
+      teamTwo: '',
+      teamThree: '',
+      teamOneQuestions: [],
+      teamTwoQuestions: [],
+      teamThreeQuestions: []
     });
 
     _this.displayInfo = _this.displayInfo.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
@@ -67316,6 +67322,63 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 2:
                 _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
+                  // console.log('Teams', res.data);
+                  _this3.setState({
+                    teamOne: res.data[0],
+                    teamTwo: res.data[1],
+                    teamThree: res.data[2]
+                  }, function () {
+                    console.log('List teams');
+                    console.log(this.state.teamOne);
+                    console.log(this.state.teamTwo);
+                    console.log(this.state.teamThree); // console.log(this.state.teamOne);
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 4:
+                _context2.next = 6;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamOne.id).then(function (res) {
+                  _this3.setState({
+                    teamOneQuestions: res.data
+                  }, function () {
+                    console.log('Team One Questions');
+                    console.log(this.state.teamOneQuestions);
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 6:
+                _context2.next = 8;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamTwo.id).then(function (res) {
+                  _this3.setState({
+                    teamTwoQuestions: res.data
+                  }, function () {
+                    console.log('Team Two Questions');
+                    console.log(this.state.teamTwoQuestions);
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 8:
+                _context2.next = 10;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamThree.id).then(function (res) {
+                  _this3.setState({
+                    teamThreeQuestions: res.data
+                  }, function () {
+                    console.log('Team Three Questions');
+                    console.log(this.state.teamThreeQuestions);
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 10:
+                _context2.next = 12;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/responses/' + userId).then(function (res) {
                   // console.log('responses: ', res.data);
                   _this3.setState({
@@ -67328,9 +67391,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 4:
+              case 12:
                 questionList = [];
-                _context2.next = 7;
+                _context2.next = 15;
                 return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.id).then(function (response) {
                     questionList.push(response.data);
@@ -67339,14 +67402,14 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 7:
+              case 15:
                 this.setState({
                   questions: questionList
                 });
                 console.log('All Questions');
                 console.log(questionList);
 
-              case 10:
+              case 18:
               case "end":
                 return _context2.stop();
             }
@@ -67449,19 +67512,36 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       } else {
         console.log('Before userprofile');
         console.log(this.state);
-        display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UserProfile, {
-          user: this.state.user,
-          team: this.state.currTeam // teamOne={this.state.teamOne}
-          // teamTwo={this.state.teamTwo}
-          // teamThree={this.state.teamThree}
-          // teamOneQuestions={this.state.teamOneQuestions}
-          // teamTwoQuestions={this.state.teamTwoQuestions}
-          // teamThreeQuestions={this.state.teamThreeQuestions}
-          ,
-          responses: this.state.responses,
-          questions: this.state.questions,
-          onClick: this.displayTable
-        });
+
+        if (userRole === 'USER') {
+          display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UserProfile, {
+            user: this.state.user,
+            team: this.state.currTeam // teamOne={this.state.teamOne}
+            // teamTwo={this.state.teamTwo}
+            // teamThree={this.state.teamThree}
+            // teamOneQuestions={this.state.teamOneQuestions}
+            // teamTwoQuestions={this.state.teamTwoQuestions}
+            // teamThreeQuestions={this.state.teamThreeQuestions}
+            ,
+            responses: this.state.responses,
+            questions: this.state.questions,
+            onClick: this.displayTable
+          });
+        } else {
+          display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(PresUserProfile, {
+            user: this.state.user,
+            team: this.state.currTeam,
+            teamOne: this.state.teamOne,
+            teamTwo: this.state.teamTwo,
+            teamThree: this.state.teamThree,
+            teamOneQuestions: this.state.teamOneQuestions,
+            teamTwoQuestions: this.state.teamTwoQuestions,
+            teamThreeQuestions: this.state.teamThreeQuestions,
+            responses: this.state.responses,
+            questions: this.state.questions,
+            onClick: this.displayTable
+          });
+        }
       }
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, display);
@@ -67492,6 +67572,41 @@ function UserProfile(props) {
     questions: props.questions,
     resp: props.responses
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
+    onClick: props.onClick
+  }));
+}
+
+function PresUserProfile(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+    id: "user-profile"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+    id: "chunk"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "header"
+  }, props.user.firstName, " ", props.user.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Email: ", props.user.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Class: ", props.user.classYear), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Concentration: ", props.user.concentration)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "header"
+  }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+    team: props.teamOne.name,
+    num: "One",
+    questions: props.teamOneQuestions,
+    resp: props.responses
+  }), props.teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+    team: props.teamTwo.name,
+    num: "Two",
+    questions: props.teamTwoQuestions,
+    resp: props.responses
+  }) : '', props.teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+    team: props.teamThree.name,
+    num: "Three",
+    questions: props.teamThreeQuestions,
+    resp: props.responses
+  }) : '')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick
   }));
 }
