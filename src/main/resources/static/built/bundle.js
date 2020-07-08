@@ -67200,7 +67200,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       teamThree: '',
       teamOneQuestions: [],
       teamTwoQuestions: [],
-      teamThreeQuestions: []
+      teamThreeQuestions: [],
+      emptyTeam: ''
     });
 
     _this.displayInfo = _this.displayInfo.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
@@ -67309,6 +67310,16 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/teams/0').then(function (res) {
+                  _this3.setState({
+                    emptyTeam: res.data
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 2:
+                _context2.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/' + userId).then(function (res) {
                   console.log('Current User', res.data);
 
@@ -67323,8 +67334,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 2:
-                _context2.next = 4;
+              case 4:
+                _context2.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + userId).then(function (res) {
                   // console.log('Teams', res.data);
                   _this3.setState({
@@ -67337,12 +67348,32 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                     console.log(this.state.teamTwo);
                     console.log(this.state.teamThree); // console.log(this.state.teamOne);
                   });
+
+                  if (res.data[0] == null) {
+                    console.log('null team one');
+
+                    _this3.setState({
+                      teamOne: _this3.state.emptyTeam
+                    });
+                  }
+
+                  if (res.data[1] == null) {
+                    _this3.setState({
+                      teamTwo: _this3.state.emptyTeam
+                    });
+                  }
+
+                  if (res.data[2] == null) {
+                    _this3.setState({
+                      teamThree: _this3.state.emptyTeam
+                    });
+                  }
                 })["catch"](function (err) {
                   return console.log(err);
                 });
 
-              case 4:
-                _context2.next = 6;
+              case 6:
+                _context2.next = 8;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamOne.id).then(function (res) {
                   _this3.setState({
                     teamOneQuestions: res.data
@@ -67354,8 +67385,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 6:
-                _context2.next = 8;
+              case 8:
+                _context2.next = 10;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamTwo.id).then(function (res) {
                   _this3.setState({
                     teamTwoQuestions: res.data
@@ -67367,8 +67398,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 8:
-                _context2.next = 10;
+              case 10:
+                _context2.next = 12;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/questions/teams/' + this.state.teamThree.id).then(function (res) {
                   _this3.setState({
                     teamThreeQuestions: res.data
@@ -67380,8 +67411,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 10:
-                _context2.next = 12;
+              case 12:
+                _context2.next = 14;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/responses/' + userId).then(function (res) {
                   // console.log('responses: ', res.data);
                   _this3.setState({
@@ -67394,8 +67425,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 12:
-                _context2.next = 14;
+              case 14:
+                _context2.next = 16;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/presresponses/' + userId).then(function (res) {
                   // console.log('responses: ', res.data);
                   _this3.setState({
@@ -67408,9 +67439,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 14:
+              case 16:
                 questionList = [];
-                _context2.next = 17;
+                _context2.next = 19;
                 return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.id).then(function (response) {
                     questionList.push(response.data);
@@ -67419,12 +67450,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 17:
+              case 19:
                 this.setState({
                   questions: questionList
                 });
                 presQuestionList = [];
-                _context2.next = 21;
+                _context2.next = 23;
                 return Promise.all(this.state.presResponses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.id).then(function (response) {
                     presQuestionList.push(response.data);
@@ -67433,14 +67464,14 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 21:
+              case 23:
                 this.setState({
                   presQuestions: presQuestionList
                 });
                 console.log('All Questions');
                 console.log(questionList);
 
-              case 24:
+              case 26:
               case "end":
                 return _context2.stop();
             }

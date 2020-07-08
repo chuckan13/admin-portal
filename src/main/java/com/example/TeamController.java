@@ -19,13 +19,13 @@ public class TeamController {
         this.loginRepo = loginRepo;
     }
 
-    // @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    // public ResponseEntity<LoanOption> get(@PathVariable("id") Long id) {
-    // LoanOption loan = repository.findOne(id);
-    // if (null == loan)
-    // return new ResponseEntity<LoanOption>(HttpStatus.NOT_FOUND);
-    // return new ResponseEntity<LoanOption>(loan, HttpStatus.OK);
-    // }
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Team> get(@PathVariable("id") Long id) {
+        Team team = repository.findOne(id);
+        if (null == team)
+            return new ResponseEntity<Team>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Team>(team, HttpStatus.OK);
+    }
 
     // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     // public ResponseEntity<LoanOption> delete(@PathVariable("id") Long id) {

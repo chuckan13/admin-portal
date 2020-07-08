@@ -25,7 +25,8 @@ class viewApplicants extends Component {
 		teamThree: '',
 		teamOneQuestions: [],
 		teamTwoQuestions: [],
-		teamThreeQuestions: []
+		teamThreeQuestions: [],
+		emptyTeam: ''
 	};
 
 	constructor(props) {
@@ -90,6 +91,13 @@ class viewApplicants extends Component {
 
 	async displayInfo(userId) {
 		await axios
+			.get('/api/teams/0')
+			.then(res => {
+				this.setState({ emptyTeam: res.data });
+			})
+			.catch(err => console.log(err));
+
+		await axios
 			.get('/api/users/' + userId)
 			.then(res => {
 				console.log('Current User', res.data);
@@ -125,6 +133,16 @@ class viewApplicants extends Component {
 						// console.log(this.state.teamOne);
 					}
 				);
+				if (res.data[0] == null) {
+					console.log('null team one');
+					this.setState({ teamOne: this.state.emptyTeam });
+				}
+				if (res.data[1] == null) {
+					this.setState({ teamTwo: this.state.emptyTeam });
+				}
+				if (res.data[2] == null) {
+					this.setState({ teamThree: this.state.emptyTeam });
+				}
 			})
 			.catch(err => console.log(err));
 
@@ -341,6 +359,7 @@ class viewApplicants extends Component {
 		} else {
 			console.log('Before userprofile');
 			console.log(this.state);
+
 			if (userRole === 'USER') {
 				display = (
 					<UserProfile
