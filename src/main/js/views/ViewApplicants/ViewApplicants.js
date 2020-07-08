@@ -14,6 +14,7 @@ class viewApplicants extends Component {
 		viewUser: false,
 		user: 0,
 		currTeam: '',
+		currUser: '',
 		responses: [],
 		questions: []
 	};
@@ -29,6 +30,15 @@ class viewApplicants extends Component {
 		// request the list of teams
 		var users = {};
 		var allApplicants = [];
+		await axios
+			.get('/api/loginusers')
+			.then(res => {
+				this.setState({
+					currUser: res.data
+				});
+			})
+			.catch(err => console.log(err));
+
 		await axios
 			.get('/api/users')
 			.then(res => {
@@ -130,30 +140,85 @@ class viewApplicants extends Component {
 			];
 		});
 
+		let presView = this.state.applicants.map(user => {
+			let c1 = 'empty',
+				c2 = 'empty',
+				c3 = 'empty';
+			var allTeams = this.state.users[user.id];
+			if (allTeams === undefined) {
+				console.log('allteams undefined');
+			} else {
+				if (allTeams[0]) {
+					c1 = allTeams[0].name;
+				}
+				if (allTeams[1]) {
+					c2 = allTeams[1].name;
+				}
+				if (allTeams[2]) {
+					c3 = allTeams[2].name;
+				}
+			}
+			return [
+				<PresTableEntry
+					key={user.id}
+					firstName={user.firstName}
+					lastName={user.lastName}
+					c1={c1}
+					c2={c2}
+					c3={c3}
+					onClick={() => this.displayInfo(user.id)}
+				/>
+			];
+		});
+
 		let display;
 		let viewUser = this.state.viewUser;
+		let userRole = this.state.currUser.role;
 
 		if (!viewUser) {
-			display = (
-				<div>
-					<Row className="center-block text-center">
-						<Table id="user-table">
-							<thead>
-								<tr id="head">
-									<th>First Name</th>
-									<th>Last Name</th>
-									{/* <th>First Choice</th>
+			if (userRole === 'USER') {
+				display = (
+					<div>
+						<Row className="center-block text-center">
+							<Table id="user-table">
+								<thead>
+									<tr id="head">
+										<th>First Name</th>
+										<th>Last Name</th>
+										{/* <th>First Choice</th>
 									<th>Second Choice</th>
 									<th>Third Choice</th> */}
-									<th>More Details</th>
-								</tr>
-							</thead>
-							<tbody>{renderTable}</tbody>
-						</Table>
-						<BackButton onClick={this.props.backButton} />
-					</Row>
-				</div>
-			);
+										<th>More Details</th>
+									</tr>
+								</thead>
+								<tbody>{renderTable}</tbody>
+							</Table>
+							<BackButton onClick={this.props.backButton} />
+						</Row>
+					</div>
+				);
+			} else {
+				display = (
+					<div>
+						<Row className="center-block text-center">
+							<Table id="user-table">
+								<thead>
+									<tr id="head">
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>First Choice</th>
+										<th>Second Choice</th>
+										<th>Third Choice</th>
+										<th>More Details</th>
+									</tr>
+								</thead>
+								<tbody>{presView}</tbody>
+							</Table>
+							<BackButton onClick={this.props.backButton} />
+						</Row>
+					</div>
+				);
+			}
 		} else {
 			console.log('Before userprofile');
 			console.log(this.state);
@@ -245,6 +310,23 @@ function TableEntry(props) {
 		<tr>
 			<td>{props.firstName}</td>
 			<td>{props.lastName}</td>
+			<td>
+				<Button bsStyle="view-more" onClick={props.onClick}>
+					view
+				</Button>
+			</td>
+		</tr>
+	);
+}
+
+function PresTableEntry(props) {
+	return (
+		<tr>
+			<td>{props.firstName}</td>
+			<td>{props.lastName}</td>
+			<td>{props.c1}</td>
+			<td>{props.c2}</td>
+			<td>{props.c3}</td>
 			<td>
 				<Button bsStyle="view-more" onClick={props.onClick}>
 					view

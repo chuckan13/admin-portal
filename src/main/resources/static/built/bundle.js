@@ -67189,6 +67189,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       viewUser: false,
       user: 0,
       currTeam: '',
+      currUser: '',
       responses: [],
       questions: []
     });
@@ -67213,6 +67214,16 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 users = {};
                 allApplicants = [];
                 _context.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/loginusers').then(function (res) {
+                  _this2.setState({
+                    currUser: res.data
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 4:
+                _context.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
                   allApplicants = res.data;
 
@@ -67223,8 +67234,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 4:
-                _context.next = 6;
+              case 6:
+                _context.next = 8;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/teams').then(function (res) {
                   // currTeam = res.data;
                   _this2.setState({
@@ -67234,8 +67245,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 6:
-                _context.next = 8;
+              case 8:
+                _context.next = 10;
                 return Promise.all(allApplicants.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
                     // console.log('in /api/users/teams');
@@ -67244,13 +67255,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 8:
+              case 10:
                 // console.log('users dict', users);
                 this.setState({
                   users: users
                 });
 
-              case 9:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -67358,19 +67369,66 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           }
         })];
       });
+      var presView = this.state.applicants.map(function (user) {
+        var c1 = 'empty',
+            c2 = 'empty',
+            c3 = 'empty';
+        var allTeams = _this4.state.users[user.id];
+
+        if (allTeams === undefined) {
+          console.log('allteams undefined');
+        } else {
+          if (allTeams[0]) {
+            c1 = allTeams[0].name;
+          }
+
+          if (allTeams[1]) {
+            c2 = allTeams[1].name;
+          }
+
+          if (allTeams[2]) {
+            c3 = allTeams[2].name;
+          }
+        }
+
+        return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(PresTableEntry, {
+          key: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          c1: c1,
+          c2: c2,
+          c3: c3,
+          onClick: function onClick() {
+            return _this4.displayInfo(user.id);
+          }
+        })];
+      });
       var display;
       var viewUser = this.state.viewUser;
+      var userRole = this.state.currUser.role;
 
       if (!viewUser) {
-        display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
-          className: "center-block text-center"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Table"], {
-          id: "user-table"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
-          id: "head"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "Last Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "More Details"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, renderTable)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
-          onClick: this.props.backButton
-        })));
+        if (userRole === 'USER') {
+          display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
+            className: "center-block text-center"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Table"], {
+            id: "user-table"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
+            id: "head"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "Last Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "More Details"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, renderTable)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
+            onClick: this.props.backButton
+          })));
+        } else {
+          display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
+            className: "center-block text-center"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Table"], {
+            id: "user-table"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
+            id: "head"
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "First Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "Last Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "First Choice"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "Second Choice"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "Third Choice"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "More Details"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, presView)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
+            onClick: this.props.backButton
+          })));
+        }
       } else {
         console.log('Before userprofile');
         console.log(this.state);
@@ -67461,6 +67519,13 @@ function TeamResponses(props) {
 
 function TableEntry(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+    bsStyle: "view-more",
+    onClick: props.onClick
+  }, "view")));
+}
+
+function PresTableEntry(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.c1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.c2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.c3), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
     bsStyle: "view-more",
     onClick: props.onClick
   }, "view")));
