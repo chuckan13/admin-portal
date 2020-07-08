@@ -100,15 +100,15 @@ class viewApplicants extends Component {
 		await axios
 			.get('/api/users/' + userId)
 			.then(res => {
-				console.log('Current User', res.data);
+				// console.log('Current User', res.data);
 				this.setState(
 					{
 						user: res.data,
 						viewUser: true
 					},
 					function() {
-						console.log('Get user on display info');
-						console.log(this.state.user);
+						// console.log('Get user on display info');
+						// console.log(this.state.user);
 						// console.log(this.state.teamOne);
 					}
 				);
@@ -119,29 +119,38 @@ class viewApplicants extends Component {
 			.get('/api/users/teams/' + userId)
 			.then(res => {
 				// console.log('Teams', res.data);
-				this.setState(
-					{
-						teamOne: res.data[0],
-						teamTwo: res.data[1],
-						teamThree: res.data[2]
-					},
-					function() {
-						console.log('List teams');
-						console.log(this.state.teamOne);
-						console.log(this.state.teamTwo);
-						console.log(this.state.teamThree);
-						// console.log(this.state.teamOne);
-					}
-				);
+				// this.setState(
+				// 	{
+				// 		teamOne: res.data[0],
+				// 		teamTwo: res.data[1],
+				// 		teamThree: res.data[2]
+				// 	},
+				// 	function() {
+				// 		console.log('List teams');
+				// 		console.log(this.state.teamOne);
+				// 		console.log(this.state.teamTwo);
+				// 		console.log(this.state.teamThree);
+				// 		// console.log(this.state.teamOne);
+				// 	}
+				// );
+				console.log('RESPONSE DATA');
+				console.log(res.data);
+				console.log(res.data[0]);
 				if (res.data[0] == null) {
 					console.log('null team one');
 					this.setState({ teamOne: this.state.emptyTeam });
+				} else {
+					this.setState({ teamOne: res.data[0] });
 				}
 				if (res.data[1] == null) {
 					this.setState({ teamTwo: this.state.emptyTeam });
+				} else {
+					this.setState({ teamTwo: res.data[1] });
 				}
 				if (res.data[2] == null) {
 					this.setState({ teamThree: this.state.emptyTeam });
+				} else {
+					this.setState({ teamThree: res.data[2] });
 				}
 			})
 			.catch(err => console.log(err));
@@ -154,8 +163,8 @@ class viewApplicants extends Component {
 						teamOneQuestions: res.data
 					},
 					function() {
-						console.log('Team One Questions');
-						console.log(this.state.teamOneQuestions);
+						// console.log('Team One Questions');
+						// console.log(this.state.teamOneQuestions);
 					}
 				);
 			})
@@ -169,8 +178,8 @@ class viewApplicants extends Component {
 						teamTwoQuestions: res.data
 					},
 					function() {
-						console.log('Team Two Questions');
-						console.log(this.state.teamTwoQuestions);
+						// console.log('Team Two Questions');
+						// console.log(this.state.teamTwoQuestions);
 					}
 				);
 			})
@@ -184,8 +193,8 @@ class viewApplicants extends Component {
 						teamThreeQuestions: res.data
 					},
 					function() {
-						console.log('Team Three Questions');
-						console.log(this.state.teamThreeQuestions);
+						// console.log('Team Three Questions');
+						// console.log(this.state.teamThreeQuestions);
 					}
 				);
 			})
@@ -200,8 +209,8 @@ class viewApplicants extends Component {
 						responses: res.data
 					},
 					function() {
-						console.log('List Responses');
-						console.log(this.state.responses);
+						// console.log('List Responses');
+						// console.log(this.state.responses);
 					}
 				);
 			})
@@ -216,8 +225,8 @@ class viewApplicants extends Component {
 						presResponses: res.data
 					},
 					function() {
-						console.log('List Pres Responses');
-						console.log(this.state.presResponses);
+						// console.log('List Pres Responses');
+						// console.log(this.state.presResponses);
 					}
 				);
 			})
@@ -252,8 +261,8 @@ class viewApplicants extends Component {
 		this.setState({
 			presQuestions: presQuestionList
 		});
-		console.log('All Questions');
-		console.log(questionList);
+		// console.log('All Questions');
+		// console.log(questionList);
 	}
 
 	displayTable() {
@@ -275,15 +284,15 @@ class viewApplicants extends Component {
 		});
 
 		let presView = this.state.fullList.map(user => {
-			console.log('pres view');
+			// console.log('pres view');
 			let c1 = 'empty',
 				c2 = 'empty',
 				c3 = 'empty';
 			var allTeams = this.state.users[user.id];
 			if (allTeams === undefined) {
-				console.log('allteams undefined');
+				// console.log('allteams undefined');
 			} else {
-				console.log('teams defined');
+				// console.log('teams defined');
 				if (allTeams[0]) {
 					c1 = allTeams[0].name;
 				}
@@ -294,7 +303,7 @@ class viewApplicants extends Component {
 					c3 = allTeams[2].name;
 				}
 			}
-			console.log(c1, c2, c3);
+			// console.log(c1, c2, c3);
 			return [
 				<PresTableEntry
 					key={user.id}
@@ -357,8 +366,8 @@ class viewApplicants extends Component {
 				);
 			}
 		} else {
-			console.log('Before userprofile');
-			console.log(this.state);
+			// console.log('Before userprofile');
+			// console.log(this.state);
 
 			if (userRole === 'USER') {
 				display = (
