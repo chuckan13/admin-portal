@@ -67192,7 +67192,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       currTeam: '',
       currUser: '',
       responses: [],
+      presResponses: [],
       questions: [],
+      presQuestions: [],
       teamOne: '',
       teamTwo: '',
       teamThree: '',
@@ -67301,7 +67303,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       var _displayInfo = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(userId) {
         var _this3 = this;
 
-        var questionList;
+        var questionList, presQuestionList;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -67393,8 +67395,22 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 });
 
               case 12:
+                _context2.next = 14;
+                return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/presresponses/' + userId).then(function (res) {
+                  // console.log('responses: ', res.data);
+                  _this3.setState({
+                    presResponses: res.data
+                  }, function () {
+                    console.log('List Pres Responses');
+                    console.log(this.state.presResponses);
+                  });
+                })["catch"](function (err) {
+                  return console.log(err);
+                });
+
+              case 14:
                 questionList = [];
-                _context2.next = 15;
+                _context2.next = 17;
                 return Promise.all(this.state.responses.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.id).then(function (response) {
                     questionList.push(response.data);
@@ -67403,14 +67419,28 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 15:
+              case 17:
                 this.setState({
                   questions: questionList
+                });
+                presQuestionList = [];
+                _context2.next = 21;
+                return Promise.all(this.state.presResponses.map(function (obj) {
+                  return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/responses/question/' + obj.id).then(function (response) {
+                    presQuestionList.push(response.data);
+                  })["catch"](function (err) {
+                    return console.log(err);
+                  });
+                }));
+
+              case 21:
+                this.setState({
+                  presQuestions: presQuestionList
                 });
                 console.log('All Questions');
                 console.log(questionList);
 
-              case 18:
+              case 24:
               case "end":
                 return _context2.stop();
             }
@@ -67538,8 +67568,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             teamOneQuestions: this.state.teamOneQuestions,
             teamTwoQuestions: this.state.teamTwoQuestions,
             teamThreeQuestions: this.state.teamThreeQuestions,
-            responses: this.state.responses,
-            questions: this.state.questions,
+            responses: this.state.presResponses,
+            questions: this.state.presQuestions,
             onClick: this.displayTable
           });
         }

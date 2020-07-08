@@ -17,7 +17,9 @@ class viewApplicants extends Component {
 		currTeam: '',
 		currUser: '',
 		responses: [],
+		presResponses: [],
 		questions: [],
+		presQuestions: [],
 		teamOne: '',
 		teamTwo: '',
 		teamThree: '',
@@ -186,6 +188,23 @@ class viewApplicants extends Component {
 				);
 			})
 			.catch(err => console.log(err));
+
+		await axios
+			.get('/api/users/presresponses/' + userId)
+			.then(res => {
+				// console.log('responses: ', res.data);
+				this.setState(
+					{
+						presResponses: res.data
+					},
+					function() {
+						console.log('List Pres Responses');
+						console.log(this.state.presResponses);
+					}
+				);
+			})
+			.catch(err => console.log(err));
+
 		let questionList = [];
 		await Promise.all(
 			this.state.responses.map(obj =>
@@ -199,6 +218,21 @@ class viewApplicants extends Component {
 		);
 		this.setState({
 			questions: questionList
+		});
+
+		let presQuestionList = [];
+		await Promise.all(
+			this.state.presResponses.map(obj =>
+				axios
+					.get('/api/responses/question/' + obj.id)
+					.then(response => {
+						presQuestionList.push(response.data);
+					})
+					.catch(err => console.log(err))
+			)
+		);
+		this.setState({
+			presQuestions: presQuestionList
 		});
 		console.log('All Questions');
 		console.log(questionList);
@@ -334,8 +368,8 @@ class viewApplicants extends Component {
 						teamOneQuestions={this.state.teamOneQuestions}
 						teamTwoQuestions={this.state.teamTwoQuestions}
 						teamThreeQuestions={this.state.teamThreeQuestions}
-						responses={this.state.responses}
-						questions={this.state.questions}
+						responses={this.state.presResponses}
+						questions={this.state.presQuestions}
 						onClick={this.displayTable}
 					/>
 				);

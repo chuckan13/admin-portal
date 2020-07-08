@@ -83,6 +83,11 @@ public class UsersController {
         return currResp;
     }
 
+    @RequestMapping(value = "/presresponses/{id}", method = RequestMethod.GET)
+    public List<Response> getAllPresResponses(@PathVariable("id") Long id) {
+        return respRepo.findByUserId(id);
+    }
+
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Users> allApplicants(Principal principal) {
         // String loggedin = principal.getName();
