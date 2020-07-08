@@ -67212,7 +67212,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       var _componentDidMount = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         var _this2 = this;
 
-        var users, allApplicants;
+        var users, allApplicants, fullList;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -67220,7 +67220,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 // request the list of teams
                 users = {};
                 allApplicants = [];
-                _context.next = 4;
+                fullList = [];
+                _context.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/loginusers').then(function (res) {
                   _this2.setState({
                     currUser: res.data
@@ -67229,8 +67230,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 4:
-                _context.next = 6;
+              case 5:
+                _context.next = 7;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/all').then(function (res) {
                   fullList = res.data;
 
@@ -67241,8 +67242,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 6:
-                _context.next = 8;
+              case 7:
+                _context.next = 9;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users').then(function (res) {
                   allApplicants = res.data;
 
@@ -67253,8 +67254,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 8:
-                _context.next = 10;
+              case 9:
+                _context.next = 11;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/teams').then(function (res) {
                   // currTeam = res.data;
                   _this2.setState({
@@ -67264,8 +67265,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   return console.log(err);
                 });
 
-              case 10:
-                _context.next = 12;
+              case 11:
+                _context.next = 13;
                 return Promise.all(fullList.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
                     // console.log('in /api/users/teams');
@@ -67274,13 +67275,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   });
                 }));
 
-              case 12:
+              case 13:
                 // console.log('users dict', users);
                 this.setState({
                   users: users
                 });
 
-              case 13:
+              case 14:
               case "end":
                 return _context.stop();
             }
