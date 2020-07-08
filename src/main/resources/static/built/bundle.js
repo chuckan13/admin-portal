@@ -67226,6 +67226,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
               case 4:
                 _context.next = 6;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/all').then(function (res) {
+                  fullList = res.data;
+
                   _this2.setState({
                     fullList: res.data
                   });
@@ -67258,7 +67260,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
               case 10:
                 _context.next = 12;
-                return Promise.all(allApplicants.map(function (obj) {
+                return Promise.all(fullList.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/teams/' + obj.id).then(function (res) {
                     // console.log('in /api/users/teams');
                     // console.log(res.data);

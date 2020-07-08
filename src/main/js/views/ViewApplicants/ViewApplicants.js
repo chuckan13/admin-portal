@@ -43,6 +43,7 @@ class viewApplicants extends Component {
 		await axios
 			.get('/api/users/all')
 			.then(res => {
+				fullList = res.data;
 				this.setState({ fullList: res.data });
 			})
 			.catch(err => console.log(err));
@@ -65,7 +66,7 @@ class viewApplicants extends Component {
 			.catch(err => console.log(err));
 
 		await Promise.all(
-			allApplicants.map(obj =>
+			fullList.map(obj =>
 				axios.get('/api/users/teams/' + obj.id).then(res => {
 					// console.log('in /api/users/teams');
 					// console.log(res.data);
