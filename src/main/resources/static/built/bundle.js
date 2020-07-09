@@ -67285,35 +67285,32 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
               case 15:
                 this.setState({
                   users: users
-                }); //Get all userteams for director
+                }); // //Get all userteams for director
+                // await Promise.all(
+                // 	fullList.map(obj =>
+                // 		axios.get('/api/users/userteams/' + obj.id).then(res => {
+                // 			// console.log('in /api/users/teams');
+                // 			// console.log(res.data);
+                // 			userTeams[obj.id] = res.data;
+                // 		})
+                // 	)
+                // );
+                // this.setState({ userTeams: userTeams });
+                //Get all userteams for president
 
                 _context.next = 18;
-                return Promise.all(fullList.map(function (obj) {
-                  return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/userteams/' + obj.id).then(function (res) {
-                    // console.log('in /api/users/teams');
-                    // console.log(res.data);
-                    userTeams[obj.id] = res.data;
-                  });
-                }));
-
-              case 18:
-                this.setState({
-                  userTeams: userTeams
-                }); //Get all userteams for president
-
-                _context.next = 21;
                 return Promise.all(fullList.map(function (obj) {
                   return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/users/presuserteams/' + obj.id).then(function (res) {
                     presUserTeams[obj.id] = res.data;
                   });
                 }));
 
-              case 21:
+              case 18:
                 this.setState({
                   presUserTeams: presUserTeams
                 });
 
-              case 22:
+              case 19:
               case "end":
                 return _context.stop();
             }
@@ -67539,7 +67536,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       var _this4 = this;
 
       var renderTable = this.state.applicants.map(function (user) {
-        var userTeam = _this4.state.userTeams[user.id];
+        var userTeam = _this4.state.presUserTeams[user.id];
         console.log('USER TEAM', userTeam);
         return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
           key: user.id,

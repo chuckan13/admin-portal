@@ -90,17 +90,17 @@ class viewApplicants extends Component {
 		);
 		this.setState({ users: users });
 
-		//Get all userteams for director
-		await Promise.all(
-			fullList.map(obj =>
-				axios.get('/api/users/userteams/' + obj.id).then(res => {
-					// console.log('in /api/users/teams');
-					// console.log(res.data);
-					userTeams[obj.id] = res.data;
-				})
-			)
-		);
-		this.setState({ userTeams: userTeams });
+		// //Get all userteams for director
+		// await Promise.all(
+		// 	fullList.map(obj =>
+		// 		axios.get('/api/users/userteams/' + obj.id).then(res => {
+		// 			// console.log('in /api/users/teams');
+		// 			// console.log(res.data);
+		// 			userTeams[obj.id] = res.data;
+		// 		})
+		// 	)
+		// );
+		// this.setState({ userTeams: userTeams });
 
 		//Get all userteams for president
 		await Promise.all(
@@ -298,7 +298,7 @@ class viewApplicants extends Component {
 
 	render() {
 		let renderTable = this.state.applicants.map(user => {
-			var userTeam = this.state.userTeams[user.id];
+			var userTeam = this.state.presUserTeams[user.id];
 			console.log('USER TEAM', userTeam);
 			return [
 				<TableEntry
