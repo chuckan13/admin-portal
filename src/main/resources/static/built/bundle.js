@@ -4371,7 +4371,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\n#greentd {\r\n\tcolor:green;\r\n}\r\n#normaltd {\r\n\tcolor: black;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n", ""]);
+exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\n#greentd {\r\n\tcolor:green;\r\n}\r\n#normaltd {\r\n\tcolor: black;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n\r\n#firstrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: green;\r\n}\r\n\r\n#rejectrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: red;\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -67272,6 +67272,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     _this.displayInfo = _this.displayInfo.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.displayTable = _this.displayTable.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.changeRankFirst = _this.changeRankFirst.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
+    _this.changeRankReject = _this.changeRankReject.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     return _this;
   }
 
@@ -67602,18 +67603,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
       var userTeamList = this.state.presUserTeams[this.state.user.id];
       console.log('USER TEAM LIST', userTeamList);
-      var userTeam = ''; // if (userTeamList == null) {
-      // 	userTeam = {
-      // 		rank: 'none'
-      // 	};
-      // } else {
-
+      var userTeam = '';
       userTeamList.forEach(function (element) {
         if (element.teamId === _this4.state.currTeam.id) {
           userTeam = element;
         }
-      }); // }
-
+      });
       var newUserTeam = userTeam;
       newUserTeam.rank = 'First';
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.patch('/api/userteams/' + userTeam.id, newUserTeam).then(function (res) {
@@ -67627,13 +67622,38 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "changeRankReject",
+    value: function changeRankReject() {
+      var _this5 = this;
+
+      var userTeamList = this.state.presUserTeams[this.state.user.id];
+      console.log('USER TEAM LIST', userTeamList);
+      var userTeam = '';
+      userTeamList.forEach(function (element) {
+        if (element.teamId === _this5.state.currTeam.id) {
+          userTeam = element;
+        }
+      });
+      var newUserTeam = userTeam;
+      newUserTeam.rank = 'Reject';
+      axios__WEBPACK_IMPORTED_MODULE_10___default.a.patch('/api/userteams/' + userTeam.id, newUserTeam).then(function (res) {
+        console.log('update userteam response: ', res.data);
+
+        _this5.setState({
+          viewUser: false
+        });
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this5 = this;
+      var _this6 = this;
 
       // var currUserTeam = '';
       var renderTable = this.state.applicants.map(function (user) {
-        var userTeamList = _this5.state.presUserTeams[user.id]; // console.log('USER TEAM LIST', userTeamList);
+        var userTeamList = _this6.state.presUserTeams[user.id]; // console.log('USER TEAM LIST', userTeamList);
 
         var userTeam = '';
 
@@ -67643,7 +67663,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           };
         } else {
           userTeamList.forEach(function (element) {
-            if (element.teamId === _this5.state.currTeam.id) {
+            if (element.teamId === _this6.state.currTeam.id) {
               userTeam = element;
             }
           });
@@ -67665,12 +67685,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           classYear: user.classYear,
           rank: userTeam.rank,
           onClick: function onClick() {
-            return _this5.displayInfo(user.id);
+            return _this6.displayInfo(user.id);
           }
         })];
       });
       var presView = this.state.fullList.map(function (user) {
-        var userTeamList = _this5.state.presUserTeams[user.id];
+        var userTeamList = _this6.state.presUserTeams[user.id];
         console.log(userTeamList); // console.log('pres view');
 
         var c1 = 'empty',
@@ -67698,7 +67718,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           }
         }
 
-        var allTeams = _this5.state.users[user.id];
+        var allTeams = _this6.state.users[user.id];
 
         if (allTeams === undefined) {// console.log('allteams undefined');
         } else {
@@ -67728,7 +67748,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           teamTwoRank: rank2,
           teamThreeRank: rank3,
           onClick: function onClick() {
-            return _this5.displayInfo(user.id);
+            return _this6.displayInfo(user.id);
           }
         })];
       });
@@ -67774,7 +67794,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             responses: this.state.responses,
             questions: this.state.questions,
             onClick: this.displayTable,
-            onRank: this.changeRankFirst
+            onRank: this.changeRankFirst,
+            onReject: this.changeRankReject
           });
         } else {
           display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(PresUserProfile, {
@@ -67823,6 +67844,8 @@ function UserProfile(props) {
     resp: props.responses
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(FirstRankButton, {
     onClick: props.onRank
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(RejectRankButton, {
+    onClick: props.onReject
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick
   }));
@@ -67949,10 +67972,24 @@ function FirstRankButton(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
     className: "center-block text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+    className: "firstrank",
     bsStyle: "admin",
     bsSize: "large",
     onClick: props.onClick
-  }, "Rank First"))));
+  }, "Accept"))));
+}
+
+function RejectRankButton(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+    id: "welcome-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
+    className: "center-block text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+    className: "rejectrank",
+    bsStyle: "admin",
+    bsSize: "large",
+    onClick: props.onClick
+  }, "Reject"))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (viewApplicants);

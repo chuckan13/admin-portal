@@ -88,3 +88,13 @@ tbody tr:last-child td:last-child {
 	font-size: 14px;
 	padding: 5px 10px 5px 10px;
 }
+
+#firstrank {
+	display:inline-block;
+	background-color: green;
+}
+
+#rejectrank {
+	display:inline-block;
+	background-color: red;
+}

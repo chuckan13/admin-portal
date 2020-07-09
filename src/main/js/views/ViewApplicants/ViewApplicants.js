@@ -38,6 +38,7 @@ class viewApplicants extends Component {
 		this.displayInfo = this.displayInfo.bind(this);
 		this.displayTable = this.displayTable.bind(this);
 		this.changeRankFirst = this.changeRankFirst.bind(this);
+		this.changeRankReject = this.changeRankReject.bind(this);
 	}
 
 	async componentDidMount() {
@@ -302,20 +303,37 @@ class viewApplicants extends Component {
 		var userTeamList = this.state.presUserTeams[this.state.user.id];
 		console.log('USER TEAM LIST', userTeamList);
 		var userTeam = '';
-		// if (userTeamList == null) {
-		// 	userTeam = {
-		// 		rank: 'none'
-		// 	};
-		// } else {
 		userTeamList.forEach(element => {
 			if (element.teamId === this.state.currTeam.id) {
 				userTeam = element;
 			}
 		});
-		// }
 
 		var newUserTeam = userTeam;
 		newUserTeam.rank = 'First';
+		axios
+			.patch('/api/userteams/' + userTeam.id, newUserTeam)
+			.then(res => {
+				console.log('update userteam response: ', res.data);
+				this.setState({
+					viewUser: false
+				});
+			})
+			.catch(err => console.log(err));
+	}
+
+	changeRankReject() {
+		var userTeamList = this.state.presUserTeams[this.state.user.id];
+		console.log('USER TEAM LIST', userTeamList);
+		var userTeam = '';
+		userTeamList.forEach(element => {
+			if (element.teamId === this.state.currTeam.id) {
+				userTeam = element;
+			}
+		});
+
+		var newUserTeam = userTeam;
+		newUserTeam.rank = 'Reject';
 		axios
 			.patch('/api/userteams/' + userTeam.id, newUserTeam)
 			.then(res => {
@@ -493,6 +511,7 @@ class viewApplicants extends Component {
 						questions={this.state.questions}
 						onClick={this.displayTable}
 						onRank={this.changeRankFirst}
+						onReject={this.changeRankReject}
 					/>
 				);
 			} else {
@@ -542,6 +561,7 @@ function UserProfile(props) {
 				</div>
 			</div>
 			<FirstRankButton onClick={props.onRank} />
+			<RejectRankButton onClick={props.onReject} />
 			<BackButton onClick={props.onClick} />
 		</div>
 	);
@@ -713,8 +733,22 @@ function FirstRankButton(props) {
 		<div id="welcome-content">
 			<Row className="center-block text-center">
 				<div>
-					<Button bsStyle="admin" bsSize="large" onClick={props.onClick}>
-						Rank First
+					<Button className="firstrank" bsStyle="admin" bsSize="large" onClick={props.onClick}>
+						Accept
+					</Button>
+				</div>
+			</Row>
+		</div>
+	);
+}
+
+function RejectRankButton(props) {
+	return (
+		<div id="welcome-content">
+			<Row className="center-block text-center">
+				<div>
+					<Button className="rejectrank" bsStyle="admin" bsSize="large" onClick={props.onClick}>
+						Reject
 					</Button>
 				</div>
 			</Row>
