@@ -83,6 +83,33 @@ public class UsersController {
         return currResp;
     }
 
+    @RequestMapping(value = "/userteams/{id}", method = RequestMethod.GET)
+    public List<Userteam> getAllUserTeam(@PathVariable("id") Long id, Principal principal) {
+        Loginuser loginuser = loginRepo.findByUserName(principal.getName());
+        Team currTeam = teamRepo.findOne(loginuser.getId());
+        List<Userteam> userTeams = userTeamRepo.findByUserIdOrderByPreferenceAsc(id);
+        for (Userteam userTeam : userTeams) {
+            if (userTeam.getTeamId() != currTeam.getId()) {
+                userTeams.remove(userTeam);
+            }
+        }
+        System.out.println(userTeams.size());
+        return userTeams;
+    }
+
+    @RequestMapping(value = "/presuserteams/{id}", method = RequestMethod.GET)
+    public List<Userteam> getAllPresUserTeam(@PathVariable("id") Long id, Principal principal) {
+        // Loginuser loginuser = loginRepo.findByUserName(principal.getName());
+        // Team currTeam = teamRepo.findOne(loginuser.getId());
+        List<Userteam> userTeams = userTeamRepo.findByUserIdOrderByPreferenceAsc(id);
+        // for (Userteam userTeam : userTeams) {
+        // if (userTeam.getTeamId() != currTeam.getId()) {
+        // userTeams.remove(userTeam);
+        // }
+        // }
+        return userTeams;
+    }
+
     @RequestMapping(value = "/presresponses/{id}", method = RequestMethod.GET)
     public List<Response> getAllPresResponses(@PathVariable("id") Long id) {
         return respRepo.findByUserId(id);

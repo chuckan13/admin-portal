@@ -19,6 +19,16 @@ public class Userteam {
     private long userId;
     @Column(name = "preference")
     private int preference;
+    @Column(name = "rank")
+    private String rank;
+
+    public String getRank() {
+        return this.rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
+    }
 
     public Long getTeamId() {
         return this.teamId;
@@ -52,5 +62,6 @@ public class Userteam {
         this.teamId = other.getTeamId();
         this.userId = other.getUserId();
         this.preference = other.getPreference();
+        this.rank = other.getRank();
     }
 }

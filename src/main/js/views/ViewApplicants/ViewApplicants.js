@@ -12,6 +12,8 @@ class viewApplicants extends Component {
 		applicants: [],
 		fullList: [],
 		users: {},
+		userTeams: {},
+		presUserTeams: {},
 		viewUser: false,
 		user: 0,
 		currTeam: '',
@@ -39,6 +41,8 @@ class viewApplicants extends Component {
 	async componentDidMount() {
 		// request the list of teams
 		var users = {};
+		var userTeams = {};
+		var presUserTeams = {};
 		var allApplicants = [];
 		var fullList = [];
 		await axios
@@ -84,9 +88,30 @@ class viewApplicants extends Component {
 				})
 			)
 		);
-
-		// console.log('users dict', users);
 		this.setState({ users: users });
+
+		//Get all userteams for director
+		await Promise.all(
+			fullList.map(obj =>
+				axios.get('/api/users/userteams/' + obj.id).then(res => {
+					// console.log('in /api/users/teams');
+					// console.log(res.data);
+					userTeams[obj.id] = res.data;
+				})
+			)
+		);
+		this.setState({ userTeams: userTeams });
+
+		//Get all userteams for president
+		await Promise.all(
+			fullList.map(obj =>
+				axios.get('/api/users/presuserteams/' + obj.id).then(res => {
+					presUserTeams[obj.id] = res.data;
+				})
+			)
+		);
+
+		this.setState({ presUserTeams: presUserTeams });
 	}
 
 	async displayInfo(userId) {
@@ -273,11 +298,16 @@ class viewApplicants extends Component {
 
 	render() {
 		let renderTable = this.state.applicants.map(user => {
+			var userTeam = this.state.userTeams[user.id];
+			console.log('USER TEAM', userTeam);
 			return [
 				<TableEntry
 					key={user.id}
 					firstName={user.firstName}
 					lastName={user.lastName}
+					major={user.concentration}
+					year={user.classYear}
+					rank={userTeam.rank}
 					onClick={() => this.displayInfo(user.id)}
 				/>
 			];
@@ -523,6 +553,9 @@ function TableEntry(props) {
 		<tr>
 			<td>{props.firstName}</td>
 			<td>{props.lastName}</td>
+			<td>{props.concentration}</td>
+			<td>{props.classYear}</td>
+			<td>{props.rank}</td>
 			<td>
 				<Button bsStyle="view-more" onClick={props.onClick}>
 					view
