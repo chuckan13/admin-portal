@@ -67547,7 +67547,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           };
         } else {
           userTeamList.forEach(function (element) {
-            if (element.teamId === currTeam.id) {
+            if (element.teamId === _this4.state.currTeam.id) {
               userTeam = element;
             }
           });

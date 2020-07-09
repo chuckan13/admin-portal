@@ -307,7 +307,7 @@ class viewApplicants extends Component {
 				};
 			} else {
 				userTeamList.forEach(element => {
-					if (element.teamId === currTeam.id) {
+					if (element.teamId === this.state.currTeam.id) {
 						userTeam = element;
 					}
 				});
