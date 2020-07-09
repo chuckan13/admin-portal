@@ -366,10 +366,14 @@ class viewApplicants extends Component {
 		});
 
 		let presView = this.state.fullList.map(user => {
+			var userTeamList = this.state.presUserTeams[user.id];
 			// console.log('pres view');
 			let c1 = 'empty',
 				c2 = 'empty',
-				c3 = 'empty';
+				c3 = 'empty',
+				rank1 = userTeamList[0].rank,
+				rank2 = userTeamList[1].rank,
+				rank3 = userTeamList[2].rank;
 			var allTeams = this.state.users[user.id];
 			if (allTeams === undefined) {
 				// console.log('allteams undefined');
@@ -394,6 +398,9 @@ class viewApplicants extends Component {
 					c1={c1}
 					c2={c2}
 					c3={c3}
+					teamOneRank={rank1}
+					teamTwoRank={rank2}
+					teamThreeRank={rank3}
 					onClick={() => this.displayInfo(user.id)}
 				/>
 			];
@@ -632,9 +639,9 @@ function PresTableEntry(props) {
 		<tr>
 			<td>{props.firstName}</td>
 			<td>{props.lastName}</td>
-			<td>{props.c1}</td>
-			<td>{props.c2}</td>
-			<td>{props.c3}</td>
+			<td className={props.teamOneRank === 'First' ? greentd : normaltd}>{props.c1}</td>
+			<td className={props.teamTwoRank === 'First' ? greentd : normaltd}>{props.c2}</td>
+			<td className={props.teamThreeRank === 'First' ? greentd : normaltd}>{props.c3}</td>
 			<td>
 				<Button bsStyle="view-more" onClick={props.onClick}>
 					view

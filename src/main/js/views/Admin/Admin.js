@@ -80,7 +80,6 @@ class Admin extends Component {
 	render() {
 		let { homePage, viewApplicants, editApplication, presidentView } = this.state;
 		let display;
-		console.log(presidentView);
 
 		if (homePage) {
 			if (presidentView) {

@@ -4371,7 +4371,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n", ""]);
+exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\n#greentd {\r\n\tcolor:green;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -64686,7 +64686,6 @@ var Admin = /*#__PURE__*/function (_Component) {
           editApplication = _this$state.editApplication,
           presidentView = _this$state.presidentView;
       var display;
-      console.log(presidentView);
 
       if (homePage) {
         if (presidentView) {
@@ -67671,10 +67670,14 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         })];
       });
       var presView = this.state.fullList.map(function (user) {
-        // console.log('pres view');
+        var userTeamList = _this5.state.presUserTeams[user.id]; // console.log('pres view');
+
         var c1 = 'empty',
             c2 = 'empty',
-            c3 = 'empty';
+            c3 = 'empty',
+            rank1 = userTeamList[0].rank,
+            rank2 = userTeamList[1].rank,
+            rank3 = userTeamList[2].rank;
         var allTeams = _this5.state.users[user.id];
 
         if (allTeams === undefined) {// console.log('allteams undefined');
@@ -67701,6 +67704,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           c1: c1,
           c2: c2,
           c3: c3,
+          teamOneRank: rank1,
+          teamTwoRank: rank2,
+          teamThreeRank: rank3,
           onClick: function onClick() {
             return _this5.displayInfo(user.id);
           }
@@ -67887,7 +67893,13 @@ function TableEntry(props) {
 }
 
 function PresTableEntry(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.c1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.c2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.c3), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
+    className: props.teamOneRank === 'First' ? greentd : normaltd
+  }, props.c1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
+    className: props.teamTwoRank === 'First' ? greentd : normaltd
+  }, props.c2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
+    className: props.teamThreeRank === 'First' ? greentd : normaltd
+  }, props.c3), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
     bsStyle: "view-more",
     onClick: props.onClick
   }, "view")));

@@ -22,6 +22,10 @@ td {
 	font-weight: lighter;
 }
 
+#greentd {
+	color:green;
+}
+
 tr:hover {
 	background-color: #f2f4f7;
 }
