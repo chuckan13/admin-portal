@@ -64594,6 +64594,8 @@ var Admin = /*#__PURE__*/function (_Component) {
     _this.backButton = _this.backButton.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.updateQuestions = _this.updateQuestions.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     axios__WEBPACK_IMPORTED_MODULE_7___default.a.get('/api/loginusers').then(function (res) {
+      console.log('LOGINUSER', res);
+
       if (res.role === 'ADMIN') {
         _this.setState({
           presidentView: true
@@ -64601,7 +64603,7 @@ var Admin = /*#__PURE__*/function (_Component) {
       }
     })["catch"](function (err) {
       return console.log(err);
-    });
+    }).bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     return _this;
   }
 
@@ -64653,12 +64655,12 @@ var Admin = /*#__PURE__*/function (_Component) {
           editApplication = _this$state.editApplication,
           presidentView = _this$state.presidentView;
       var display;
+      console.log(presidentView);
 
       if (homePage) {
         if (presidentView) {
           display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(PresHomePage, {
-            displayApplicantPage: this.displayApplicantPage,
-            displayEditPage: this.displayEditPage
+            displayApplicantPage: this.displayApplicantPage
           });
         } else {
           display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(HomePage, {

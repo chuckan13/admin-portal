@@ -29,11 +29,13 @@ class Admin extends Component {
 		axios
 			.get('/api/loginusers')
 			.then(res => {
+				console.log('LOGINUSER', res);
 				if (res.role === 'ADMIN') {
 					this.setState({ presidentView: true });
 				}
 			})
-			.catch(err => console.log(err));
+			.catch(err => console.log(err))
+			.bind(this);
 	}
 
 	displayApplicantPage() {
@@ -77,15 +79,11 @@ class Admin extends Component {
 	render() {
 		let { homePage, viewApplicants, editApplication, presidentView } = this.state;
 		let display;
+		console.log(presidentView);
 
 		if (homePage) {
 			if (presidentView) {
-				display = (
-					<PresHomePage
-						displayApplicantPage={this.displayApplicantPage}
-						displayEditPage={this.displayEditPage}
-					/>
-				);
+				display = <PresHomePage displayApplicantPage={this.displayApplicantPage} />;
 			} else {
 				display = (
 					<HomePage displayApplicantPage={this.displayApplicantPage} displayEditPage={this.displayEditPage} />
