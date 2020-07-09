@@ -67915,7 +67915,7 @@ function TableEntry(props) {
 function PresTableEntry(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
-      color: props.teamOneRank === 'First' ? 'green' : 'black'
+      'background-color': props.teamOneRank === 'First' ? 'green' : 'black'
     }
   }, props.c1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
