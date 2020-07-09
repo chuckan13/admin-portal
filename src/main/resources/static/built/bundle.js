@@ -67847,11 +67847,15 @@ function UserProfile(props) {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     align: "center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
-    style: "display: inline-block"
+    style: {
+      display: 'inline-block'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(FirstRankButton, {
     onClick: props.onRank
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
-    style: "display: inline-block"
+    style: {
+      display: 'inline-block'
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(RejectRankButton, {
     onClick: props.onReject
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {

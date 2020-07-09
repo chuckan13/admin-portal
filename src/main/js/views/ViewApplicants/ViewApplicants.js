@@ -578,10 +578,10 @@ function UserProfile(props) {
 			</div> */}
 
 			<div align="center">
-				<div style="display: inline-block">
+				<div style={{ display: 'inline-block' }}>
 					<FirstRankButton onClick={props.onRank} />
 				</div>
-				<div style="display: inline-block">
+				<div style={{ display: 'inline-block' }}>
 					<RejectRankButton onClick={props.onReject} />
 				</div>
 			</div>
