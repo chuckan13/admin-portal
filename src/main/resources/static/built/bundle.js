@@ -67915,15 +67915,15 @@ function TableEntry(props) {
 function PresTableEntry(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
-      'background-color': props.teamOneRank === 'First' ? 'green' : 'black'
+      'background-color': props.teamOneRank === 'First' ? 'lightgreen' : 'white'
     }
   }, props.c1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
-      color: props.teamTwoRank === 'First' ? 'green' : 'black'
+      'background-color': props.teamTwoRank === 'First' ? 'lightgreen' : 'white'
     }
   }, props.c2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
-      color: props.teamThreeRank === 'First' ? 'green' : 'black'
+      'background-color': props.teamThreeRank === 'First' ? 'lightgreen' : 'white'
     }
   }, props.c3), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
     bsStyle: "view-more",

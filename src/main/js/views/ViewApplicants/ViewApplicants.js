@@ -656,9 +656,9 @@ function PresTableEntry(props) {
 		<tr>
 			<td>{props.firstName}</td>
 			<td>{props.lastName}</td>
-			<td style={{ 'background-color': props.teamOneRank === 'First' ? 'green' : 'black' }}>{props.c1}</td>
-			<td style={{ color: props.teamTwoRank === 'First' ? 'green' : 'black' }}>{props.c2}</td>
-			<td style={{ color: props.teamThreeRank === 'First' ? 'green' : 'black' }}>{props.c3}</td>
+			<td style={{ 'background-color': props.teamOneRank === 'First' ? 'lightgreen' : 'white' }}>{props.c1}</td>
+			<td style={{ 'background-color': props.teamTwoRank === 'First' ? 'lightgreen' : 'white' }}>{props.c2}</td>
+			<td style={{ 'background-color': props.teamThreeRank === 'First' ? 'lightgreen' : 'white' }}>{props.c3}</td>
 			<td>
 				<Button bsStyle="view-more" onClick={props.onClick}>
 					view
