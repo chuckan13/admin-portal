@@ -324,8 +324,8 @@ class viewApplicants extends Component {
 					key={user.id}
 					firstName={user.firstName}
 					lastName={user.lastName}
-					major={user.concentration}
-					year={user.classYear}
+					concentration={user.concentration}
+					classYear={user.classYear}
 					rank={userTeam.rank}
 					onClick={() => this.displayInfo(user.id)}
 				/>
@@ -380,6 +380,9 @@ class viewApplicants extends Component {
 									<tr id="head">
 										<th>First Name</th>
 										<th>Last Name</th>
+										<th>Concentration</th>
+										<th>Class Year</th>
+										<th>Rank</th>
 										{/* <th>First Choice</th>
 									<th>Second Choice</th>
 									<th>Third Choice</th> */}
