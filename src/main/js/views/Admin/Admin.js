@@ -25,17 +25,16 @@ class Admin extends Component {
 		this.displayEditPage = this.displayEditPage.bind(this);
 		this.backButton = this.backButton.bind(this);
 		this.updateQuestions = this.updateQuestions.bind(this);
-
+		var that = this;
 		axios
 			.get('/api/loginusers')
 			.then(res => {
 				console.log('LOGINUSER', res);
 				if (res.role === 'ADMIN') {
-					this.setState({ presidentView: true });
+					that.setState({ presidentView: true });
 				}
 			})
-			.catch(err => console.log(err))
-			.bind(this);
+			.catch(err => console.log(err));
 	}
 
 	displayApplicantPage() {

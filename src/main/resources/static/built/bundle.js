@@ -64593,17 +64593,20 @@ var Admin = /*#__PURE__*/function (_Component) {
     _this.displayEditPage = _this.displayEditPage.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.backButton = _this.backButton.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.updateQuestions = _this.updateQuestions.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+
+    var that = _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this);
+
     axios__WEBPACK_IMPORTED_MODULE_7___default.a.get('/api/loginusers').then(function (res) {
       console.log('LOGINUSER', res);
 
       if (res.role === 'ADMIN') {
-        _this.setState({
+        that.setState({
           presidentView: true
         });
       }
     })["catch"](function (err) {
       return console.log(err);
-    }).bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    });
     return _this;
   }
 
