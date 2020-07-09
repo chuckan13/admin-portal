@@ -15,7 +15,8 @@ class Admin extends Component {
 		/* display booleans */
 		homePage: true,
 		viewApplicants: false,
-		editApplication: false
+		editApplication: false,
+		presidentView: false
 	};
 
 	constructor(props) {
@@ -24,6 +25,15 @@ class Admin extends Component {
 		this.displayEditPage = this.displayEditPage.bind(this);
 		this.backButton = this.backButton.bind(this);
 		this.updateQuestions = this.updateQuestions.bind(this);
+
+		axios
+			.get('/api/loginusers')
+			.then(res => {
+				if (res.role === 'ADMIN') {
+					this.setState({ presidentView: true });
+				}
+			})
+			.catch(err => console.log(err));
 	}
 
 	displayApplicantPage() {
@@ -65,13 +75,22 @@ class Admin extends Component {
 	}
 
 	render() {
-		let { homePage, viewApplicants, editApplication } = this.state;
+		let { homePage, viewApplicants, editApplication, presidentView } = this.state;
 		let display;
 
 		if (homePage) {
-			display = (
-				<HomePage displayApplicantPage={this.displayApplicantPage} displayEditPage={this.displayEditPage} />
-			);
+			if (presidentView) {
+				display = (
+					<PresHomePage
+						displayApplicantPage={this.displayApplicantPage}
+						displayEditPage={this.displayEditPage}
+					/>
+				);
+			} else {
+				display = (
+					<HomePage displayApplicantPage={this.displayApplicantPage} displayEditPage={this.displayEditPage} />
+				);
+			}
 		} else if (viewApplicants) {
 			display = <ViewApplicants backButton={this.backButton} />;
 		} else if (editApplication) {
@@ -102,4 +121,19 @@ function HomePage(props) {
 	);
 }
 
+function PresHomePage(props) {
+	return (
+		<div id="welcome-content">
+			<Row className="center-block text-center">
+				<Col>
+					<div>
+						<Button bsStyle="admin" bsSize="large" onClick={props.displayApplicantPage}>
+							View Applicants
+						</Button>
+					</div>
+				</Col>
+			</Row>
+		</div>
+	);
+}
 export default Admin;

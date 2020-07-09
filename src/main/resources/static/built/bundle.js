@@ -64585,13 +64585,23 @@ var Admin = /*#__PURE__*/function (_Component) {
       /* display booleans */
       homePage: true,
       viewApplicants: false,
-      editApplication: false
+      editApplication: false,
+      presidentView: false
     });
 
     _this.displayApplicantPage = _this.displayApplicantPage.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.displayEditPage = _this.displayEditPage.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.backButton = _this.backButton.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
     _this.updateQuestions = _this.updateQuestions.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2___default()(_this));
+    axios__WEBPACK_IMPORTED_MODULE_7___default.a.get('/api/loginusers').then(function (res) {
+      if (res.role === 'ADMIN') {
+        _this.setState({
+          presidentView: true
+        });
+      }
+    })["catch"](function (err) {
+      return console.log(err);
+    });
     return _this;
   }
 
@@ -64640,14 +64650,22 @@ var Admin = /*#__PURE__*/function (_Component) {
       var _this$state = this.state,
           homePage = _this$state.homePage,
           viewApplicants = _this$state.viewApplicants,
-          editApplication = _this$state.editApplication;
+          editApplication = _this$state.editApplication,
+          presidentView = _this$state.presidentView;
       var display;
 
       if (homePage) {
-        display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(HomePage, {
-          displayApplicantPage: this.displayApplicantPage,
-          displayEditPage: this.displayEditPage
-        });
+        if (presidentView) {
+          display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(PresHomePage, {
+            displayApplicantPage: this.displayApplicantPage,
+            displayEditPage: this.displayEditPage
+          });
+        } else {
+          display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(HomePage, {
+            displayApplicantPage: this.displayApplicantPage,
+            displayEditPage: this.displayEditPage
+          });
+        }
       } else if (viewApplicants) {
         display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_ViewApplicants_ViewApplicants_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
           backButton: this.backButton
@@ -64680,6 +64698,18 @@ function HomePage(props) {
     bsSize: "large",
     onClick: props.displayEditPage
   }, "Edit Application")))));
+}
+
+function PresHomePage(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
+    id: "welcome-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__["Row"], {
+    className: "center-block text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__["Col"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_12__["Button"], {
+    bsStyle: "admin",
+    bsSize: "large",
+    onClick: props.displayApplicantPage
+  }, "View Applicants")))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Admin);
