@@ -25,8 +25,11 @@ class Admin extends Component {
 		this.displayEditPage = this.displayEditPage.bind(this);
 		this.backButton = this.backButton.bind(this);
 		this.updateQuestions = this.updateQuestions.bind(this);
+	}
+
+	async componentDidMount() {
 		var that = this;
-		axios
+		await axios
 			.get('/api/loginusers')
 			.then(res => {
 				console.log('LOGINUSER', res);
