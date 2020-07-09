@@ -6,6 +6,8 @@ import { Table } from 'react-bootstrap';
 import './ViewApplicants.css';
 import { addStyle } from 'react-bootstrap/lib/utils/bootstrapUtils';
 addStyle(Button, 'view-more');
+addStyle(Button, 'first-rank');
+addStyle(Button, 'reject-rank');
 
 class viewApplicants extends Component {
 	state = {
@@ -733,7 +735,7 @@ function FirstRankButton(props) {
 		<div id="welcome-content">
 			<Row className="center-block text-center">
 				<div>
-					<Button className="firstrank" bsStyle="admin" bsSize="large" onClick={props.onClick}>
+					<Button bsStyle="first-rank" bsSize="large" onClick={props.onClick}>
 						Accept
 					</Button>
 				</div>
@@ -747,7 +749,7 @@ function RejectRankButton(props) {
 		<div id="welcome-content">
 			<Row className="center-block text-center">
 				<div>
-					<Button className="rejectrank" bsStyle="admin" bsSize="large" onClick={props.onClick}>
+					<Button bsStyle="reject-rank" bsSize="large" onClick={props.onClick}>
 						Reject
 					</Button>
 				</div>

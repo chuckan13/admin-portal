@@ -4371,7 +4371,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\n#greentd {\r\n\tcolor:green;\r\n}\r\n#normaltd {\r\n\tcolor: black;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n\r\n#firstrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: green;\r\n}\r\n\r\n#rejectrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: red;\r\n}", ""]);
+exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\n#greentd {\r\n\tcolor:green;\r\n}\r\n#normaltd {\r\n\tcolor: black;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n\r\n.btn-first-rank {\r\n\tcolor: white;\r\n\tbackground-color: green;\r\n}\r\n\r\n.btn-reject-rank {\r\n\tcolor: white;\r\n\tbackground-color: red;\r\n}\r\n\r\n#firstrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: green;\r\n}\r\n\r\n#rejectrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: red;\r\n}", ""]);
 // Exports
 module.exports = exports;
 
@@ -67232,6 +67232,8 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'view-more');
+Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'first-rank');
+Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'reject-rank');
 
 var viewApplicants = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5___default()(viewApplicants, _Component);
@@ -67972,8 +67974,7 @@ function FirstRankButton(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
     className: "center-block text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
-    className: "firstrank",
-    bsStyle: "admin",
+    bsStyle: "first-rank",
     bsSize: "large",
     onClick: props.onClick
   }, "Accept"))));
@@ -67985,8 +67986,7 @@ function RejectRankButton(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
     className: "center-block text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
-    className: "rejectrank",
-    bsStyle: "admin",
+    bsStyle: "reject-rank",
     bsSize: "large",
     onClick: props.onClick
   }, "Reject"))));
