@@ -163,9 +163,9 @@ class viewApplicants extends Component {
 				// 		// console.log(this.state.teamOne);
 				// 	}
 				// );
-				console.log('RESPONSE DATA');
-				console.log(res.data);
-				console.log(res.data[0]);
+				// console.log('RESPONSE DATA');
+				// console.log(res.data);
+				// console.log(res.data[0]);
 				if (res.data[0] == null) {
 					console.log('null team one');
 					this.setState({ teamOne: this.state.emptyTeam });
@@ -303,7 +303,7 @@ class viewApplicants extends Component {
 
 	changeRankFirst() {
 		var userTeamList = this.state.presUserTeams[this.state.user.id];
-		console.log('USER TEAM LIST', userTeamList);
+		// console.log('USER TEAM LIST', userTeamList);
 		var userTeam = '';
 		userTeamList.forEach(element => {
 			if (element.teamId === this.state.currTeam.id) {
@@ -312,7 +312,7 @@ class viewApplicants extends Component {
 		});
 
 		var newUserTeam = userTeam;
-		newUserTeam.rank = 'First';
+		newUserTeam.rank = 'Accept';
 		axios
 			.patch('/api/userteams/' + userTeam.id, newUserTeam)
 			.then(res => {
@@ -326,7 +326,7 @@ class viewApplicants extends Component {
 
 	changeRankReject() {
 		var userTeamList = this.state.presUserTeams[this.state.user.id];
-		console.log('USER TEAM LIST', userTeamList);
+		// console.log('USER TEAM LIST', userTeamList);
 		var userTeam = '';
 		userTeamList.forEach(element => {
 			if (element.teamId === this.state.currTeam.id) {
@@ -339,7 +339,7 @@ class viewApplicants extends Component {
 		axios
 			.patch('/api/userteams/' + userTeam.id, newUserTeam)
 			.then(res => {
-				console.log('update userteam response: ', res.data);
+				// console.log('update userteam response: ', res.data);
 				this.setState({
 					viewUser: false
 				});
@@ -387,7 +387,7 @@ class viewApplicants extends Component {
 
 		let presView = this.state.fullList.map(user => {
 			var userTeamList = this.state.presUserTeams[user.id];
-			console.log(userTeamList);
+			// console.log(userTeamList);
 			// console.log('pres view');
 			let c1 = 'empty',
 				c2 = 'empty',
@@ -703,7 +703,7 @@ function PresTableEntry(props) {
 			<td
 				style={{
 					'background-color':
-						props.teamOneRank === 'First'
+						props.teamOneRank === 'Accept'
 							? 'lightgreen'
 							: props.teamOneRank === 'Reject' ? 'lightcoral' : 'white'
 				}}
@@ -713,7 +713,7 @@ function PresTableEntry(props) {
 			<td
 				style={{
 					'background-color':
-						props.teamTwoRank === 'First'
+						props.teamTwoRank === 'Accept'
 							? 'lightgreen'
 							: props.teamTwoRank === 'Reject' ? 'lightcoral' : 'white'
 				}}
@@ -723,7 +723,7 @@ function PresTableEntry(props) {
 			<td
 				style={{
 					'background-color':
-						props.teamThreeRank === 'First'
+						props.teamThreeRank === 'Accept'
 							? 'lightgreen'
 							: props.teamThreeRank === 'Reject' ? 'lightcoral' : 'white'
 				}}

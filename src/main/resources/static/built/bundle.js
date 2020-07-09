@@ -67445,10 +67445,9 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                   // 		// console.log(this.state.teamOne);
                   // 	}
                   // );
-                  console.log('RESPONSE DATA');
-                  console.log(res.data);
-                  console.log(res.data[0]);
-
+                  // console.log('RESPONSE DATA');
+                  // console.log(res.data);
+                  // console.log(res.data[0]);
                   if (res.data[0] == null) {
                     console.log('null team one');
 
@@ -67603,8 +67602,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     value: function changeRankFirst() {
       var _this4 = this;
 
-      var userTeamList = this.state.presUserTeams[this.state.user.id];
-      console.log('USER TEAM LIST', userTeamList);
+      var userTeamList = this.state.presUserTeams[this.state.user.id]; // console.log('USER TEAM LIST', userTeamList);
+
       var userTeam = '';
       userTeamList.forEach(function (element) {
         if (element.teamId === _this4.state.currTeam.id) {
@@ -67612,7 +67611,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         }
       });
       var newUserTeam = userTeam;
-      newUserTeam.rank = 'First';
+      newUserTeam.rank = 'Accept';
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.patch('/api/userteams/' + userTeam.id, newUserTeam).then(function (res) {
         console.log('update userteam response: ', res.data);
 
@@ -67628,8 +67627,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     value: function changeRankReject() {
       var _this5 = this;
 
-      var userTeamList = this.state.presUserTeams[this.state.user.id];
-      console.log('USER TEAM LIST', userTeamList);
+      var userTeamList = this.state.presUserTeams[this.state.user.id]; // console.log('USER TEAM LIST', userTeamList);
+
       var userTeam = '';
       userTeamList.forEach(function (element) {
         if (element.teamId === _this5.state.currTeam.id) {
@@ -67639,8 +67638,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       var newUserTeam = userTeam;
       newUserTeam.rank = 'Reject';
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.patch('/api/userteams/' + userTeam.id, newUserTeam).then(function (res) {
-        console.log('update userteam response: ', res.data);
-
+        // console.log('update userteam response: ', res.data);
         _this5.setState({
           viewUser: false
         });
@@ -67692,8 +67690,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         })];
       });
       var presView = this.state.fullList.map(function (user) {
-        var userTeamList = _this6.state.presUserTeams[user.id];
-        console.log(userTeamList); // console.log('pres view');
+        var userTeamList = _this6.state.presUserTeams[user.id]; // console.log(userTeamList);
+        // console.log('pres view');
 
         var c1 = 'empty',
             c2 = 'empty',
@@ -67950,15 +67948,15 @@ function TableEntry(props) {
 function PresTableEntry(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, props.lastName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
-      'background-color': props.teamOneRank === 'First' ? 'lightgreen' : props.teamOneRank === 'Reject' ? 'lightcoral' : 'white'
+      'background-color': props.teamOneRank === 'Accept' ? 'lightgreen' : props.teamOneRank === 'Reject' ? 'lightcoral' : 'white'
     }
   }, props.c1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
-      'background-color': props.teamTwoRank === 'First' ? 'lightgreen' : props.teamTwoRank === 'Reject' ? 'lightcoral' : 'white'
+      'background-color': props.teamTwoRank === 'Accept' ? 'lightgreen' : props.teamTwoRank === 'Reject' ? 'lightcoral' : 'white'
     }
   }, props.c2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", {
     style: {
-      'background-color': props.teamThreeRank === 'First' ? 'lightgreen' : props.teamThreeRank === 'Reject' ? 'lightcoral' : 'white'
+      'background-color': props.teamThreeRank === 'Accept' ? 'lightgreen' : props.teamThreeRank === 'Reject' ? 'lightcoral' : 'white'
     }
   }, props.c3), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
     bsStyle: "view-more",
