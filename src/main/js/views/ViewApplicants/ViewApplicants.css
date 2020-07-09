@@ -91,20 +91,37 @@ tbody tr:last-child td:last-child {
 
 .btn-first-rank {
 	color: white;
+	display:inline-block;
+	background-color: limegreen;
+}
+
+.btn-first-rank:hover {
+	color: white;
+	display:inline-block;
 	background-color: green;
 }
 
 .btn-reject-rank {
 	color: white;
+	display:inline-block;
+	background-color: crimson;
+}
+
+.btn-reject-rank:hover {
+	color: white;
+	display:inline-block;
 	background-color: red;
 }
 
 #firstrank {
 	display:inline-block;
-	background-color: green;
+	background-color: limegreen;
 }
 
 #rejectrank {
 	display:inline-block;
-	background-color: red;
+	background-color: crimson;
+}
+#rankbuttons{
+    text-align: center;
 }

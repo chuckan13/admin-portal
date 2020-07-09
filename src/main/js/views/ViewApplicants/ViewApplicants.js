@@ -562,8 +562,11 @@ function UserProfile(props) {
 					/>
 				</div>
 			</div>
-			<FirstRankButton onClick={props.onRank} />
-			<RejectRankButton onClick={props.onReject} />
+			<div id="rankbuttons">
+				<FirstRankButton onClick={props.onRank} />
+				<RejectRankButton onClick={props.onReject} />
+			</div>
+
 			<BackButton onClick={props.onClick} />
 		</div>
 	);
