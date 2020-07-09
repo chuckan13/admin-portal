@@ -37,6 +37,7 @@ class viewApplicants extends Component {
 
 		this.displayInfo = this.displayInfo.bind(this);
 		this.displayTable = this.displayTable.bind(this);
+		this.changeRankFirst = this.changeRankFirst.bind(this);
 	}
 
 	async componentDidMount() {
@@ -587,6 +588,7 @@ function TeamResponses(props) {
 		}
 		return (
 			<ShortResponseSection
+				key={props.key}
 				id="response-last"
 				// name={props.team}
 				// num={props.num}

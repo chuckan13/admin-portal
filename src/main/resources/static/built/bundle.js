@@ -67209,6 +67209,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
     _this.displayInfo = _this.displayInfo.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.displayTable = _this.displayTable.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
+    _this.changeRankFirst = _this.changeRankFirst.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     return _this;
   }
 
@@ -67793,6 +67794,7 @@ function TeamResponses(props) {
     }
 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShortResponseSection, {
+      key: props.key,
       id: "response-last" // name={props.team}
       // num={props.num}
       ,
