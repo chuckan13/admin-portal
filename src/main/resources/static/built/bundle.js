@@ -67186,6 +67186,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this), "state", {
       applicants: [],
       fullList: [],
+      currUserTeam: '',
       users: {},
       userTeams: {},
       presUserTeams: {},
@@ -67306,12 +67307,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 }));
 
               case 18:
-                console.log('PRES USER TEAMS', presUserTeams);
+                // console.log('PRES USER TEAMS', presUserTeams);
                 this.setState({
                   presUserTeams: presUserTeams
                 });
 
-              case 20:
+              case 19:
               case "end":
                 return _context.stop();
             }
@@ -67532,13 +67533,41 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
-    key: "render",
-    value: function render() {
+    key: "changeRankFirst",
+    value: function changeRankFirst() {
       var _this4 = this;
 
+      var userTeamList = this.state.presUserTeams[this.state.user.id];
+      console.log('USER TEAM LIST', userTeamList);
+      var userTeam = ''; // if (userTeamList == null) {
+      // 	userTeam = {
+      // 		rank: 'none'
+      // 	};
+      // } else {
+
+      userTeamList.forEach(function (element) {
+        if (element.teamId === _this4.state.currTeam.id) {
+          userTeam = element;
+        }
+      }); // }
+
+      var newUserTeam = userTeam;
+      newUserTeam.rank = 'First';
+      axios__WEBPACK_IMPORTED_MODULE_10___default.a.patch('/api/userteams/' + userTeam.id, newUserTeam).then(function (res) {
+        console.log('update userteam response: ', res.data);
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this5 = this;
+
+      // var currUserTeam = '';
       var renderTable = this.state.applicants.map(function (user) {
-        var userTeamList = _this4.state.presUserTeams[user.id];
-        console.log('USER TEAM LIST', userTeamList);
+        var userTeamList = _this5.state.presUserTeams[user.id]; // console.log('USER TEAM LIST', userTeamList);
+
         var userTeam = '';
 
         if (userTeamList == null) {
@@ -67547,19 +67576,20 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           };
         } else {
           userTeamList.forEach(function (element) {
-            if (element.teamId === _this4.state.currTeam.id) {
+            if (element.teamId === _this5.state.currTeam.id) {
               userTeam = element;
             }
           });
-        } // for (const [ key, value ] of Object.entries(userTeamList)) {
+        } // currUserTeam = userTeam;
+        // for (const [ key, value ] of Object.entries(userTeamList)) {
         // 	console.log(key, value);
         // 	if (value.teamId === currTeam.id) {
         // 		userTeam = value;
         // 	}
         // }
+        // console.log('USER TEAM', userTeam);
 
 
-        console.log('USER TEAM', userTeam);
         return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
           key: user.id,
           firstName: user.firstName,
@@ -67568,7 +67598,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           classYear: user.classYear,
           rank: userTeam.rank,
           onClick: function onClick() {
-            return _this4.displayInfo(user.id);
+            return _this5.displayInfo(user.id);
           }
         })];
       });
@@ -67577,7 +67607,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         var c1 = 'empty',
             c2 = 'empty',
             c3 = 'empty';
-        var allTeams = _this4.state.users[user.id];
+        var allTeams = _this5.state.users[user.id];
 
         if (allTeams === undefined) {// console.log('allteams undefined');
         } else {
@@ -67604,7 +67634,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           c2: c2,
           c3: c3,
           onClick: function onClick() {
-            return _this4.displayInfo(user.id);
+            return _this5.displayInfo(user.id);
           }
         })];
       });
@@ -67649,7 +67679,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             ,
             responses: this.state.responses,
             questions: this.state.questions,
-            onClick: this.displayTable
+            onClick: this.displayTable,
+            onRank: this.changeRankFirst
           });
         } else {
           display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(PresUserProfile, {
@@ -67691,11 +67722,14 @@ function UserProfile(props) {
   }, " Concentration: ", props.user.concentration)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+    key: props.user.id,
     team: props.team.name // num="One"
     ,
     questions: props.questions,
     resp: props.responses
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(FirstRankButton, {
+    onClick: props.onRank
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(BackButton, {
     onClick: props.onClick
   }));
 }
@@ -67716,16 +67750,19 @@ function PresUserProfile(props) {
   }, " Concentration: ", props.user.concentration)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+    key: props.user.id,
     team: props.teamOne.name,
     num: "One",
     questions: props.teamOneQuestions,
     resp: props.responses
   }), props.teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+    key: props.user.id,
     team: props.teamTwo.name,
     num: "Two",
     questions: props.teamTwoQuestions,
     resp: props.responses
   }) : '', props.teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
+    key: props.user.id,
     team: props.teamThree.name,
     num: "Three",
     questions: props.teamThreeQuestions,
@@ -67796,7 +67833,19 @@ function BackButton(props) {
     bsStyle: "admin",
     bsSize: "large",
     onClick: props.onClick
-  }, "back"))));
+  }, "Back"))));
+}
+
+function FirstRankButton(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+    id: "welcome-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
+    className: "center-block text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+    bsStyle: "admin",
+    bsSize: "large",
+    onClick: props.onClick
+  }, "Rank First"))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (viewApplicants);

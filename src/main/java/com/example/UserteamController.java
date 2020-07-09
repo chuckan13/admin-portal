@@ -24,6 +24,16 @@ public class UserteamController {
         return new ResponseEntity<Userteam>(userteam, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+    public ResponseEntity<Userteam> updateItem(@PathVariable("id") Long id, @RequestBody Userteam obj) {
+        Userteam userTeam = repository.findOne(id);
+        if (null == userTeam)
+            return new ResponseEntity<Userteam>(HttpStatus.NOT_FOUND);
+        userTeam.updateParameters(obj);
+        repository.save(userTeam);
+        return get(userTeam.getId());
+    }
+
     // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     // public ResponseEntity<LoanOption> delete(@PathVariable("id") Long id) {
     // LoanOption loan = repository.findOne(id);

@@ -11,6 +11,7 @@ class viewApplicants extends Component {
 	state = {
 		applicants: [],
 		fullList: [],
+		currUserTeam: '',
 		users: {},
 		userTeams: {},
 		presUserTeams: {},
@@ -110,7 +111,7 @@ class viewApplicants extends Component {
 				})
 			)
 		);
-		console.log('PRES USER TEAMS', presUserTeams);
+		// console.log('PRES USER TEAMS', presUserTeams);
 		this.setState({ presUserTeams: presUserTeams });
 	}
 
@@ -296,10 +297,37 @@ class viewApplicants extends Component {
 		});
 	}
 
+	changeRankFirst() {
+		var userTeamList = this.state.presUserTeams[this.state.user.id];
+		console.log('USER TEAM LIST', userTeamList);
+		var userTeam = '';
+		// if (userTeamList == null) {
+		// 	userTeam = {
+		// 		rank: 'none'
+		// 	};
+		// } else {
+		userTeamList.forEach(element => {
+			if (element.teamId === this.state.currTeam.id) {
+				userTeam = element;
+			}
+		});
+		// }
+
+		var newUserTeam = userTeam;
+		newUserTeam.rank = 'First';
+		axios
+			.patch('/api/userteams/' + userTeam.id, newUserTeam)
+			.then(res => {
+				console.log('update userteam response: ', res.data);
+			})
+			.catch(err => console.log(err));
+	}
+
 	render() {
+		// var currUserTeam = '';
 		let renderTable = this.state.applicants.map(user => {
 			var userTeamList = this.state.presUserTeams[user.id];
-			console.log('USER TEAM LIST', userTeamList);
+			// console.log('USER TEAM LIST', userTeamList);
 			var userTeam = '';
 			if (userTeamList == null) {
 				userTeam = {
@@ -312,13 +340,14 @@ class viewApplicants extends Component {
 					}
 				});
 			}
+			// currUserTeam = userTeam;
 			// for (const [ key, value ] of Object.entries(userTeamList)) {
 			// 	console.log(key, value);
 			// 	if (value.teamId === currTeam.id) {
 			// 		userTeam = value;
 			// 	}
 			// }
-			console.log('USER TEAM', userTeam);
+			// console.log('USER TEAM', userTeam);
 			return [
 				<TableEntry
 					key={user.id}
@@ -435,6 +464,7 @@ class viewApplicants extends Component {
 						responses={this.state.responses}
 						questions={this.state.questions}
 						onClick={this.displayTable}
+						onRank={this.changeRankFirst}
 					/>
 				);
 			} else {
@@ -475,6 +505,7 @@ function UserProfile(props) {
 				<div>
 					<p id="header">Short Response Questions</p>
 					<TeamResponses
+						key={props.user.id}
 						team={props.team.name}
 						// num="One"
 						questions={props.questions}
@@ -482,6 +513,7 @@ function UserProfile(props) {
 					/>
 				</div>
 			</div>
+			<FirstRankButton onClick={props.onRank} />
 			<BackButton onClick={props.onClick} />
 		</div>
 	);
@@ -502,6 +534,7 @@ function PresUserProfile(props) {
 				<div>
 					<p id="header">Short Response Questions</p>
 					<TeamResponses
+						key={props.user.id}
 						team={props.teamOne.name}
 						num="One"
 						questions={props.teamOneQuestions}
@@ -509,6 +542,7 @@ function PresUserProfile(props) {
 					/>
 					{props.teamTwo ? (
 						<TeamResponses
+							key={props.user.id}
 							team={props.teamTwo.name}
 							num="Two"
 							questions={props.teamTwoQuestions}
@@ -519,6 +553,7 @@ function PresUserProfile(props) {
 					)}
 					{props.teamThree ? (
 						<TeamResponses
+							key={props.user.id}
 							team={props.teamThree.name}
 							num="Three"
 							questions={props.teamThreeQuestions}
@@ -610,7 +645,20 @@ function BackButton(props) {
 			<Row className="center-block text-center">
 				<div>
 					<Button bsStyle="admin" bsSize="large" onClick={props.onClick}>
-						back
+						Back
+					</Button>
+				</div>
+			</Row>
+		</div>
+	);
+}
+function FirstRankButton(props) {
+	return (
+		<div id="welcome-content">
+			<Row className="center-block text-center">
+				<div>
+					<Button bsStyle="admin" bsSize="large" onClick={props.onClick}>
+						Rank First
 					</Button>
 				</div>
 			</Row>
