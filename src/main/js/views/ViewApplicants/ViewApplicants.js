@@ -299,18 +299,25 @@ class viewApplicants extends Component {
 	render() {
 		let renderTable = this.state.applicants.map(user => {
 			var userTeamList = this.state.presUserTeams[user.id];
+			console.log('USER TEAM LIST', userTeamList);
 			var userTeam = '';
-			// userTeamList.forEach(element => {
-			// 	if (element.teamId === currTeam.id) {
-			// 		userTeam = element;
-			// 	}
-			// });
-			for (const [ key, value ] of Object.entries(userTeamList)) {
-				console.log(key, value);
-				if (value.teamId === currTeam.id) {
-					userTeam = value;
-				}
+			if (userTeamList == null) {
+				userTeam = {
+					rank: 'none'
+				};
+			} else {
+				userTeamList.forEach(element => {
+					if (element.teamId === currTeam.id) {
+						userTeam = element;
+					}
+				});
 			}
+			// for (const [ key, value ] of Object.entries(userTeamList)) {
+			// 	console.log(key, value);
+			// 	if (value.teamId === currTeam.id) {
+			// 		userTeam = value;
+			// 	}
+			// }
 			console.log('USER TEAM', userTeam);
 			return [
 				<TableEntry
