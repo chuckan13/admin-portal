@@ -67670,7 +67670,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         })];
       });
       var presView = this.state.fullList.map(function (user) {
-        var userTeamList = _this5.state.presUserTeams[user.id]; // console.log('pres view');
+        var userTeamList = _this5.state.presUserTeams[user.id];
+        console.log(userTeamList); // console.log('pres view');
 
         var c1 = 'empty',
             c2 = 'empty',
@@ -67684,9 +67685,17 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           rank2 = 'none';
           rank3 = 'none';
         } else {
-          rank1 = userTeamList[0].rank;
-          rank2 = userTeamList[1].rank;
-          rank3 = userTeamList[2].rank;
+          if (userTeamList[0] != null) {
+            rank1 = userTeamList[0].rank;
+          }
+
+          if (userTeamList[1] != null) {
+            rank2 = userTeamList[1].rank;
+          }
+
+          if (userTeamList[2] != null) {
+            rank3 = userTeamList[2].rank;
+          }
         }
 
         var allTeams = _this5.state.users[user.id];

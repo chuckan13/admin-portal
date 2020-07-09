@@ -367,7 +367,7 @@ class viewApplicants extends Component {
 
 		let presView = this.state.fullList.map(user => {
 			var userTeamList = this.state.presUserTeams[user.id];
-
+			console.log(userTeamList);
 			// console.log('pres view');
 			let c1 = 'empty',
 				c2 = 'empty',
@@ -381,9 +381,15 @@ class viewApplicants extends Component {
 				rank2 = 'none';
 				rank3 = 'none';
 			} else {
-				rank1 = userTeamList[0].rank;
-				rank2 = userTeamList[1].rank;
-				rank3 = userTeamList[2].rank;
+				if (userTeamList[0] != null) {
+					rank1 = userTeamList[0].rank;
+				}
+				if (userTeamList[1] != null) {
+					rank2 = userTeamList[1].rank;
+				}
+				if (userTeamList[2] != null) {
+					rank3 = userTeamList[2].rank;
+				}
 			}
 			var allTeams = this.state.users[user.id];
 			if (allTeams === undefined) {
