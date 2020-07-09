@@ -67674,7 +67674,10 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
         var c1 = 'empty',
             c2 = 'empty',
-            c3 = 'empty';
+            c3 = 'empty',
+            rank1 = '',
+            rank2 = '',
+            rank3 = '';
 
         if (userTeamList == null) {
           rank1 = 'none';
