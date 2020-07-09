@@ -67556,6 +67556,10 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       newUserTeam.rank = 'First';
       axios__WEBPACK_IMPORTED_MODULE_10___default.a.patch('/api/userteams/' + userTeam.id, newUserTeam).then(function (res) {
         console.log('update userteam response: ', res.data);
+
+        _this4.setState({
+          viewUser: false
+        });
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -67794,7 +67798,7 @@ function TeamResponses(props) {
     }
 
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShortResponseSection, {
-      key: props.key,
+      key: currResponse.id,
       id: "response-last" // name={props.team}
       // num={props.num}
       ,

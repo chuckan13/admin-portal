@@ -320,6 +320,9 @@ class viewApplicants extends Component {
 			.patch('/api/userteams/' + userTeam.id, newUserTeam)
 			.then(res => {
 				console.log('update userteam response: ', res.data);
+				this.setState({
+					viewUser: false
+				});
 			})
 			.catch(err => console.log(err));
 	}
@@ -588,7 +591,7 @@ function TeamResponses(props) {
 		}
 		return (
 			<ShortResponseSection
-				key={props.key}
+				key={currResponse.id}
 				id="response-last"
 				// name={props.team}
 				// num={props.num}
