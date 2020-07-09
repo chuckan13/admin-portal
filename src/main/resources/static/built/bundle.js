@@ -67674,10 +67674,18 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 
         var c1 = 'empty',
             c2 = 'empty',
-            c3 = 'empty',
-            rank1 = userTeamList[0].rank,
-            rank2 = userTeamList[1].rank,
-            rank3 = userTeamList[2].rank;
+            c3 = 'empty';
+
+        if (userTeamList == null) {
+          rank1 = 'none';
+          rank2 = 'none';
+          rank3 = 'none';
+        } else {
+          rank1 = userTeamList[0].rank;
+          rank2 = userTeamList[1].rank;
+          rank3 = userTeamList[2].rank;
+        }
+
         var allTeams = _this5.state.users[user.id];
 
         if (allTeams === undefined) {// console.log('allteams undefined');
