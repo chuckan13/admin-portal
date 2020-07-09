@@ -110,7 +110,7 @@ class viewApplicants extends Component {
 				})
 			)
 		);
-
+		console.log('PRES USER TEAMS', presUserTeams);
 		this.setState({ presUserTeams: presUserTeams });
 	}
 
@@ -298,7 +298,13 @@ class viewApplicants extends Component {
 
 	render() {
 		let renderTable = this.state.applicants.map(user => {
-			var userTeam = this.state.presUserTeams[user.id];
+			var userTeamList = this.state.presUserTeams[user.id];
+			var userTeam = {};
+			userTeamList.forEach(element => {
+				if (element.teamId === currTeam.id) {
+					userTeam = element;
+				}
+			});
 			console.log('USER TEAM', userTeam);
 			return [
 				<TableEntry

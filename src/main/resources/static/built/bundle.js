@@ -67306,11 +67306,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
                 }));
 
               case 18:
+                console.log('PRES USER TEAMS', presUserTeams);
                 this.setState({
                   presUserTeams: presUserTeams
                 });
 
-              case 19:
+              case 20:
               case "end":
                 return _context.stop();
             }
@@ -67536,7 +67537,13 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       var _this4 = this;
 
       var renderTable = this.state.applicants.map(function (user) {
-        var userTeam = _this4.state.presUserTeams[user.id];
+        var userTeamList = _this4.state.presUserTeams[user.id];
+        var userTeam = {};
+        userTeamList.forEach(function (element) {
+          if (element.teamId === currTeam.id) {
+            userTeam = element;
+          }
+        });
         console.log('USER TEAM', userTeam);
         return [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TableEntry, {
           key: user.id,
