@@ -28,13 +28,12 @@ class Admin extends Component {
 	}
 
 	async componentDidMount() {
-		var that = this;
 		await axios
 			.get('/api/loginusers')
 			.then(res => {
-				console.log('LOGINUSER', res);
-				if (res.role === 'ADMIN') {
-					that.setState({ presidentView: true });
+				// console.log('LOGINUSER', res.data);
+				if (res.data.role === 'ADMIN') {
+					this.setState({ presidentView: true });
 				}
 			})
 			.catch(err => console.log(err));
