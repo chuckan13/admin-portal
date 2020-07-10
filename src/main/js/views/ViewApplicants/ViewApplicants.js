@@ -592,21 +592,6 @@ function UserProfile(props) {
 					/>
 				</div>
 			</div>
-			{/* <div>
-				<Row className="center-block text-center">
-					<Table>
-						<tr>
-							<td>
-								<FirstRankButton onClick={props.onRank} />
-							</td>
-							<td>
-								<RejectRankButton onClick={props.onReject} />
-							</td>
-						</tr>
-					</Table>
-				</Row>
-			</div> */}
-
 			<div align="center">
 				<div style={{ display: 'inline-block' }}>
 					<FirstRankButton onClick={props.onRank} />
