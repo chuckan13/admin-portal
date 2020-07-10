@@ -4371,7 +4371,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\n#greentd {\r\n\tcolor:green;\r\n}\r\n#normaltd {\r\n\tcolor: black;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n\r\n.btn-first-rank {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: limegreen;\r\n}\r\n\r\n.btn-first-rank:hover {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: green;\r\n}\r\n\r\n.btn-reject-rank {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: crimson;\r\n}\r\n\r\n.btn-reject-rank:hover {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: red;\r\n}\r\n\r\n#firstrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: limegreen;\r\n}\r\n\r\n#rejectrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: crimson;\r\n}\r\n", ""]);
+exports.push([module.i, "/* general table stuff*/\r\nth {\r\n\tbackground-color: #3891b8;\r\n\tcolor: white;\r\n\twidth: 100px;\r\n\ttext-align: center;\r\n\tfont-family: Avenir;\r\n\tfont-size: 15px;\r\n\theight: 50px;\r\n\tvertical-align: middle !important;\r\n}\r\n\r\ntr {\r\n\tbackground-color: white;\r\n\twidth: 100%;\r\n}\r\n\r\ntd {\r\n\ttext-align: center;\r\n\twidth: 200px !important;\r\n\tvertical-align: middle !important;\r\n\tfont-weight: lighter;\r\n}\r\n\r\n#greentd {\r\n\tcolor:green;\r\n}\r\n#normaltd {\r\n\tcolor: black;\r\n}\r\n\r\ntr:hover {\r\n\tbackground-color: #f2f4f7;\r\n}\r\n\r\n.table {\r\n\tdisplay: block !important;\r\n    margin-left: auto !important;\r\n    margin-right: auto !important;\r\n    width: 800px;\r\n}\r\n\r\n/* rounding corners */\r\nthead th:first-child {\r\n\tborder-radius: 10px 0 0 0;\r\n}\r\n\r\nthead th:last-child {\r\n\tborder-radius: 0 10px 0 0;\r\n}\r\n\r\ntbody tr:last-child td:first-child {\r\n    border-radius: 0 0 0 10px !important;\r\n}\r\ntbody tr:last-child td:last-child {\r\n    border-radius: 0 0 10px 0;\r\n}\r\n\r\n/* user profile */\r\n#header {\r\n\tbackground-color: #3891b8;\r\n\tborder-radius: 10px 10px 0 0;\r\n\tpadding: 10px 0px 10px 20px;\r\n\tfont-size: 24px;\r\n}\r\n\r\n#question {\r\n\tpadding-left: 20px;\r\n}\r\n\r\n#question {\r\n\tbackground-color: white;\r\n\tcolor: #272727;\r\n}\r\n\r\n#question {\r\n\tfont-size: 18px;\r\n}\r\n\r\n#user-profile {\r\n\tpadding-bottom: 40px;\r\n}\r\n\r\n.btn-view-more {\r\n\tcolor: #272727;\r\n\tbackground-color: #e0f5ff;\r\n\tborder-radius: 10px;\r\n\tfont-size: 14px;\r\n\tpadding: 5px 10px 5px 10px;\r\n}\r\n\r\n.btn-first-rank {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: limegreen;\r\n}\r\n\r\n.btn-first-rank:hover {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: green;\r\n}\r\n\r\n.btn-maybe-rank {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: orange;\r\n}\r\n\r\n.btn-maybe-rank:hover {\r\n\tcolor:white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: darkorange;\r\n}\r\n\r\n.btn-reject-rank {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: crimson;\r\n}\r\n\r\n.btn-reject-rank:hover {\r\n\tcolor: white;\r\n\tdisplay:inline-block;\r\n\tbackground-color: red;\r\n}\r\n\r\n#firstrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: limegreen;\r\n}\r\n\r\n#mayberank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: orange;\r\n}\r\n\r\n#rejectrank {\r\n\tdisplay:inline-block;\r\n\tbackground-color: crimson;\r\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -67234,6 +67234,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'view-more');
 Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'first-rank');
 Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'reject-rank');
+Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'maybe-rank');
 
 var viewApplicants = /*#__PURE__*/function (_Component) {
   _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_5___default()(viewApplicants, _Component);
@@ -67275,6 +67276,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
     _this.displayTable = _this.displayTable.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.changeRankFirst = _this.changeRankFirst.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     _this.changeRankReject = _this.changeRankReject.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
+    _this.changeRankMaybe = _this.changeRankMaybe.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
     return _this;
   }
 
@@ -67647,13 +67649,37 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "changeRankMaybe",
+    value: function changeRankMaybe() {
+      var _this6 = this;
+
+      var userTeamList = this.state.presUserTeams[this.state.user.id]; // console.log('USER TEAM LIST', userTeamList);
+
+      var userTeam = '';
+      userTeamList.forEach(function (element) {
+        if (element.teamId === _this6.state.currTeam.id) {
+          userTeam = element;
+        }
+      });
+      var newUserTeam = userTeam;
+      newUserTeam.rank = 'Maybe';
+      axios__WEBPACK_IMPORTED_MODULE_10___default.a.patch('/api/userteams/' + userTeam.id, newUserTeam).then(function (res) {
+        // console.log('update userteam response: ', res.data);
+        _this6.setState({
+          viewUser: false
+        });
+      })["catch"](function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this6 = this;
+      var _this7 = this;
 
       // var currUserTeam = '';
       var renderTable = this.state.applicants.map(function (user) {
-        var userTeamList = _this6.state.presUserTeams[user.id]; // console.log('USER TEAM LIST', userTeamList);
+        var userTeamList = _this7.state.presUserTeams[user.id]; // console.log('USER TEAM LIST', userTeamList);
 
         var userTeam = '';
 
@@ -67663,7 +67689,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           };
         } else {
           userTeamList.forEach(function (element) {
-            if (element.teamId === _this6.state.currTeam.id) {
+            if (element.teamId === _this7.state.currTeam.id) {
               userTeam = element;
             }
           });
@@ -67685,12 +67711,12 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           classYear: user.classYear,
           rank: userTeam.rank,
           onClick: function onClick() {
-            return _this6.displayInfo(user.id);
+            return _this7.displayInfo(user.id);
           }
         })];
       });
       var presView = this.state.fullList.map(function (user) {
-        var userTeamList = _this6.state.presUserTeams[user.id]; // console.log(userTeamList);
+        var userTeamList = _this7.state.presUserTeams[user.id]; // console.log(userTeamList);
         // console.log('pres view');
 
         var c1 = 'empty',
@@ -67718,7 +67744,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           }
         }
 
-        var allTeams = _this6.state.users[user.id];
+        var allTeams = _this7.state.users[user.id];
 
         if (allTeams === undefined) {// console.log('allteams undefined');
         } else {
@@ -67748,7 +67774,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
           teamTwoRank: rank2,
           teamThreeRank: rank3,
           onClick: function onClick() {
-            return _this6.displayInfo(user.id);
+            return _this7.displayInfo(user.id);
           }
         })];
       });
@@ -67795,7 +67821,8 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             questions: this.state.questions,
             onClick: this.displayTable,
             onRank: this.changeRankFirst,
-            onReject: this.changeRankReject
+            onReject: this.changeRankReject,
+            onMaybe: this.changeRankMaybe
           });
         } else {
           display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(PresUserProfile, {
@@ -67850,6 +67877,12 @@ function UserProfile(props) {
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(FirstRankButton, {
     onClick: props.onRank
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+    style: {
+      display: 'inline-block'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(MaybeRankButton, {
+    onClick: props.onMaybe
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     style: {
       display: 'inline-block'
@@ -67998,6 +68031,18 @@ function RejectRankButton(props) {
     bsSize: "large",
     onClick: props.onClick
   }, "Reject"))));
+}
+
+function MaybeRankButton(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
+    id: "welcome-content"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Row"], {
+    className: "center-block text-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
+    bsStyle: "maybe-rank",
+    bsSize: "large",
+    onClick: props.onClick
+  }, "Maybe"))));
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (viewApplicants);

@@ -8,6 +8,7 @@ import { addStyle } from 'react-bootstrap/lib/utils/bootstrapUtils';
 addStyle(Button, 'view-more');
 addStyle(Button, 'first-rank');
 addStyle(Button, 'reject-rank');
+addStyle(Button, 'maybe-rank');
 
 class viewApplicants extends Component {
 	state = {
@@ -41,6 +42,7 @@ class viewApplicants extends Component {
 		this.displayTable = this.displayTable.bind(this);
 		this.changeRankFirst = this.changeRankFirst.bind(this);
 		this.changeRankReject = this.changeRankReject.bind(this);
+		this.changeRankMaybe = this.changeRankMaybe.bind(this);
 	}
 
 	async componentDidMount() {
@@ -347,6 +349,29 @@ class viewApplicants extends Component {
 			.catch(err => console.log(err));
 	}
 
+	changeRankMaybe() {
+		var userTeamList = this.state.presUserTeams[this.state.user.id];
+		// console.log('USER TEAM LIST', userTeamList);
+		var userTeam = '';
+		userTeamList.forEach(element => {
+			if (element.teamId === this.state.currTeam.id) {
+				userTeam = element;
+			}
+		});
+
+		var newUserTeam = userTeam;
+		newUserTeam.rank = 'Maybe';
+		axios
+			.patch('/api/userteams/' + userTeam.id, newUserTeam)
+			.then(res => {
+				// console.log('update userteam response: ', res.data);
+				this.setState({
+					viewUser: false
+				});
+			})
+			.catch(err => console.log(err));
+	}
+
 	render() {
 		// var currUserTeam = '';
 		let renderTable = this.state.applicants.map(user => {
@@ -514,6 +539,7 @@ class viewApplicants extends Component {
 						onClick={this.displayTable}
 						onRank={this.changeRankFirst}
 						onReject={this.changeRankReject}
+						onMaybe={this.changeRankMaybe}
 					/>
 				);
 			} else {
@@ -580,6 +606,9 @@ function UserProfile(props) {
 			<div align="center">
 				<div style={{ display: 'inline-block' }}>
 					<FirstRankButton onClick={props.onRank} />
+				</div>
+				<div style={{ display: 'inline-block' }}>
+					<MaybeRankButton onClick={props.onMaybe} />
 				</div>
 				<div style={{ display: 'inline-block' }}>
 					<RejectRankButton onClick={props.onReject} />
@@ -773,6 +802,20 @@ function RejectRankButton(props) {
 				<div>
 					<Button bsStyle="reject-rank" bsSize="large" onClick={props.onClick}>
 						Reject
+					</Button>
+				</div>
+			</Row>
+		</div>
+	);
+}
+
+function MaybeRankButton(props) {
+	return (
+		<div id="welcome-content">
+			<Row className="center-block text-center">
+				<div>
+					<Button bsStyle="maybe-rank" bsSize="large" onClick={props.onClick}>
+						Maybe
 					</Button>
 				</div>
 			</Row>

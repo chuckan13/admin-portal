@@ -101,6 +101,18 @@ tbody tr:last-child td:last-child {
 	background-color: green;
 }
 
+.btn-maybe-rank {
+	color: white;
+	display:inline-block;
+	background-color: orange;
+}
+
+.btn-maybe-rank:hover {
+	color:white;
+	display:inline-block;
+	background-color: darkorange;
+}
+
 .btn-reject-rank {
 	color: white;
 	display:inline-block;
@@ -116,6 +128,11 @@ tbody tr:last-child td:last-child {
 #firstrank {
 	display:inline-block;
 	background-color: limegreen;
+}
+
+#mayberank {
+	display:inline-block;
+	background-color: orange;
 }
 
 #rejectrank {
