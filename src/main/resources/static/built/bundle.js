@@ -67861,7 +67861,15 @@ function UserProfile(props) {
     id: "information"
   }, " Class: ", props.user.classYear), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
-  }, " Concentration: ", props.user.concentration)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+  }, " Concentration: ", props.user.concentration), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Building: ", props.user.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Room Number: ", props.user.roomNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Phone Number: ", props.user.phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " LinkedIn Profile: ", props.user.linkedin)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     key: props.user.id,
@@ -67907,7 +67915,15 @@ function PresUserProfile(props) {
     id: "information"
   }, " Class: ", props.user.classYear), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
-  }, " Concentration: ", props.user.concentration)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+  }, " Concentration: ", props.user.concentration), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Building: ", props.user.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Room Number: ", props.user.roomNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Phone Number: ", props.user.phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " LinkedIn Profile: ", props.user.linkedin)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     key: props.user.id,

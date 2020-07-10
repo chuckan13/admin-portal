@@ -27,6 +27,46 @@ public class Users {
     public String concentration;
     @Column(name = "role")
     public String role;
+    @Column(name = "building")
+    public String building;
+    @Column(name = "room_number")
+    public String roomNumber;
+    @Column(name = "phone_number")
+    public String phoneNumber;
+    @Column(name = "linkedin")
+    public String linkedin;
+
+    public String getBuilding() {
+        return this.building;
+    }
+
+    public void setBuilding(String building) {
+        this.building = building;
+    }
+
+    public String getRoomNumber() {
+        return this.roomNumber;
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getLinkedin() {
+        return this.linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        this.linkedin = linkedin;
+    }
 
     public String getToken() {
         return this.token;
