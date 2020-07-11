@@ -54,13 +54,14 @@ html, body {
   margin-right: 0;
   font-size: 20px;
   vertical-align: middle;
-
+  color:white;
 }
 
 #application-portal {
   padding-left: 20px;
   font-size: 22px;
   padding-bottom: 3px;
+  color:white;
 }
 
 /* general text */
