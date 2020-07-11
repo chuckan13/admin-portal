@@ -65,7 +65,7 @@ html, body {
 
 /* general text */
 a {
-  color: white !important;
+  color: white;
   font-family: Avenir;
 }
 
