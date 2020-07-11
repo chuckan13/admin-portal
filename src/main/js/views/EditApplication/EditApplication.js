@@ -13,7 +13,8 @@ class editApplication extends Component {
 	state = {
 		currTeam: '',
 		questions: [],
-		newQuestion: ''
+		newQuestion: '',
+		wordLimit: 0
 	};
 
 	constructor(props) {
@@ -41,9 +42,24 @@ class editApplication extends Component {
 
 	updateState(e) {
 		const name = e.target.name;
-		this.setState({
-			[name]: e.target.value
-		});
+		if (name === 'wordLimit') {
+			console.log('WORD LIMIT UPDATE STATE');
+			var intVersion = parseInt(e.target.value);
+			console.log(intVersion);
+			if (isNaN(intVersion) || intVersion < 0) {
+				this.setState({
+					[name]: 0
+				});
+			} else {
+				this.setState({
+					[name]: intVersion
+				});
+			}
+		} else {
+			this.setState({
+				[name]: e.target.value
+			});
+		}
 	}
 
 	async handleUpdateClick() {
@@ -54,7 +70,8 @@ class editApplication extends Component {
 			await axios
 				.post('/api/questions/new', {
 					text: this.state.newQuestion,
-					teamId: this.state.currTeam.id
+					teamId: this.state.currTeam.id,
+					wordLimit: this.state.wordLimit
 				})
 				.then(function(response) {
 					console.log('new question');
@@ -98,6 +115,14 @@ class editApplication extends Component {
 						</thead>
 						<tbody>
 							<Question name="newQuestion" onChange={this.updateState} />
+						</tbody>
+						<thead>
+							<tr id="head">
+								<th>Character Limit (put 0 for no limit):</th>
+							</tr>
+						</thead>
+						<tbody>
+							<Question name="wordLimit" onChange={this.updateState} />
 						</tbody>
 					</Table>
 					<Button id="update-button" bsStyle="back" bsSize="large" onClick={this.handleUpdateClick}>

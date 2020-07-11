@@ -17,6 +17,16 @@ public class Question {
     private String text;
     @Column(name = "team_id")
     private long teamId;
+    @Column(name = "word_limit")
+    private int wordLimit;
+
+    public int getWordLimit() {
+        return this.wordLimit;
+    }
+
+    public void setWordLimit(int wordLimit) {
+        this.wordLimit = wordLimit;
+    }
 
     public String getText() {
         return this.text;
@@ -41,5 +51,6 @@ public class Question {
     public void updateParameters(Question other) {
         this.text = other.getText();
         this.teamId = other.getTeamId();
+        this.wordLimit = other.getWordLimit();
     }
 }

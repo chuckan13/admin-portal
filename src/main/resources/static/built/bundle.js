@@ -65602,7 +65602,8 @@ var editApplication = /*#__PURE__*/function (_Component) {
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this), "state", {
       currTeam: '',
       questions: [],
-      newQuestion: ''
+      newQuestion: '',
+      wordLimit: 0
     });
 
     _this.updateState = _this.updateState.bind(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_4___default()(_this));
@@ -65657,7 +65658,20 @@ var editApplication = /*#__PURE__*/function (_Component) {
     key: "updateState",
     value: function updateState(e) {
       var name = e.target.name;
-      this.setState(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()({}, name, e.target.value));
+
+      if (name === 'wordLimit') {
+        console.log('WORD LIMIT UPDATE STATE');
+        var intVersion = parseInt(e.target.value);
+        console.log(intVersion);
+
+        if (isNaN(intVersion) || intVersion < 0) {
+          this.setState(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()({}, name, 0));
+        } else {
+          this.setState(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()({}, name, intVersion));
+        }
+      } else {
+        this.setState(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_8___default()({}, name, e.target.value));
+      }
     }
   }, {
     key: "handleUpdateClick",
@@ -65683,7 +65697,8 @@ var editApplication = /*#__PURE__*/function (_Component) {
                 _context2.next = 7;
                 return axios__WEBPACK_IMPORTED_MODULE_10___default.a.post('/api/questions/new', {
                   text: this.state.newQuestion,
-                  teamId: this.state.currTeam.id
+                  teamId: this.state.currTeam.id,
+                  wordLimit: this.state.wordLimit
                 }).then(function (response) {
                   console.log('new question');
                   console.log(response);
@@ -65729,6 +65744,11 @@ var editApplication = /*#__PURE__*/function (_Component) {
         id: "head"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "New Questions:"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Question, {
         name: "newQuestion",
+        onChange: this.updateState
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tr", {
+        id: "head"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("th", null, "Character Limit (put 0 for no limit):"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(Question, {
+        name: "wordLimit",
         onChange: this.updateState
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], {
         id: "update-button",
