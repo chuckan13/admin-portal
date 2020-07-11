@@ -57483,6 +57483,66 @@ module.exports = exports['default'];
 
 /***/ }),
 
+/***/ "./node_modules/react-process-string/dist/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-process-string/dist/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function processString(options) {
+    var key = 0;
+
+    function processInputWithRegex(option, input) {
+        if (!option.fn || typeof option.fn !== 'function') return input;
+
+        if (!option.regex || !(option.regex instanceof RegExp)) return input;
+
+        if (typeof input === 'string') {
+            var regex = option.regex;
+            var result = null;
+            var output = [];
+
+            while ((result = regex.exec(input)) !== null) {
+                var index = result.index;
+                var match = result[0];
+
+                output.push(input.substring(0, index));
+                output.push(option.fn(++key, result));
+
+                input = input.substring(index + match.length, input.length + 1);
+                regex.lastIndex = 0;
+            }
+
+            output.push(input);
+            return output;
+        } else if (Array.isArray(input)) {
+            return input.map(function (chunk) {
+                return processInputWithRegex(option, chunk);
+            });
+        } else return input;
+    }
+
+    return function (input) {
+        if (!options || !Array.isArray(options) || !options.length) return input;
+
+        options.forEach(function (option) {
+            return input = processInputWithRegex(option, input);
+        });
+
+        return input;
+    };
+}
+
+module.exports = processString;
+
+
+
+/***/ }),
+
 /***/ "./node_modules/react-prop-types/lib/elementType.js":
 /*!**********************************************************!*\
   !*** ./node_modules/react-prop-types/lib/elementType.js ***!
@@ -67251,6 +67311,9 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 
 
+
+var processString = __webpack_require__(/*! react-process-string */ "./node_modules/react-process-string/dist/index.js");
+
 Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'view-more');
 Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'first-rank');
 Object(react_bootstrap_lib_utils_bootstrapUtils__WEBPACK_IMPORTED_MODULE_13__["addStyle"])(react_bootstrap__WEBPACK_IMPORTED_MODULE_11__["Button"], 'reject-rank');
@@ -67969,13 +68032,36 @@ function PresUserProfile(props) {
 }
 
 function ShortResponseSection(props) {
+  var config = [{
+    regex: /(http|https):\/\/(\S+)\.([a-z]{2,}?)(.*?)( |\,|$|\.)/gim,
+    fn: function fn(key, result) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("span", {
+        key: key
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("a", {
+        target: "_blank",
+        href: "".concat(result[1], "://").concat(result[2], ".").concat(result[3]).concat(result[4])
+      }, result[2], ".", result[3], result[4]), result[5]);
+    }
+  }, {
+    regex: /(\S+)\.([a-z]{2,}?)(.*?)( |\,|$|\.)/gim,
+    fn: function fn(key, result) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("span", {
+        key: key
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("a", {
+        target: "_blank",
+        href: "http://".concat(result[1], ".").concat(result[2]).concat(result[3])
+      }, result[1], ".", result[2], result[3]), result[4]);
+    }
+  }];
+  var stringWithLinks = props.resp;
+  var processed = processString(config)(stringWithLinks);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     id: "choice-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "question"
   }, props.question), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "response"
-  }, props.resp));
+  }, processed));
 }
 
 function TeamResponses(props) {

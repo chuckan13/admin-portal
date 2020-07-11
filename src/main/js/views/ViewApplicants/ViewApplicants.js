@@ -5,6 +5,9 @@ import { Row } from 'react-bootstrap';
 import { Table } from 'react-bootstrap';
 import './ViewApplicants.css';
 import { addStyle } from 'react-bootstrap/lib/utils/bootstrapUtils';
+
+const processString = require('react-process-string');
+
 addStyle(Button, 'view-more');
 addStyle(Button, 'first-rank');
 addStyle(Button, 'reject-rank');
@@ -664,10 +667,39 @@ function PresUserProfile(props) {
 }
 
 function ShortResponseSection(props) {
+	let config = [
+		{
+			regex: /(http|https):\/\/(\S+)\.([a-z]{2,}?)(.*?)( |\,|$|\.)/gim,
+			fn: (key, result) => (
+				<span key={key}>
+					<a target="_blank" href={`${result[1]}://${result[2]}.${result[3]}${result[4]}`}>
+						{result[2]}.{result[3]}
+						{result[4]}
+					</a>
+					{result[5]}
+				</span>
+			)
+		},
+		{
+			regex: /(\S+)\.([a-z]{2,}?)(.*?)( |\,|$|\.)/gim,
+			fn: (key, result) => (
+				<span key={key}>
+					<a target="_blank" href={`http://${result[1]}.${result[2]}${result[3]}`}>
+						{result[1]}.{result[2]}
+						{result[3]}
+					</a>
+					{result[4]}
+				</span>
+			)
+		}
+	];
+
+	let stringWithLinks = props.resp;
+	let processed = processString(config)(stringWithLinks);
 	return (
 		<div id="choice-section">
 			<p id="question">{props.question}</p>
-			<p id="response">{props.resp}</p>
+			<p id="response">{processed}</p>
 		</div>
 	);
 }
