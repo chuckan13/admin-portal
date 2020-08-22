@@ -56,8 +56,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationProvider authProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        // provider.setPasswordEncoder(new BCryptPasswordEncoder());
-        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        provider.setPasswordEncoder(new BCryptPasswordEncoder());
+        // provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
         return provider;
     }
 
@@ -97,9 +97,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
-        auth.userDetailsService(userDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance()); // change to
-                                                                                                        // bcrypt
+        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+        // auth.userDetailsService(userDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance());
+        // // change to
+        // bcrypt
 
     }
 

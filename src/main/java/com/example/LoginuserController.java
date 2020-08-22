@@ -63,8 +63,9 @@ public class LoginuserController {
             return new ResponseEntity<>("Account already exists for that email.", HttpStatus.CONFLICT);
         }
         try {
-            // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-            user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            // user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword()));
+            // // switch to bcrypt
             repository.save(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
