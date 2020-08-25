@@ -67891,7 +67891,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
         // console.log('Before userprofile');
         // console.log(this.state);
         if (userRole === 'USER') {
-          console.log(this.state.user);
+          // console.log(this.state.user);
           display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(UserProfile, {
             user: this.state.user,
             team: this.state.currTeam // teamOne={this.state.teamOne}
@@ -67933,7 +67933,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_9__["Component"]);
 
 function UserProfile(props) {
-  console.log(props.user);
+  // console.log(props.user);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     id: "user-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
@@ -68004,7 +68004,7 @@ function UserProfile(props) {
 }
 
 function PresUserProfile(props) {
-  console.log(props.user);
+  // console.log(props.user);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     id: "user-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
