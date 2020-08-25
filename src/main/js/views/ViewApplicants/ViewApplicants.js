@@ -527,6 +527,7 @@ class viewApplicants extends Component {
 			// console.log(this.state);
 
 			if (userRole === 'USER') {
+				console.log(this.state.user);
 				display = (
 					<UserProfile
 						user={this.state.user}
@@ -546,7 +547,6 @@ class viewApplicants extends Component {
 					/>
 				);
 			} else {
-				console.log(this.state.user);
 				display = (
 					<PresUserProfile
 						user={this.state.user}
@@ -570,6 +570,7 @@ class viewApplicants extends Component {
 }
 
 function UserProfile(props) {
+	console.log(props.user);
 	return (
 		<div>
 			<div id="user-profile">
