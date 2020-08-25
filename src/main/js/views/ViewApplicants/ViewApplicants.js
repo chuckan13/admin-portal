@@ -585,7 +585,7 @@ function UserProfile(props) {
 					<p id="information"> Room Number: {props.user.roomNumber}</p>
 					<p id="information"> Phone Number: {props.user.phoneNumber}</p>
 					<p id="information"> LinkedIn Profile: {props.user.linkedin}</p>
-					<p id="information"> Returning Member? {props.user.returningmember}</p>
+					<p id="information"> Returning Member? {props.user.returningMember}</p>
 				</div>
 				<div>
 					<p id="header">Short Response Questions</p>
