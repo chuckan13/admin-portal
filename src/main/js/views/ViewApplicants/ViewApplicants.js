@@ -586,6 +586,13 @@ function UserProfile(props) {
 					<p id="information"> Phone Number: {props.user.phoneNumber}</p>
 					<p id="information"> LinkedIn Profile: {props.user.linkedin}</p>
 					<p id="information"> Returning Member? {props.user.returningMember}</p>
+					<p id="information"> 3 Strong Traits:  {props.user.traits}</p>
+					<p id="information"> Why join E-Club?  {props.user.whyJoin}</p>
+					<p id="information"> Extracurriculars:  {props.user.extracurr}</p>
+					<p id="information"> Crazy idea:  {props.user.idea}</p>
+					<p id="information"> Resume link:  {props.user.resume}</p>
+					<p id="information"> Portfolio link: {props.user.portfolio}</p>
+					<p id="information"> Tigertrek interest: {props.user.tigertrek}</p>
 				</div>
 				<div>
 					<p id="header">Short Response Questions</p>
@@ -632,6 +639,13 @@ function PresUserProfile(props) {
 					<p id="information"> Phone Number: {props.user.phoneNumber}</p>
 					<p id="information"> LinkedIn Profile: {props.user.linkedin}</p>
 					<p id="information"> Returning Member? {props.user.returningMember}</p>
+					<p id="information"> 3 Strong Traits:  {props.user.traits}</p>
+					<p id="information"> Why join E-Club?  {props.user.whyJoin}</p>
+					<p id="information"> Extracurriculars:  {props.user.extracurr}</p>
+					<p id="information"> Crazy idea:  {props.user.idea}</p>
+					<p id="information"> Resume link:  {props.user.resume}</p>
+					<p id="information"> Portfolio link: {props.user.portfolio}</p>
+					<p id="information"> Tigertrek interest: {props.user.tigertrek}</p>
 				</div>
 				<div>
 					<p id="header">Short Response Questions</p>

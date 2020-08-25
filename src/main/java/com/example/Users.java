@@ -37,6 +37,76 @@ public class Users {
     public String linkedin;
     @Column(name = "returning_member")
     public String returningMember;
+    @Column(name = "traits")
+    public String traits;
+    @Column(name = "why_join")
+    public String whyJoin;
+    @Column(name = "extracurr")
+    public String extracurr;
+    @Column(name = "idea")
+    public String idea;
+    @Column(name = "resume")
+    public String resume;
+    @Column(name = "portfolio")
+    public String portfolio;
+    @Column(name = "tigertrek")
+    public String tigertrek;
+
+    public String getTraits() {
+        return this.traits;
+    }
+
+    public void setTraits(String traits) {
+        this.traits = traits;
+    }
+
+    public String getWhyJoin() {
+        return this.whyJoin;
+    }
+
+    public void setWhyJoin(String whyJoin) {
+        this.whyJoin = whyJoin;
+    }
+
+    public String getExtracurr() {
+        return this.extracurr;
+    }
+
+    public void setExtracurr(String extracurr) {
+        this.extracurr = extracurr;
+    }
+
+    public String getIdea() {
+        return this.idea;
+    }
+
+    public void setIdea(String idea) {
+        this.idea = idea;
+    }
+
+    public String getResume() {
+        return this.resume;
+    }
+
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
+
+    public String getPortfolio() {
+        return this.portfolio;
+    }
+
+    public void setPortfolio(String portfolio) {
+        this.portfolio = portfolio;
+    }
+
+    public String getTigertrek() {
+        return this.tigertrek;
+    }
+
+    public void setTigertrek(String tigertrek) {
+        this.tigertrek = tigertrek;
+    }
 
     public String getReturningMember() {
         return this.returningMember;
@@ -147,5 +217,12 @@ public class Users {
         this.concentration = other.getConcentration();
         this.role = other.getRole();
         this.returningMember = other.getReturningMember();
+        this.traits = other.getTraits();
+        this.whyJoin = other.getWhyJoin();
+        this.extracurr = other.getExtracurr();
+        this.idea = other.getIdea();
+        this.resume = other.getResume();
+        this.portfolio = other.getPortfolio();
+        this.tigertrek = other.getTigertrek();
     }
 }

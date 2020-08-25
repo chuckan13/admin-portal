@@ -67956,7 +67956,21 @@ function UserProfile(props) {
     id: "information"
   }, " LinkedIn Profile: ", props.user.linkedin), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
-  }, " Returning Member? ", props.user.returningMember)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+  }, " Returning Member? ", props.user.returningMember), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " 3 Strong Traits:  ", props.user.traits), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Why join E-Club?  ", props.user.whyJoin), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Extracurriculars:  ", props.user.extracurr), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Crazy idea:  ", props.user.idea), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Resume link:  ", props.user.resume), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Portfolio link: ", props.user.portfolio), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Tigertrek interest: ", props.user.tigertrek)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     key: props.user.id,
@@ -68013,7 +68027,21 @@ function PresUserProfile(props) {
     id: "information"
   }, " LinkedIn Profile: ", props.user.linkedin), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
-  }, " Returning Member? ", props.user.returningMember)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+  }, " Returning Member? ", props.user.returningMember), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " 3 Strong Traits:  ", props.user.traits), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Why join E-Club?  ", props.user.whyJoin), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Extracurriculars:  ", props.user.extracurr), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Crazy idea:  ", props.user.idea), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Resume link:  ", props.user.resume), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Portfolio link: ", props.user.portfolio), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
+    id: "information"
+  }, " Tigertrek interest: ", props.user.tigertrek)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
   }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
     key: props.user.id,
