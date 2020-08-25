@@ -67908,6 +67908,7 @@ var viewApplicants = /*#__PURE__*/function (_Component) {
             onMaybe: this.changeRankMaybe
           });
         } else {
+          console.log(this.state.user);
           display = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(PresUserProfile, {
             user: this.state.user,
             team: this.state.currTeam,

@@ -546,6 +546,7 @@ class viewApplicants extends Component {
 					/>
 				);
 			} else {
+				console.log(this.state.user);
 				display = (
 					<PresUserProfile
 						user={this.state.user}
