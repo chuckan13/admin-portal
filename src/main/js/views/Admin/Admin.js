@@ -60,10 +60,10 @@ class Admin extends Component {
 				questionOne: q1,
 				questionTwo: q2
 			})
-			.then(function(response) {
+			.then(function (response) {
 				console.log(response);
 			})
-			.catch(function(error) {
+			.catch(function (error) {
 				console.log(error);
 			});
 	}

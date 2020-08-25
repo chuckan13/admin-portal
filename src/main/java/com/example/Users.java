@@ -35,6 +35,16 @@ public class Users {
     public String phoneNumber;
     @Column(name = "linkedin")
     public String linkedin;
+    @Column(name = "returning_member")
+    public String returningMember;
+
+    public String getReturningMember() {
+        return this.returningMember;
+    }
+
+    public void setReturningMember(String returningMember) {
+        this.returningMember = returningMember;
+    }
 
     public String getBuilding() {
         return this.building;
@@ -136,5 +146,6 @@ public class Users {
         this.classYear = other.getClassYear();
         this.concentration = other.getConcentration();
         this.role = other.getRole();
+        this.returningMember = other.getReturningMember();
     }
 }

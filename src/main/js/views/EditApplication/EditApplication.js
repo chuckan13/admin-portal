@@ -73,7 +73,7 @@ class editApplication extends Component {
 					teamId: this.state.currTeam.id,
 					wordLimit: this.state.wordLimit
 				})
-				.then(function(response) {
+				.then(function (response) {
 					console.log('new question');
 					console.log(response);
 					var oldQuest = that.state.questions;
@@ -83,7 +83,7 @@ class editApplication extends Component {
 						newQuestion: ''
 					});
 				})
-				.catch(function(error) {
+				.catch(function (error) {
 					console.log(error);
 				});
 		}
@@ -91,7 +91,7 @@ class editApplication extends Component {
 
 	render() {
 		let currQuestTable = this.state.questions.map(question => {
-			return [ <CurrQuestion question={question.text} /> ];
+			return [<CurrQuestion question={question.text} />];
 		});
 		return (
 			<div>

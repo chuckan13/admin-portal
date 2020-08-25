@@ -141,7 +141,7 @@ class viewApplicants extends Component {
 						user: res.data,
 						viewUser: true
 					},
-					function() {
+					function () {
 						// console.log('Get user on display info');
 						// console.log(this.state.user);
 						// console.log(this.state.teamOne);
@@ -197,7 +197,7 @@ class viewApplicants extends Component {
 					{
 						teamOneQuestions: res.data
 					},
-					function() {
+					function () {
 						// console.log('Team One Questions');
 						// console.log(this.state.teamOneQuestions);
 					}
@@ -212,7 +212,7 @@ class viewApplicants extends Component {
 					{
 						teamTwoQuestions: res.data
 					},
-					function() {
+					function () {
 						// console.log('Team Two Questions');
 						// console.log(this.state.teamTwoQuestions);
 					}
@@ -227,7 +227,7 @@ class viewApplicants extends Component {
 					{
 						teamThreeQuestions: res.data
 					},
-					function() {
+					function () {
 						// console.log('Team Three Questions');
 						// console.log(this.state.teamThreeQuestions);
 					}
@@ -243,7 +243,7 @@ class viewApplicants extends Component {
 					{
 						responses: res.data
 					},
-					function() {
+					function () {
 						// console.log('List Responses');
 						// console.log(this.state.responses);
 					}
@@ -259,7 +259,7 @@ class viewApplicants extends Component {
 					{
 						presResponses: res.data
 					},
-					function() {
+					function () {
 						// console.log('List Pres Responses');
 						// console.log(this.state.presResponses);
 					}
@@ -583,6 +583,7 @@ function UserProfile(props) {
 					<p id="information"> Room Number: {props.user.roomNumber}</p>
 					<p id="information"> Phone Number: {props.user.phoneNumber}</p>
 					<p id="information"> LinkedIn Profile: {props.user.linkedin}</p>
+					<p id="information"> Returning Member? {props.user.returningmember}</p>
 				</div>
 				<div>
 					<p id="header">Short Response Questions</p>
@@ -627,6 +628,7 @@ function PresUserProfile(props) {
 					<p id="information"> Room Number: {props.user.roomNumber}</p>
 					<p id="information"> Phone Number: {props.user.phoneNumber}</p>
 					<p id="information"> LinkedIn Profile: {props.user.linkedin}</p>
+					<p id="information"> Returning Member? {props.user.returningMember}</p>
 				</div>
 				<div>
 					<p id="header">Short Response Questions</p>
@@ -646,8 +648,8 @@ function PresUserProfile(props) {
 							resp={props.responses}
 						/>
 					) : (
-						''
-					)}
+							''
+						)}
 					{props.teamThree ? (
 						<TeamResponses
 							key={props.user.id}
@@ -657,8 +659,8 @@ function PresUserProfile(props) {
 							resp={props.responses}
 						/>
 					) : (
-						''
-					)}
+							''
+						)}
 				</div>
 			</div>
 			<BackButton onClick={props.onClick} />
