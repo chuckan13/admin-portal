@@ -614,6 +614,7 @@ function UserProfile(props) {
 }
 
 function PresUserProfile(props) {
+	console.log(props.user);
 	return (
 		<div>
 			<div id="user-profile">

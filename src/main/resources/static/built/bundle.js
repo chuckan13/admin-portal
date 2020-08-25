@@ -67988,6 +67988,7 @@ function UserProfile(props) {
 }
 
 function PresUserProfile(props) {
+  console.log(props.user);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
     id: "user-profile"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", {
