@@ -68103,8 +68103,8 @@ function TeamResponses(props) {
       }
     }
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShortResponseSection, {
-      key: currResponseId,
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShortResponseSection // key={currResponseId}
+    , {
       id: "response-last" // name={props.team}
       // num={props.num}
       ,
