@@ -68035,20 +68035,20 @@ function PresUserProfile(props) {
     id: "information"
   }, " Tigertrek interest: ", props.user.tigertrek)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "header"
-  }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    key: props.user.id,
+  }, "Short Response Questions"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses // key={props.user.id}
+  , {
     team: props.teamOne.name,
     num: "One",
     questions: props.teamOneQuestions,
     resp: props.responses
-  }), props.teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    key: props.user.id,
+  }), props.teamTwo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses // key={props.user.id}
+  , {
     team: props.teamTwo.name,
     num: "Two",
     questions: props.teamTwoQuestions,
     resp: props.responses
-  }) : '', props.teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses, {
-    key: props.user.id,
+  }) : '', props.teamThree ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(TeamResponses // key={props.user.id}
+  , {
     team: props.teamThree.name,
     num: "Three",
     questions: props.teamThreeQuestions,

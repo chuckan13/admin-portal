@@ -650,7 +650,7 @@ function PresUserProfile(props) {
 				<div>
 					<p id="header">Short Response Questions</p>
 					<TeamResponses
-						key={props.user.id}
+						// key={props.user.id}
 						team={props.teamOne.name}
 						num="One"
 						questions={props.teamOneQuestions}
@@ -658,7 +658,7 @@ function PresUserProfile(props) {
 					/>
 					{props.teamTwo ? (
 						<TeamResponses
-							key={props.user.id}
+							// key={props.user.id}
 							team={props.teamTwo.name}
 							num="Two"
 							questions={props.teamTwoQuestions}
@@ -669,7 +669,7 @@ function PresUserProfile(props) {
 						)}
 					{props.teamThree ? (
 						<TeamResponses
-							key={props.user.id}
+							// key={props.user.id}
 							team={props.teamThree.name}
 							num="Three"
 							questions={props.teamThreeQuestions}
