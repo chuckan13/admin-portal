@@ -732,7 +732,7 @@ function TeamResponses(props) {
 		}
 		return (
 			<ShortResponseSection
-				key={currResponse.id}
+				// key={currResponse.id}
 				id="response-last"
 				// name={props.team}
 				// num={props.num}
