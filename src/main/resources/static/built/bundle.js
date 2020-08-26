@@ -68094,15 +68094,17 @@ function ShortResponseSection(props) {
 function TeamResponses(props) {
   var responses = props.questions.map(function (question) {
     var currResponse = '';
+    var currResponseId = 0;
 
     for (var i = 0; i < props.resp.length; i++) {
       if (props.resp[i].questionId == question.id) {
         currResponse = props.resp[i].text;
+        currResponseId = props.resp[i].id;
       }
     }
 
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShortResponseSection // key={currResponse.id}
-    , {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(ShortResponseSection, {
+      key: currResponseId,
       id: "response-last" // name={props.team}
       // num={props.num}
       ,

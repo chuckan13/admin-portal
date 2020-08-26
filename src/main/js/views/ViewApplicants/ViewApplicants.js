@@ -725,14 +725,16 @@ function ShortResponseSection(props) {
 function TeamResponses(props) {
 	const responses = props.questions.map(question => {
 		var currResponse = '';
+		var currResponseId = 0;
 		for (var i = 0; i < props.resp.length; i++) {
 			if (props.resp[i].questionId == question.id) {
 				currResponse = props.resp[i].text;
+				currResponseId = props.resp[i].id;
 			}
 		}
 		return (
 			<ShortResponseSection
-				// key={currResponse.id}
+				key={currResponseId}
 				id="response-last"
 				// name={props.team}
 				// num={props.num}
