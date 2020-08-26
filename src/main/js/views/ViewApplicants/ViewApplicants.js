@@ -581,8 +581,8 @@ function UserProfile(props) {
 					<p id="information"> Email: {props.user.email}</p>
 					<p id="information"> Class: {props.user.classYear}</p>
 					<p id="information"> Concentration: {props.user.concentration}</p>
-					<p id="information"> Building: {props.user.building}</p>
-					<p id="information"> Room Number: {props.user.roomNumber}</p>
+					{/* <p id="information"> Building: {props.user.building}</p>
+					<p id="information"> Room Number: {props.user.roomNumber}</p> */}
 					<p id="information"> Phone Number: {props.user.phoneNumber}</p>
 					<p id="information"> LinkedIn Profile: {props.user.linkedin}</p>
 					<p id="information"> Returning Member? {props.user.returningMember}</p>
@@ -634,8 +634,8 @@ function PresUserProfile(props) {
 					<p id="information"> Email: {props.user.email}</p>
 					<p id="information"> Class: {props.user.classYear}</p>
 					<p id="information"> Concentration: {props.user.concentration}</p>
-					<p id="information"> Building: {props.user.building}</p>
-					<p id="information"> Room Number: {props.user.roomNumber}</p>
+					{/* <p id="information"> Building: {props.user.building}</p>
+					<p id="information"> Room Number: {props.user.roomNumber}</p> */}
 					<p id="information"> Phone Number: {props.user.phoneNumber}</p>
 					<p id="information"> LinkedIn Profile: {props.user.linkedin}</p>
 					<p id="information"> Returning Member? {props.user.returningMember}</p>

@@ -67948,10 +67948,6 @@ function UserProfile(props) {
     id: "information"
   }, " Concentration: ", props.user.concentration), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
-  }, " Building: ", props.user.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
-    id: "information"
-  }, " Room Number: ", props.user.roomNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
-    id: "information"
   }, " Phone Number: ", props.user.phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
   }, " LinkedIn Profile: ", props.user.linkedin), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
@@ -68018,10 +68014,6 @@ function PresUserProfile(props) {
   }, " Class: ", props.user.classYear), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
   }, " Concentration: ", props.user.concentration), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
-    id: "information"
-  }, " Building: ", props.user.building), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
-    id: "information"
-  }, " Room Number: ", props.user.roomNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
   }, " Phone Number: ", props.user.phoneNumber), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement("p", {
     id: "information"
