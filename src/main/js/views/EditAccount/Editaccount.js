@@ -49,11 +49,11 @@ class Edit extends React.Component {
 					role: this.state.user.role,
 					password: this.state.newPassword
 				})
-				.then(function(response) {
+				.then(function (response) {
 					console.log('Success');
 					that.setState({ passwordUpdated: true });
 				})
-				.catch(function(error) {
+				.catch(function (error) {
 					console.log(error);
 				});
 		} else {
